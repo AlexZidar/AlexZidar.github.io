@@ -128,9 +128,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
-  community:
+  volunteering:
     output: true
-    permalink: /community/:path/
+    permalink: /volunteering/:path/
 
 
 markdown: kramdown
