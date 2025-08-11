@@ -20,7 +20,7 @@ description: >- # dont remove this line. this will ignore all new lines until th
   Google search results) and in your feed.xml site description.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
-profile_image: .assets/images/profile-image/High Quality Moon Tree.jpg
+profile_image: .assets/images/profile-image/avatar.jpeg
 
 
 # Link your resume
@@ -49,23 +49,12 @@ skills:
     tools:
     - Onshape
     - Solidworks
-    - Creo
     - Fusion 360 (Autodesk)
-    - Blender (for complex shapes or animations)
-    - Siemens NX
-    - Inventor (Autodesk)
-    - CATIA (Dassault Systèmes)
   - category: Prototyping
     tools:
     - SLA
     - CNC
     - FDM
-    - SLS
-    - DMLS
-    - PolyJet Printing
-    - Vacuum Casting
-    - Laser Cutting
-    - Water Jet Cutting
     - Arduino / Raspberry Pi
     - Breadboarding for circuit testing
   - category: Design Standards / Practices
