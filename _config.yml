@@ -20,7 +20,7 @@ description: >- # dont remove this line. this will ignore all new lines until th
   
   Currently, I am the IREC Avionics Lead for Swamp Launch Student Rocketry at UF.
   
-  My picture was taken shortly after planting a sweetgum tree that flew around the Moon in Artemis I.
+  This picture was taken shortly after planting a sweetgum tree that flew around the Moon in Artemis I.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpeg
@@ -60,11 +60,11 @@ skills:
     - Microcontrollers
     - Single Board Computers
     - Breadboarding For Circuit Testing
-  - category: Design Standards / Practices
+  - category: Programming
     tools:
-    - GD&T ASME Y14
-    - ISO fits and tolerances
-    - PLM (PTC Windchill / Arena)   
+    - Python
+    - C++
+    - MATLAB
   - category: PCB Design
     tools:
     - KiCad
