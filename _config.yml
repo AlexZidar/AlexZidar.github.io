@@ -13,7 +13,7 @@ title: Alexander Zidar's Portfolio # This is what shows up in the tab of the bro
 
 # Hero Section
 name: Alexander Zidar
-headline: Junior Aerospace Engineering Student
+headline: Aerospace Engineering Student
 description: >- # dont remove this line. this will ignore all new lines until the next section
   Hello and welcome! I am a junior aerospace engineering student at the University of Florida with experience in robotics,
   mechatronics, computer-aided design, Python, and C++. I am a passionate learner, leader, and educator.
@@ -67,13 +67,7 @@ skills:
   - category: PCB Design
     tools:
     - KiCad
-  - category: Problem Solving / Risk Management
-    tools:
-    - Root Cause Analysis (e.g., 5 Whys, Fishbone Diagram)
-    - DFMEA / PFMEA 
-    - Six Sigma methodologies
-    - Shain Red-X
-
+    - In-House PCB Manufacturing
 
 # Contact Form Setup. Setup an account and copy over the key. When someone fills out the form, it will be received in your email.
 formspree-key: mjkolvnl
