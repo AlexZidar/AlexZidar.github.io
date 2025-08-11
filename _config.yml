@@ -15,12 +15,11 @@ title: Alexander Zidar's Portfolio # This is what shows up in the tab of the bro
 name: Alexander Zidar
 headline: Junior Aerospace Engineering Student
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Hello and welcome! Thank you for visiting my portfolio! I am a junior aerospace engineering student at the University of Florida with experience in robotics,
+  Hello and welcome! I am a junior aerospace engineering student at the University of Florida with experience in robotics,
   mechatronics, computer-aided design, Python, and C++. I am a passionate learner, leader, and educator.
-  
   Currently, I am the IREC Avionics Lead for Swamp Launch Student Rocketry at UF.
-  
   This picture was taken shortly after planting a sweetgum tree that flew around the Moon in Artemis I.
+  Thank you for visiting my portfolio! 
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpeg
