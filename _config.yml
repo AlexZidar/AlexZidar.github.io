@@ -15,9 +15,9 @@ title: Alexander Zidar's Portfolio # This is what shows up in the tab of the bro
 name: Alexander Zidar
 headline: Junior Aerospace Engineering Student
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Write an awesome intro and discuss your highlights and qualification. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Junior aerospace engineering student at the University of Florida with experience in robotics,
+  mechatronics, computer aided design, Python, and C++. Passionate learner, leader, and educator.
+  Swamp Launch IREC Avionics Lead. Pictured after planting a sweetgum tree that flew around the Moon in Artemis I.
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpeg
@@ -54,8 +54,9 @@ skills:
     - SLA
     - CNC
     - FDM
-    - Arduino / Raspberry Pi
-    - Breadboarding for circuit testing
+    - Microcontrollers
+    - Single Board Computers
+    - Breadboarding For Circuit Testing
   - category: Design Standards / Practices
     tools:
     - GD&T ASME Y14
@@ -63,9 +64,6 @@ skills:
     - PLM (PTC Windchill / Arena)   
   - category: PCB Design
     tools:
-    - Altium Designer
-    - Altium
-    - Eagle 
     - KiCad
   - category: Problem Solving / Risk Management
     tools:
