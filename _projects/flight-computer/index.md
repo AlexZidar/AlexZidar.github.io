@@ -8,7 +8,7 @@ skills:
   - Avionics
   - Control Systems
 
-main-image: /sonos.png
+main-image: /mainFC.jpg
 ---
 
 ---
