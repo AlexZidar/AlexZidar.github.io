@@ -19,3 +19,9 @@ main-image: /mainFC.jpg
 ### GY-521 Accelerometer & Gyroscope Module
 ### Connections For Power, Switch, and Servo
 
+## Final Product:
+{% include image-gallery.html images="mainFC.jpg" height="400" %}
+
+## Traces and Connections:
+{% include image-gallery.html images="underFC.jpg" height="400" %}
+
