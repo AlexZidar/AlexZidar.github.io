@@ -19,13 +19,48 @@ main-image: /mainFC.jpg
 ### GY-521 Accelerometer & Gyroscope Module
 ### Connections For Power, Switch, and Servo
 
-#
+
 
 ## Final Product:
 {% include image-gallery.html images="mainFC.jpg" height="400" %}
 
-#
+
 
 ## Traces and Connections:
 {% include image-gallery.html images="underFC.jpg" height="400" %}
 
+## Pressure Sensor Calibration Snippet
+# Accounts for local pressure changes, and erroneous readings on startup.
+```C++
+void calibrateBMP() {
+  // Discard initial readings
+  for (int i = 0; i < BMP_WARMUP_READINGS; i++) {
+    bmp.performReading();
+    delay(100);
+  }
+  
+  // Take multiple readings and average them for stability
+  float altitudeSum = 0;
+  int validReadings = 0;
+  
+  for (int i = 0; i < 10; i++) {
+    if (bmp.performReading()) {
+      // Use library's altitude calculation
+      altitudeSum += bmp.readAltitude(1013.25);
+      validReadings++;
+    }
+    delay(100);
+  }
+  
+  if (validReadings > 0) {
+    baselineAltitude = altitudeSum / validReadings;
+    
+    Serial.print("Baseline altitude: ");
+    Serial.print(baselineAltitude);
+    Serial.println(" m");
+  } else {
+    Serial.println("Calibration failed!");
+    baselineAltitude = 0;
+  }
+}
+```
