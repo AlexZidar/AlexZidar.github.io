@@ -11,8 +11,10 @@ skills:
 main-image: /sonos.png
 ---
 
+---
 ## Components:
--Teensy 4.1 Microcontroller
--BMP390 Barometric Pressure Sensor
--GY-521 Accelerometer & Gyroscope Module
+Teensy 4.1 Microcontroller
+BMP390 Barometric Pressure Sensor
+GY-521 Accelerometer & Gyroscope Module
+Connections For Power, Switch, and Servo
 
