@@ -13,8 +13,8 @@ main-image: /mainFC.jpg
 
 ---
 ## Components:
-###Teensy 4.1 Microcontroller
-###BMP390 Barometric Pressure Sensor
-###GY-521 Accelerometer & Gyroscope Module
-###Connections For Power, Switch, and Servo
+### Teensy 4.1 Microcontroller
+### BMP390 Barometric Pressure Sensor
+### GY-521 Accelerometer & Gyroscope Module
+### Connections For Power, Switch, and Servo
 
