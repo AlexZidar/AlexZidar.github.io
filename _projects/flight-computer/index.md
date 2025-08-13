@@ -30,7 +30,7 @@ main-image: /mainFC.jpg
 {% include image-gallery.html images="underFC.jpg" height="400" %}
 
 ## Pressure Sensor Calibration Snippet
-# Accounts for local pressure changes, and erroneous readings on startup.
+### Accounts for local pressure changes, and erroneous readings on startup.
 ```C++
 void calibrateBMP() {
   // Discard initial readings
