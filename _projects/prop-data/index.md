@@ -22,11 +22,14 @@ main-image: /daqlaunch.jpg
 ## Electronics:
 {% include image-gallery.html images="daqelectronics.jpg" height="400" %}  
 
+## Enclosure:
+{% include image-gallery.html images="daqenclosure.jpg" height="400" %}  
+
 ## Analysis Tool:
 {% include image-gallery.html images="daqanalysis.png" height="400" %}
 
 ## Example Output Report:
-{% include image-gallery.html images="daqresults1.png" height="400" %}
+{% include image-gallery.html images="daqresults1.png" height="200" %}
 {% include image-gallery.html images="daqresults2.png" height="400" %}
 
 ## Components:
