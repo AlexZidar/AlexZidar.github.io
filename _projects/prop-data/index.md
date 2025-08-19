@@ -29,7 +29,7 @@ main-image: /daqlaunch.jpg
 {% include image-gallery.html images="daqanalysis.png" height="400" %}
 
 ## Example Output Report:
-{% include image-gallery.html images="daqresults1.png" height="450" %}
+{% include image-gallery.html images="daqresults1.png" height="415" %}
 {% include image-gallery.html images="daqresults2.png" height="400" %}
 
 ## Components:
@@ -54,45 +54,40 @@ main-image: /daqlaunch.jpg
 
 
 ## Report Maker Code Snippet:
-### Highlights   
+### Highlights calculation of a variety of important data.  
 ```Python
-void loop() {
-  // Read the pulse width from the color control PWM input
-  unsigned long colorPulseWidth = pulseIn(PWM_COLOR_PIN, HIGH, 30000);
-  
-  // Read the pulse width from the brightness control PWM input
-  unsigned long brightnessPulseWidth = pulseIn(PWM_BRIGHTNESS_PIN, HIGH, 30000);
-  
-  // If no pulse is detected on the color input, skip this loop iteration
-  if (colorPulseWidth == 0) {
-    return;
-  }
-  
-  // For debugging: print the measured pulse widths
-  Serial.print("Color Pulse width: ");
-  Serial.print(colorPulseWidth);
-  Serial.print(" us, Brightness Pulse width: ");
-  Serial.print(brightnessPulseWidth);
-  Serial.println(" us");
-   // Map the color pulse width to an RGB color.
-  uint8_t r = 0, g = 0, b = 0;
-  if (colorPulseWidth < 1100) {
-    r = 255; g = 0;   b = 0;    // Red
-  } else if (colorPulseWidth < 1200) {
-    r = 255; g = 128; b = 0;    // Orange
-  } else if (colorPulseWidth < 1300) {
-    r = 255; g = 255; b = 0;    // Yellow
-  } else if (colorPulseWidth < 1400) {
-    r = 0;   g = 255; b = 0;    // Green
-  } else if (colorPulseWidth < 1500) {
-    r = 0;   g = 255; b = 255;  // Cyan
-  } else if (colorPulseWidth < 1600) {
-    r = 0;   g = 0;   b = 255;  // Blue
-  } else if (colorPulseWidth < 1700) {
-    r = 75;  g = 0;   b = 130;  // Indigo
-  } else if (colorPulseWidth < 1800) {
-    r = 148; g = 0;   b = 211;  // Violet
-  } else {
-    r = 255; g = 255; b = 255;  // White
-  }
+ # Calculate time differences between data points for integration
+    df['delta_t'] = df['time_seconds'].diff().fillna(0)
+    
+    # Calculate impulse at each time step
+    df['impulse_step'] = df['thrust_newtons'] * df['delta_t']
+    
+    # Calculate total impulse
+    total_impulse = df['impulse_step'].sum()
+    
+    # Calculate average thrust
+    avg_thrust = df['thrust_newtons'].mean()
+    max_thrust = df['thrust_newtons'].max()
+    
+    # Calculate burn time (time from first non-zero thrust to last non-zero thrust)
+    thrust_threshold = max_thrust * 0.05  # 5% of max thrust as threshold
+    thrust_data = df[df['thrust_newtons'] > thrust_threshold]
+    if not thrust_data.empty:
+        burn_time = thrust_data['time_seconds'].max() - thrust_data['time_seconds'].min()
+    else:
+        burn_time = 0
+    
+    # Motor classification based on total impulse
+    motor_classes = {
+        0: "N/A", 1.26: "A", 2.51: "B", 5.01: "C", 10.01: "D", 20.01: "E",
+        40.01: "F", 80.01: "G", 160.01: "H", 320.01: "I", 640.01: "J",
+        1280.01: "K", 2560.01: "L", 5120.01: "M", 10240.01: "N", 20480.01: "O"
+    }
+    
+    motor_class = "N/A"
+    for impulse_threshold, class_letter in sorted(motor_classes.items()):
+        if total_impulse >= impulse_threshold:
+            motor_class = class_letter
+        else:
+            break
 ```
