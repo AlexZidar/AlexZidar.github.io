@@ -1,15 +1,19 @@
 ---
 layout: post
-title: BlackBeard LED Controller
-description: This universal LED controller was developed as part of my mentorship of FRC Team-79 “Krunch” (see volunteering section). Throughout my 6 years on the team I went from member to president, and now mentor. In that time,I’ve found a distinct lack of suitable, robotics-focused LED controllers on the market. These controllers, notably REV Blinkin, are some combination of far too expensive or functionally limited. Therefore, I sought to challenge myself in developing a custom PCB and thus superior LED controller. Overall, this controller was designed to be flexible, inexpensive, and extremely easy to assemble. 
+title: Custom Data Acquisition System
+description: As another contribution to Swamp Launch, I independently developed a custom data aquisition system (DAQ) for propulsion development. This DAQ is designed for use in testing and verifying prototype rocket motors and propellant formulation. The system records casing temperature, thrust, and combustion chamber pressure. This data is then immediately stored as a CSV to the on-board micro-SD card. Supplemental software was developed in Python for rapid report making and classification of rocket motors.
+
 skills: 
   - C++
+  - Python
   - Embedded Systems
-  - PCB Design
-  - KiCad
-  - Product Development
+  - Data Analytics
+  - Propulsion
+  - SolidWorks
+  - 3D Printing
 
-main-image: /FullPCB.jpg
+
+main-image: /daqlaunch.jpg
 ---
 
 ---
@@ -20,30 +24,31 @@ main-image: /FullPCB.jpg
 ### Celebratory lighting on successful action, handled by the BlackBeard
 {% include youtube-video.html id="jPneyFgghBk" autoplay= "false"%}
 
-## Bare PCB:
-{% include image-gallery.html images="BarePCB.jpg" height="400" %}  
+## Electronics:
+{% include image-gallery.html images="daqelectronics.jpg" height="400" %}  
 
 
 ## Fully Assembled:
 {% include image-gallery.html images="FullPCB.jpg" height="400" %}
 
 ## Components:
-- Custom PCB
-- 3x TIP41C Power Transistor
+- Teensy 4.1 Microcontroller
+- Adafruit MCP9601 Thermocouple Amplifier
 - LM085IT3.3 Linear Dropout Regulator
+- SparkFun Qwiic Scale - NAU7802
+- 1000 kG Load Cell
+- 1000 psi Pressure Transducer
+-	Generic K-Type Thermocouple
+- Indicator LED
+- Record Switch
 - JST 1x2 Header
-- 2x JST 1x6 Header
-- 3x JST 1x3 Header
--	3x JST 1x4 Header
+- JST 1X3 Header
 
 ## Capabilities:
-- Comms over WiFi, Bluetooth, GPIO, I2C, or SPI
-- Both Addressable and Non-Addressable LEDs
-- Sub-$10 Total Component Cost
-- Easy Assembly for Students
-- Easy Programming for Students
-- 3x JST 1x3 Header
--	3x JST 1x4 Header
+- Temperature at 200hz
+- Thrust at 320hz
+- Pressure at 320hz
+- Automatic Motor Classification and Report Generation
 
 
 
