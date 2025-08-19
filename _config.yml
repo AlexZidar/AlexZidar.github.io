@@ -82,6 +82,8 @@ colors: # this is the basic theme
   highlight: "#bb86fc"
   background: "#22272e"
   light_background: "#2d333b"
+  code: "#e0e0e0"
+  list: "#e0e0e0"
   
 # A few examples. 
 basic theme:

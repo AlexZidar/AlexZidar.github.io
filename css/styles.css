@@ -8,6 +8,8 @@
   --highlight-color: {{ site.colors.highlight }};
   --background-color: {{ site.colors.background }};
   --light-background-color: {{ site.colors.light_background }};
+  --code-color: {{ site.colors.code }};
+  --list-color: {{ site.colors.list }};
 }
 
 * {
