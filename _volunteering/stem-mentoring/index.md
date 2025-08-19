@@ -10,7 +10,7 @@ skills:
   - Project Management
   - Public Speaking
 
-main-image: /project1.png
+main-image: /RoboticsSeniorPhoto.png
 ---
 
 ## Overview
