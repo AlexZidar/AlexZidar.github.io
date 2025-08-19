@@ -17,19 +17,17 @@ main-image: /daqlaunch.jpg
 ---
 
 ---
-## Results:
-### Excluding optional pin headers, only 4 unique components are required. The board can receive commands via WiFi, Bluetooth, GPIO, I2C, or SPI. From there, the microcontroller interprets the commands to control two individually addressable strips and three power transistors, one for each color channel of non-addressable LED strips.
 
-## Demonstration Video: Team-79
-### Celebratory lighting on successful action, handled by the BlackBeard
-{% include youtube-video.html id="jPneyFgghBk" autoplay= "false"%}
 
 ## Electronics:
 {% include image-gallery.html images="daqelectronics.jpg" height="400" %}  
 
 
-## Fully Assembled:
-{% include image-gallery.html images="FullPCB.jpg" height="400" %}
+## Analysis Tool:
+{% include image-gallery.html images="daqanalysis.png" height="400" %}
+
+## Example Output Report:
+{% include image-gallery.html images="daqresults.png" height="400" %}
 
 ## Components:
 - Teensy 4.1 Microcontroller
