@@ -29,7 +29,7 @@ main-image: /daqlaunch.jpg
 {% include image-gallery.html images="daqanalysis.png" height="400" %}
 
 ## Example Output Report:
-{% include image-gallery.html images="daqresults1.png" height="415" %}
+{% include image-gallery.html images="daqresults1.png" height="405" %}
 {% include image-gallery.html images="daqresults2.png" height="400" %}
 
 ## Components:
