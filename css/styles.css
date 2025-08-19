@@ -2,7 +2,49 @@
 ---
 
 :root {
-  --text-color: {{ site.colors.text }};
+  --html {
+    scroll-behavior: smooth;
+}
+
+/* Markdown Content Styling */
+.post {
+    color: var(--text-color);
+}
+
+.post code,
+.post pre,
+.post pre code {
+    color: var(--text-color);
+    background-color: var(--light-background-color);
+}
+
+.post ul,
+.post ol,
+.post li {
+    color: var(--text-color);
+}
+
+.post pre {
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.post p code {
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+.post ul,
+.post ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+.post li {
+    margin-bottom: 0.5em;
+}t-color: {{ site.colors.text }};
   --border-color: {{ site.colors.border }};
   --link-color: {{ site.colors.link }};
   --highlight-color: {{ site.colors.highlight }};
@@ -99,7 +141,7 @@ nav .right a:last-child
 nav .right a:last-child:hover,
 nav .right a span:last-child:hover,
 nav .mobile-nav a:last-child:hover,
-nav .mobile-nav a span:last-child:hover,{
+nav .mobile-nav a span:last-child:hover {
     color: var(--text-color);
     background-color: var(--light-background-color);
     border-radius: 10px;
