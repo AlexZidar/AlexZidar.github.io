@@ -36,14 +36,12 @@ main-image: /FullPCB.jpg
 - 3x JST 1x3 Header
 -	3x JST 1x4 Header
 
-## Capabilities:
+## Features:
 - Comms over WiFi, Bluetooth, GPIO, I2C, or SPI
 - Both Addressable and Non-Addressable LEDs
 - Sub-$10 Total Component Cost
 - Easy Assembly for Students
 - Easy Programming for Students
-- 3x JST 1x3 Header
--	3x JST 1x4 Header
 
 
 
