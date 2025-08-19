@@ -29,7 +29,7 @@ main-image: /daqlaunch.jpg
 {% include image-gallery.html images="daqanalysis.png" height="400" %}
 
 ## Example Output Report:
-{% include image-gallery.html images="daqresults1.png" height="600" %}
+{% include image-gallery.html images="daqresults1.png" height="450" %}
 {% include image-gallery.html images="daqresults2.png" height="400" %}
 
 ## Components:
@@ -53,9 +53,9 @@ main-image: /daqlaunch.jpg
 
 
 
-## PWM Control Code Snippet:
-### Shows how the ESP32 accepts PWM inputs for color, and optionally for brightness.   
-```C++
+## Report Maker Code Snippet:
+### Highlights   
+```Python
 void loop() {
   // Read the pulse width from the color control PWM input
   unsigned long colorPulseWidth = pulseIn(PWM_COLOR_PIN, HIGH, 30000);
