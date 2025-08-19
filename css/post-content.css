@@ -1,10 +1,17 @@
 .post-view {
-    color: var(--text-color);
+    color: var(--text-color) !important;
 }
 
+.post-view h1,
+.post-view h2,
+.post-view h3,
+.post-view h4,
+.post-view h5,
+.post-view h6,
+.post-view p,
+.post-view li,
 .post-view code,
-.post-view pre,
-.post-view pre code {
+.post-view pre {
     color: var(--text-color) !important;
 }
 

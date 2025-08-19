@@ -2,20 +2,21 @@
 ---
 
 :root {
-  --html {
+  --text-color: {{ site.colors.text }};
+  --border-color: {{ site.colors.border }};
+  --link-color: {{ site.colors.link }};
+  --highlight-color: {{ site.colors.highlight }};
+  --background-color: {{ site.colors.background }};
+  --light-background-color: {{ site.colors.light_background }};
+}
+
+html {
     scroll-behavior: smooth;
 }
 
-/* Markdown Content Styling */
-.post {
+body {
     color: var(--text-color);
-}
-
-.post code,
-.post pre,
-.post pre code {
-    color: var(--text-color);
-    background-color: var(--light-background-color);
+    background-color: var(--background-color);
 }
 
 .post ul,

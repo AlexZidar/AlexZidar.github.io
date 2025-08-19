@@ -16,6 +16,18 @@
     <link rel="stylesheet" href="/css/post-content.css">
 
     <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    
+    <style>
+        :root {
+            --text-color: {{ site.colors.text }} !important;
+            --background-color: {{ site.colors.background }} !important;
+            --light-background-color: {{ site.colors.light_background }} !important;
+        }
+        body {
+            color: var(--text-color) !important;
+            background-color: var(--background-color) !important;
+        }
+    </style>
 
     
     <title>{{ site.title }}</title>
