@@ -10,7 +10,7 @@ skills:
   - Product Development
   - 3D Printing
 
-main-image: /FullPCB.jpg
+main-image: /hardaf.jpg
 ---
 
 ---
