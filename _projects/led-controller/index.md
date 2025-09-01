@@ -34,6 +34,15 @@ main-image: /hardaf.jpg
 
 ---
 
+## Features:
+- Comms over WiFi, Bluetooth, GPIO, I2C, or SPI
+- Both Addressable and Non-Addressable LEDs
+- Sub-$10 Total Component Cost
+- Easy Assembly for Students
+- Easy Programming for Students
+
+---
+
 ## Components:
 - Custom PCB
 - 3x TIP41C Power Transistor
@@ -42,16 +51,6 @@ main-image: /hardaf.jpg
 - 2x JST 1x6 Header
 - 3x JST 1x3 Header
 -	3x JST 1x4 Header
-
----
-
-## Features:
-- Comms over WiFi, Bluetooth, GPIO, I2C, or SPI
-- Both Addressable and Non-Addressable LEDs
-- Sub-$10 Total Component Cost
-- Easy Assembly for Students
-- Easy Programming for Students
-
 
 ---
 
