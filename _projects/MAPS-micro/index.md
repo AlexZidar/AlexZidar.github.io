@@ -17,13 +17,13 @@ main-image: /micro1.jpg
 ### Using SolidWorks, this microscope was designed to use cheap and easily accessible components, lowering costs and increasing repairability. Python was used to operate the device via Raspberry Pi Zero 2W. For the optics module, an Arducam IMX219 camera module was used and required only small focal-length adjustments to achieve sub-millimeter resolution. A small 'Hat' for the Pi Zero 2W was created to condense control system electronics.
 
 
-## Finished Product On Display
+## Finished Product On Display:
 {% include image-gallery.html images="micro1.jpg" height="400" %} 
 
-## Control System Electronics - Top
+## Control System Electronics - Top:
 {% include image-gallery.html images="controlTop.jpg" height="400" %}
 
-## Control System Electronics - Underside
+## Control System Electronics - Underside:
 {% include image-gallery.html images="controlBot.jpg" height="400" %} 
 
 ## Features:
@@ -42,10 +42,34 @@ main-image: /micro1.jpg
 - 20x20 T-Slot Aluminum Framing 
 - 2x Linear Rails 
 - 2x Linear Bearings 
-- Assorted Hardware 
+- Assorted Hardware
+- 2x Optical Endstops
+- Rotary Encoder
+- 12v to 5v Buck Converter
+- Mode Switch
 
-## Code Snippet
+## Code Snippet:
+### Shows how leds are diffused to create a 'spotlight' look about the gantry position
 ```python
-def start()
-  print("time to start!")
+def update_leds_aliased(gantry_x_pos=None):
+    """Update LEDs with white light and full brightness."""
+    if gantry_x_pos is None:
+        with position_lock:
+            gantry_x = current_x_position
+    else:
+        gantry_x = gantry_x_pos
+
+    for i in range(LED_COUNT):
+        distance = abs(gantry_x - LED_POSITIONS[i])
+        falloff = math.exp(-(distance ** 2) / (2 * LIGHT_SPREAD ** 2))
+        brightness = LED_BRIGHTNESS * falloff
+        strip.setPixelColor(
+            i,
+            Color(
+                int(LED_R * brightness),
+                int(LED_G * brightness),
+                int(LED_B * brightness)
+            )
+        )
+    strip.show()
 ```
