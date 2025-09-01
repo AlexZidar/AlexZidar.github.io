@@ -130,9 +130,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
-  volunteering:
-    output: true
-    permalink: /volunteering/:path/
+  # volunteering:
+  #   output: true
+  #   permalink: /volunteering/:path/
 
 
 markdown: kramdown
