@@ -16,9 +16,12 @@ main-image: /micro1.jpg
 ## Overview:
 ### Using SolidWorks, this microscope was designed to use cheap and easily accessible components, lowering costs and increasing repairability. Python was used to operate the device via Raspberry Pi Zero 2W. For the optics module, an Arducam IMX219 camera module was used and required only small focal-length adjustments to achieve sub-millimeter resolution. A small 'Hat' for the Pi Zero 2W was created to condense control system electronics.
 
+---
 
 ## Finished Product On Display:
 {% include image-gallery.html images="micro1.jpg" height="400" %} 
+
+---
 
 ## Control System Electronics - Top:
 {% include image-gallery.html images="controlTop.jpg" height="400" %}
@@ -26,11 +29,15 @@ main-image: /micro1.jpg
 ## Control System Electronics - Underside:
 {% include image-gallery.html images="controlBot.jpg" height="400" %} 
 
+---
+
 ## Features:
 - Gaussian diffused ‘spotlight’, following the gantry and illuminating the objective 
 - Intuitive, single-input, interface 
 - One-time manual calibration for autofocus 
 - Compact, all-in-one, control system
+
+---
 
 ## Components:
 - Raspberry Pi Zero 2W 
@@ -47,6 +54,8 @@ main-image: /micro1.jpg
 - Rotary Encoder
 - 12v to 5v Buck Converter
 - Mode Switch
+
+---
 
 ## Code Snippet:
 ### Shows how leds are diffused to create a 'spotlight' look about the gantry position
