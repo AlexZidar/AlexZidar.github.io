@@ -33,16 +33,16 @@ main-image: /micro1.jpg
 - Compact, all-in-one, control system
 
 ## Components:
--Raspberry Pi Zero 2W 
--Arducam IMX219 Camera Module 
--2x A4988 Stepper Drivers 
--2x NEMA17 Stepper Motors 
--Addressable LED Strip 
--Various 3D Printed Components 
--20x20 T-Slot Aluminum Framing 
--2x Linear Rails 
--2x Linear Bearings 
--Assorted Metric Hardware 
+- Raspberry Pi Zero 2W 
+- Arducam IMX219 Camera Module 
+- 2x A4988 Stepper Drivers 
+- 2x NEMA17 Stepper Motors 
+- Addressable LED Strip 
+- Various 3D Printed Components 
+- 20x20 T-Slot Aluminum Framing 
+- 2x Linear Rails 
+- 2x Linear Bearings 
+- Assorted Hardware 
 
 ## Code Snippet
 ```python
