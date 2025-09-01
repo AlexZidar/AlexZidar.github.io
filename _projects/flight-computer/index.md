@@ -16,16 +16,20 @@ main-image: /mainFC.jpg
 ## Final Product:
 {% include image-gallery.html images="mainFC.jpg" height="400" %}  
 
-
+---
 
 ## Traces and Connections:
 {% include image-gallery.html images="underFC.jpg" height="400" %}
 
+---
+
 ## Components:
-### Teensy 4.1 Microcontroller
-### BMP390 Barometric Pressure Sensor
-### GY-521 Accelerometer & Gyroscope Module
-### Connections For Power, Switch, and Servo  
+- Teensy 4.1 Microcontroller
+- BMP390 Barometric Pressure Sensor
+- GY-521 Accelerometer & Gyroscope Module
+- Connections For Power, Switch, and Servo  
+
+---
 
 ## Pressure Sensor Calibration Snippet:
 ### Accounts for local pressure changes and erroneous readings on startup.  

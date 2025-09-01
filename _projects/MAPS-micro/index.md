@@ -13,7 +13,7 @@ main-image: /micro1.jpg
 ---
 
 ---
-## Overview:
+## Process:
 ### Using SolidWorks, this microscope was designed to use cheap and easily accessible components, lowering costs and increasing repairability. Python was used to operate the device via Raspberry Pi Zero 2W. For the optics module, an Arducam IMX219 camera module was used and required only small focal-length adjustments to achieve sub-millimeter resolution. A small 'Hat' for the Pi Zero 2W was created to condense control system electronics.
 
 ---

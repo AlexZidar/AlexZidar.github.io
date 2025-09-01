@@ -17,9 +17,13 @@ main-image: /hardaf.jpg
 ## Results:
 ### Excluding optional pin headers, only 4 unique components are required. The board can receive commands via WiFi, Bluetooth, GPIO, I2C, or SPI. From there, the microcontroller interprets the commands to control two individually addressable strips and three power transistors, one for each color channel of non-addressable LED strips.
 
+---
+
 ## Demonstration Video: Team-79
 ### Celebratory lighting on successful action, handled by the BlackBeard
 {% include youtube-video.html id="jPneyFgghBk" autoplay= "false"%}
+
+---
 
 ## Bare PCB:
 {% include image-gallery.html images="BarePCB.jpg" height="400" %}  
@@ -27,6 +31,8 @@ main-image: /hardaf.jpg
 
 ## Fully Assembled:
 {% include image-gallery.html images="FullPCB.jpg" height="400" %}
+
+---
 
 ## Components:
 - Custom PCB
@@ -37,6 +43,8 @@ main-image: /hardaf.jpg
 - 3x JST 1x3 Header
 -	3x JST 1x4 Header
 
+---
+
 ## Features:
 - Comms over WiFi, Bluetooth, GPIO, I2C, or SPI
 - Both Addressable and Non-Addressable LEDs
@@ -45,6 +53,7 @@ main-image: /hardaf.jpg
 - Easy Programming for Students
 
 
+---
 
 ## PWM Control Code Snippet:
 ### Shows how the ESP32 accepts PWM inputs for color, and optionally for brightness.   

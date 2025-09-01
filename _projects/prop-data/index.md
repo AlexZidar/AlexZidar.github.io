@@ -22,8 +22,12 @@ main-image: /daqlaunch.jpg
 ## Electronics:
 {% include image-gallery.html images="daqelectronics.jpg" height="400" %}  
 
+---
+
 ## Enclosure:
 {% include image-gallery.html images="daqenclosure.jpg" height="400" %}  
+
+---
 
 ## Analysis Tool:
 {% include image-gallery.html images="daqanalysis.png" height="400" %}
@@ -31,6 +35,16 @@ main-image: /daqlaunch.jpg
 ## Example Output Report:
 {% include image-gallery.html images="daqresults1.png" height="399" %}
 {% include image-gallery.html images="daqresults2.png" height="400" %}
+
+---
+
+## Capabilities:
+- Temperature at 200hz
+- Thrust at 320hz
+- Pressure at 320hz
+- Automatic Motor Classification and Report Generation
+
+---
 
 ## Components:
 - Teensy 4.1 Microcontroller
@@ -45,13 +59,7 @@ main-image: /daqlaunch.jpg
 - JST 1x2 Header
 - JST 1X3 Header
 
-## Capabilities:
-- Temperature at 200hz
-- Thrust at 320hz
-- Pressure at 320hz
-- Automatic Motor Classification and Report Generation
-
-
+---
 
 ## Report Maker Code Snippet:
 ### Highlights calculation of a variety of important data.  
