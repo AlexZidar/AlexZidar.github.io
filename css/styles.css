@@ -283,7 +283,7 @@ nav .mobile-nav {
 /* NAVIGATION ARROW */
 .arrow{
     margin-top: 125px;
-    margin-bottom: 300px;
+    margin-bottom: 125px;
     display: flex;
     justify-content: center;  
 }
