@@ -443,6 +443,18 @@ nav .mobile-nav {
 .skills-section .skill-categories {
     list-style: none;
     padding-left: 0;
+}
+
+@media (min-width: 900px) {
+    .skills-section .skill-categories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .skills-section .skill-categories > li {
+        margin-bottom: 0;
+    }
+}
    }
 
 .skills-section .skill-categories .skills-card  span{
