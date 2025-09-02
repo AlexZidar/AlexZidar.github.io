@@ -450,9 +450,14 @@ nav .mobile-nav {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
+        width: 100%;
     }
     .skills-section .skill-categories > li {
         margin-bottom: 0;
+        display: contents;
+    }
+    .skills-section .skills-card {
+        border: 2px dashed #bb86fc;
     }
     }
    }
