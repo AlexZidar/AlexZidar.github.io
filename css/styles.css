@@ -363,13 +363,25 @@ nav .mobile-nav {
     max-width: 520px;
 }
 
+.contact-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto; /* center the pair */
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--light-background-color);
+    padding: 22px;
+    border-radius: 10px;
+}
+
 .contact-card form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: var(--light-background-color);
-    padding: 20px;
-    border-radius: 8px;
+    background: transparent; /* let wrapper supply the background for both boxes */
+    padding: 0; /* spacing comes from wrapper */
+    border-radius: 0;
 }
 
 .contact-card label {
