@@ -392,6 +392,26 @@ nav .mobile-nav {
     padding: 10px 8px;
 }
 
+/* separator between form and text */
+.contact-card {
+    padding-right: 20px; /* space for the divider */
+    border-right: 1px solid rgba(0,0,0,0.06);
+}
+
+.contact-text {
+    padding-left: 20px;
+}
+
+@media (max-width: 850px) {
+    .contact-card {
+        border-right: none;
+        padding-right: 0;
+    }
+    .contact-text {
+        padding-left: 0;
+    }
+}
+
 .contact-card input,
 .contact-card textarea {
     padding: 8px 10px;
