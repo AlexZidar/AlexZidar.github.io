@@ -1,7 +1,7 @@
 ---
 layout: post
 title: BlackBeard LED Controller
-description: This universal LED controller was developed as part of my mentorship of First Robotics Competition (FRC) Team-79 “Krunch”. Throughout my 6 years on the team I went from member to president, and now mentor. In that time,I’ve found a distinct lack of suitable, robotics-focused LED controllers on the market. These controllers, notably REV Blinkin, are some combination of far too expensive or functionally limited. Therefore, I sought to challenge myself in developing a custom PCB and thus superior LED controller. Overall, this controller was designed to be flexible, inexpensive, and extremely easy to assemble. 
+description: This universal LED controller was developed as part of my mentorship of FIRST Robotics Competition (FRC) Team 79 “Krunch”. Throughout my 6 years on the team I went from member to president, and now mentor. In that time,I’ve found a distinct lack of suitable, robotics-focused LED controllers on the market. These controllers, notably REV Blinkin, are some combination of far too expensive or functionally limited. Therefore, I sought to challenge myself in developing a custom PCB and thus superior LED controller. Overall, this controller was designed to be flexible, inexpensive, and extremely easy to assemble. 
 skills: 
   - C++
   - Embedded Systems
