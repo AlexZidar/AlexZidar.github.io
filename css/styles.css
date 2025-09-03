@@ -320,21 +320,22 @@ nav .mobile-nav {
 
 /* Centered section title with decorative dashes */
 .section-title {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* spacing between dashes and title */
     font-size: 28px;
     color: var(--text-color);
     margin: 20px 0 30px 0;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .section-title::before,
 .section-title::after {
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 1px;
-    background: transparent;
-    margin: 0 10px;
+    content: "—"; /* em dash */
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0 8px;
 }
 
  
