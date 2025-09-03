@@ -38,17 +38,9 @@ body {
 }
 
 .post ul,
-.post ol {
-    padding-left: 2em;
-    margin-bottom: 1em;
-}
-
-.post li {
+post li {
     margin-bottom: 0.5em;
-}t-color: {{ site.colors.text }};
-  --border-color: {{ site.colors.border }};
-  --link-color: {{ site.colors.link }};
-  --highlight-color: {{ site.colors.highlight }};
+}
   --background-color: {{ site.colors.background }};
   --light-background-color: {{ site.colors.light_background }};
   --code-color: {{ site.colors.code }};
@@ -72,6 +64,7 @@ body {
     background-color: var(--background-color);
     max-width: 1400px;
     margin: 0 auto;
+    overflow-x: hidden; /* prevent horizontal scrollbar */
 }
 
 a {
@@ -399,6 +392,16 @@ nav .mobile-nav {
     color: #fff;
     border: none;
     cursor: pointer;
+}
+
+.contact-card input,
+.contact-card textarea,
+.contact-card button {
+    width: 100%;
+}
+
+.contact-card button {
+    text-align: left; /* keep button sitting to the left within the column */
 }
 
 /* Responsive: stack columns on narrow screens */
