@@ -30,8 +30,6 @@ body {
     border-radius: 4px;
     overflow-x: auto;
     margin: 1em 0;
-    border: none;
-    background: var(--background-color);
 }
 
 .post p code {
@@ -283,7 +281,7 @@ nav .mobile-nav {
 /* NAVIGATION ARROW */
 .arrow{
     margin-top: 125px;
-    margin-bottom: 125px;
+    margin-bottom: 300px;
     display: flex;
     justify-content: center;  
 }
@@ -319,6 +317,27 @@ nav .mobile-nav {
     flex-direction: column;
     justify-content: center; 
    }
+
+/* Centered section title with decorative dashes */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: var(--text-color);
+    margin: 20px 0 30px 0;
+    letter-spacing: 2px;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: transparent;
+    margin: 0 10px;
+}
+
+ 
 
 .project-grid-section h2{
     font-size: 34px;
@@ -443,23 +462,6 @@ nav .mobile-nav {
 .skills-section .skill-categories {
     list-style: none;
     padding-left: 0;
-}
-
-@media (min-width: 900px) {
-    .skills-section .skill-categories {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        width: 100%;
-    }
-    .skills-section .skill-categories > li {
-        margin-bottom: 0;
-        display: contents;
-    }
-    .skills-section .skills-card {
-        border: 2px dashed #bb86fc;
-    }
-    }
    }
 
 .skills-section .skill-categories .skills-card  span{
