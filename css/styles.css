@@ -370,9 +370,9 @@ nav .mobile-nav {
     margin: 0 auto; /* center the pair */
     align-items: flex-start;
     justify-content: center;
-    background: var(--light-background-color);
-    padding: 22px;
-    border-radius: 10px;
+    background: var(--light-background-color) !important;
+    padding: 22px !important;
+    border-radius: 10px !important;
 }
 
 .contact-card form {
@@ -386,6 +386,10 @@ nav .mobile-nav {
 
 .contact-card label {
     color: var(--text-color);
+}
+
+.contact-text {
+    padding: 10px 8px;
 }
 
 .contact-card input,
