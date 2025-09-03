@@ -587,6 +587,9 @@ nav .mobile-nav {
 .skills-section .skill-categories {
     list-style: none;
     padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* default single column on small screens */
+    gap: 20px;
    }
 
 .skills-section .skill-categories .skills-card  span{
@@ -595,7 +598,7 @@ nav .mobile-nav {
 
 .skills-section .skill-categories .skills-card {
     margin-bottom: 15px;
-    padding: 15px;
+    padding: 18px;
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.05);    
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
@@ -625,6 +628,18 @@ nav .mobile-nav {
     color: var(--link-color);
     border-radius: 10px;
     font-size: 14px;
+}
+
+/* Desktop: arrange skills cards in a 2x2 grid when there are four categories */
+@media (min-width: 900px) {
+    .skills-section .skill-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 28px;
+    }
+
+    .skills-section .skill-categories li {
+        display: block; /* each list item becomes a grid item */
+    }
 }
 
 
