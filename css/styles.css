@@ -365,13 +365,13 @@ nav .mobile-nav {
 
 .contact-wrapper {
     display: flex;
-    gap: 30px;
+    gap: 40px; /* increased gap for more breathing room */
     max-width: 1000px;
     margin: 0 auto; /* center the pair */
     align-items: flex-start;
     justify-content: center;
     background: var(--light-background-color) !important;
-    padding: 22px !important;
+    padding: 28px !important; /* slightly larger padding */
     border-radius: 10px !important;
 }
 
@@ -389,13 +389,31 @@ nav .mobile-nav {
 }
 
 .contact-text {
-    padding: 10px 8px;
+    padding: 10px 30px; /* add left spacing to match increased divider gap */
 }
 
 /* separator between form and text */
 .contact-card {
-    padding-right: 20px; /* space for the divider */
-    border-right: 1px solid rgba(0,0,0,0.06);
+        padding-right: 30px; /* increased space for the divider */
+        border-right: 2px solid rgba(0,0,0,0.08); /* slightly stronger divider */
+}
+
+/* Responsive: stack contact columns and remove divider on smaller screens */
+@media (max-width: 850px) {
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 18px !important;
+        gap: 16px;
+    }
+
+    .contact-card {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .contact-text {
+        padding-left: 0;
+    }
 }
 
 .contact-text {
