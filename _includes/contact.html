@@ -4,12 +4,15 @@
 
     <div class="contact-wrapper">
                 <style>
-                @media (max-width:850px){
-                    .contact-wrapper{padding:8px !important; gap:8px !important}
-                    .contact-text{padding:6px 8px !important; font-size:13px !important}
-                    .contact-text p{margin:6px 0 !important}
-                    .contact-card input, .contact-card textarea{font-size:13px !important}
-                    .contact-card button{height:44px}
+                /* Inline mobile fixes (scoped): prevent vw-based scaling and match form/input sizes */
+                @media (max-width: 850px) {
+                    /* layout */
+                    .contact-wrapper { padding: 8px !important; gap: 8px !important; max-width: 100% !important; }
+                    /* typography: use stable px sizes to avoid calc(... + vw) shrinkage */
+                    .contact-text, .contact-text p { font-size: 13px !important; line-height: 1.45 !important; margin: 6px 0 !important; -webkit-text-size-adjust: 100% !important; }
+                    /* ensure inputs/textareas match paragraph sizing */
+                    .contact-card input, .contact-card textarea { font-size: 13px !important; }
+                    .contact-card button { height: 44px !important; }
                 }
                 </style>
         <div class="contact-card">
