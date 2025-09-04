@@ -483,6 +483,27 @@ nav .mobile-nav {
     }
 }
 
+/* Desktop: show contact text on the left and form on the right by reversing order
+     and moving the divider to the left side of the form. Keeps mobile stacking intact. */
+@media (min-width: 851px) {
+    .contact-wrapper {
+        flex-direction: row-reverse; /* form becomes right column */
+    }
+
+    /* remove right divider and add left divider on form when on the right */
+    .contact-card {
+        border-right: none;
+        padding-right: 0;
+        border-left: 2px solid rgba(0,0,0,0.08);
+        padding-left: 30px;
+    }
+
+    /* ensure the contact-text keeps its spacing on the left */
+    .contact-text {
+        padding: 10px 30px 10px 8px; /* left-side smaller, right-side spacing preserved */
+    }
+}
+
 .project-grid-section .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
