@@ -455,7 +455,19 @@ nav .mobile-nav {
 }
 
 .contact-card button {
-    text-align: left; /* keep button sitting to the left within the column */
+        text-align: center; /* center the button label */
+}
+
+/* When stacked (mobile), center the contact text block content */
+@media (max-width: 850px) {
+    .contact-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 12px 10px;
+    }
 }
 
 /* Responsive: stack columns on narrow screens */
