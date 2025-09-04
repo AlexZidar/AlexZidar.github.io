@@ -462,12 +462,29 @@ nav .mobile-nav {
 /* When stacked (mobile), center the contact text block content */
 @media (max-width: 850px) {
     .contact-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 8px 8px; /* reduce vertical padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 6px 8px; /* reduced vertical padding */
+        font-size: 13px; /* match input font size */
+        line-height: 1.4;
+    }
+
+    .contact-text h3 {
+        font-size: 16px;
+        margin: 6px 0 6px 0;
+    }
+
+    .contact-text p {
+        margin: 6px 0;
+    }
+
+    /* ensure form inputs use the same font size on mobile */
+    .contact-card input,
+    .contact-card textarea {
+        font-size: 13px;
     }
 }
 
