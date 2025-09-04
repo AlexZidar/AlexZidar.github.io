@@ -474,7 +474,7 @@ nav .mobile-nav {
 /* Responsive: stack columns on narrow screens */
 @media (max-width: 850px) {
     .contact-wrapper {
-        flex-direction: column;
+        /* keep stacking behavior from earlier rule (column-reverse) */
         align-items: center;
     }
     .contact-card, .contact-text {
