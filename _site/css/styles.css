@@ -1,10 +1,47 @@
 :root {
-  --text-color: #1f2937;
-  --border-color: #e5e9f0;
-  --link-color: #3b82f6;
-  --highlight-color: #1e40af;
-  --background-color: #f8faff;
-  --light-background-color: #f1f5ff;
+  --text-color: #e0e0e0;
+  --border-color: #444444;
+  --link-color: #4ebeef;
+  --highlight-color: #bb86fc;
+  --background-color: #22272e;
+  --light-background-color: #2d333b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.post ul,
+.post ol,
+.post li {
+    color: var(--text-color);
+}
+
+.post pre {
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.post p code {
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+.post ul,
+post li {
+    margin-bottom: 0.5em;
+}
+  --background-color: #22272e;
+  --light-background-color: #2d333b;
+  --code-color: #e0e0e0;
+  --list-color: #e0e0e0;
 }
 
 * {
@@ -24,6 +61,7 @@ body {
     background-color: var(--background-color);
     max-width: 1400px;
     margin: 0 auto;
+    overflow-x: hidden; /* prevent horizontal scrollbar */
 }
 
 a {
@@ -92,7 +130,9 @@ nav .right a:last-child
 }
 
 nav .right a:last-child:hover,
-nav .mobile-nav a:last-child:hover {
+nav .right a span:last-child:hover,
+nav .mobile-nav a:last-child:hover,
+nav .mobile-nav a span:last-child:hover {
     color: var(--text-color);
     background-color: var(--light-background-color);
     border-radius: 10px;
@@ -210,9 +250,9 @@ nav .mobile-nav {
     color: var(--link-color);
 }
 
-.hero-section .text .links a:hover {
+.hero-section .text .links a:hover,
+.hero-section .text .links a:hover span {
     color: var(--text-color);
-    border: 2px solid var(--text-color);
 }
 
 .hero-section .headshot {
@@ -268,10 +308,236 @@ nav .mobile-nav {
     justify-content: center; 
    }
 
+/* Centered section title with decorative dashes */
+.section-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    color: var(--text-color);
+    margin: 20px 0 30px 0;
+    letter-spacing: 1px;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "—"; /* em dash */
+    color: var(--text-color);
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+ 
+
 .project-grid-section h2{
     font-size: 34px;
     margin-bottom: 10px;
     padding: 0 10px;
+}
+
+/* Contact section: two-column layout centered on page */
+.contact-section {
+    margin: 60px 0 80px 0;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto; /* center the pair */
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contact-card {
+    flex: 1 1 380px; /* left column fixed-ish */
+    max-width: 480px;
+}
+
+.contact-text {
+    flex: 1 1 380px; /* right column flexible */
+    max-width: 520px;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 40px; /* increased gap for more breathing room */
+    max-width: 1400px; /* give substantially more horizontal room on large screens */
+    margin: 0 auto; /* center the pair */
+    align-items: flex-start;
+    justify-content: center;
+    /* match the surrounding page background so the contact box no longer looks like a separate grey panel */
+    background: var(--background-color) !important;
+    padding: 36px !important; /* more breathing room */
+    border-radius: 10px !important;
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: transparent; /* let wrapper supply the background for both boxes */
+    padding: 0; /* spacing comes from wrapper */
+    border-radius: 0;
+}
+
+.contact-card label {
+    color: var(--text-color);
+}
+
+.contact-text {
+    padding: 10px 30px; /* add left spacing to match increased divider gap */
+}
+
+/* separator between form and text */
+.contact-card {
+        padding-right: 30px; /* increased space for the divider */
+        border-right: 2px solid rgba(0,0,0,0.08); /* slightly stronger divider */
+}
+
+/* Responsive: stack contact columns and remove divider on smaller screens */
+@media (max-width: 850px) {
+    .contact-wrapper {
+        flex-direction: column-reverse; /* show contact-text on top when stacked */
+        padding: 12px !important; /* reduced padding to tighten vertical spacing */
+        gap: 8px; /* smaller gap between the text block and the form */
+    }
+
+    .contact-card {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .contact-text {
+        padding-left: 0;
+    }
+}
+
+.contact-text {
+    padding-left: 20px;
+}
+
+@media (max-width: 850px) {
+    .contact-card {
+        border-right: none;
+        padding-right: 0;
+    }
+    .contact-text {
+        padding-left: 0;
+    }
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+.contact-card button {
+    padding: 10px 16px;
+    border-radius: 6px;
+    background: var(--link-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-card input,
+.contact-card textarea,
+.contact-card button {
+    width: 100%;
+}
+
+.contact-card button {
+        text-align: center; /* center the button label */
+}
+
+/* When stacked (mobile), center the contact text block content */
+@media (max-width: 850px) {
+    .contact-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 6px 8px; /* reduced vertical padding */
+        font-size: 13px; /* match input font size */
+        line-height: 1.4;
+    }
+
+    .contact-text h3 {
+        font-size: 16px;
+        margin: 6px 0 6px 0;
+    }
+
+    .contact-text p {
+        margin: 6px 0;
+    }
+
+    /* ensure form inputs use the same font size on mobile */
+    .contact-card input,
+    .contact-card textarea {
+        font-size: 13px;
+    }
+
+    /* Stronger overrides in case other rules are taking precedence */
+    .contact-section .contact-text,
+    .contact-section .contact-text p,
+    .contact-section .contact-text h3 {
+        font-size: 13px !important;
+        padding: 6px 8px !important;
+        margin: 6px 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    .contact-section .contact-text h3 {
+        font-size: 16px !important;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .contact-section .contact-card input,
+    .contact-section .contact-card textarea {
+        font-size: 13px !important;
+        padding: 8px 10px !important;
+    }
+}
+
+/* Responsive: stack columns on narrow screens */
+@media (max-width: 850px) {
+    .contact-wrapper {
+        /* keep stacking behavior from earlier rule (column-reverse) */
+        align-items: center;
+    }
+    .contact-card, .contact-text {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Desktop: show contact text on the left and form on the right by reversing order
+     and moving the divider to the left side of the form. Keeps mobile stacking intact. */
+@media (min-width: 851px) {
+    .contact-wrapper {
+        flex-direction: row-reverse; /* form becomes right column */
+    }
+
+    /* remove right divider and add left divider on form when on the right */
+    .contact-card {
+        border-right: none;
+        padding-right: 0;
+        border-left: 2px solid rgba(0,0,0,0.08);
+        padding-left: 30px;
+    }
+
+    /* ensure the contact-text keeps its spacing on the left */
+    .contact-text {
+        padding: 10px 30px 10px 8px; /* left-side smaller, right-side spacing preserved */
+    }
 }
 
 .project-grid-section .grid-container {
@@ -391,6 +657,9 @@ nav .mobile-nav {
 .skills-section .skill-categories {
     list-style: none;
     padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* default single column on small screens */
+    gap: 20px;
    }
 
 .skills-section .skill-categories .skills-card  span{
@@ -399,7 +668,7 @@ nav .mobile-nav {
 
 .skills-section .skill-categories .skills-card {
     margin-bottom: 15px;
-    padding: 15px;
+    padding: 18px;
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.05);    
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
@@ -429,6 +698,18 @@ nav .mobile-nav {
     color: var(--link-color);
     border-radius: 10px;
     font-size: 14px;
+}
+
+/* Desktop: arrange skills cards in a 2x2 grid when there are four categories */
+@media (min-width: 900px) {
+    .skills-section .skill-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 28px;
+    }
+
+    .skills-section .skill-categories li {
+        display: block; /* each list item becomes a grid item */
+    }
 }
 
 
@@ -842,8 +1123,10 @@ footer p {
         display: none;
     }
 
-    
-    
+    .project-grid-section .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  
     /*SECTION 4:Contact */
     .contact-section .group{
         flex-direction: column;
@@ -908,7 +1191,10 @@ footer p {
         font-size: 13px;
         padding: 5px;
     }
-
+   .hero-section .headshot img{
+        width: 275px;
+        justify-content: center
+    }
     
     /*SECTION 3:Skills */
     .skills-section {

@@ -13,11 +13,24 @@
 
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/post-content.css">
 
-    <script src="/assets/js/script.js"></script>
+    <script src="/pages/AlexZidar/assets/js/script.js"></script>
+    
+    <style>
+        :root {
+            --text-color: #e0e0e0 !important;
+            --background-color: #22272e !important;
+            --light-background-color: #2d333b !important;
+        }
+        body {
+            color: var(--text-color) !important;
+            background-color: var(--background-color) !important;
+        }
+    </style>
 
     
-    <title>John Doe's Portfolio</title>
+    <title>Alexander Zidar's Portfolio</title>
     
 
 </head>
@@ -26,7 +39,7 @@
      <!-- _includes/nav.html -->
 <nav>
     <div class="left">
-        <a href="/">John Doe</a>
+        <a href="/">Alexander Zidar</a>
     </div>
 
     <!-- Desktop Menu -->
@@ -37,7 +50,10 @@
         <a href="/projects/">
             <span>Projects</span>
         </a>
-        <a href="https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <span>Resume</span>
         </a>
     </div>
@@ -55,7 +71,10 @@
         <a href="/projects/">
             <span>Projects</span>
         </a>
-        <a href="https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <span>Resume</span>
         </a>
     </div>
@@ -67,14 +86,14 @@
     <div class="group">
         <div class="text">
             <h2>
-                I'm John 
+                I'm Alexander 
                 
                 <span class="external-links">
                     
                     
                         
                             
-                            <a href="https://www.linkedin.com/in/aramlee1/" target="_blank">
+                            <a href="https://www.linkedin.com/in/alex-zidar/" target="_blank">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
                         
@@ -85,20 +104,13 @@
                     
                         
                             
-                                <a href="https://github.com/leea2/" target="_blank">
+                                <a href="https://github.com/AlexZidar/" target="_blank">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             
                             
                         
                     
-                        
-                            
-                                <a href="https://stackoverflow.com/users/test/" target="_blank">
-                                    <i class="fa-brands fa-stack-overflow"></i>
-                                </a>
-                            
-                            
                         
                     
                         
@@ -117,8 +129,8 @@
                 
             </h2>
             
-            <h3> headline message </h3>
-            <p> Write an awesome intro and discuss your highlights and qualification. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+            <h3> Aerospace Engineering Student </h3>
+            <p> Hello! I am a junior aerospace engineering student at the University of Florida with experience in robotics, mechatronics, computer-aided design, Python, and C++. I am a passionate learner, leader, and educator. Currently, I am the IREC Avionics Lead for Swamp Launch Student Rocketry at UF. This picture was taken shortly after planting a sweetgum tree that flew around the Moon in Artemis I. Thank you for visiting my portfolio! </p>
             <div class="links">
                 <a href="#projects">
                     <i class="fa-solid fa-pen"></i>
@@ -154,58 +166,108 @@
 </div>
 <!-- SECTION 3: project -->
 <section id="projects" class="project-grid-section">
-    <h2>Projects</h2>
+    <h2 class="section-title">Projects</h2>
 
     <div class="grid-container">
         
-    <a href="/projects/demo-project/index/" class="project-link">
+    <a href="/projects/MAPS-micro/index/" class="project-link">
         <div class="project-card">
             
             
-            <img src="/_projects/demo-project/project2.jpg" alt="Super Heavy Booster Catch (Demo Only) image">
-            <h3 class="project-title">Super Heavy Booster Catch (Demo Only)</h3>
+            <img src="/_projects/MAPS-micro/micro1.jpg" alt="Motorized Digital Microscope image">
+            <h3 class="project-title">Motorized Digital Microscope</h3>
             <div class="project-skills">
                 
-                    <span class="skill">Structural analysis</span>
+                    <span class="skill">SolidWorks</span>
                 
-                    <span class="skill">Aerodynamic design</span>
+                    <span class="skill">Python</span>
                 
-                    <span class="skill">Propulsion system integration</span>
+                    <span class="skill">3D Printing</span>
                 
-                    <span class="skill">Control Algorithem</span>
+                    <span class="skill">PCB Design</span>
                 
-                    <span class="skill">Welding</span>
-                
-                    <span class="skill">Metal forming</span>
-                
-                    <span class="skill">Thermal simulation</span>
+                    <span class="skill">Product Development</span>
                 
             </div>
-            <p class="project-description">(I have never been employed by / affiliated with SpaceX. This is for demo use only) Developing the Super Heavy booster catch project involves designing a robust launch tower with "chopstick" arms, advanced control systems for precise booster alignment, and integrating sophisticated software for real-time trajectory adjustments and structural engineering to handle immense forces.</p>
+            <p class="project-description">A custom built, sub-$150, digital microscope for use as an interactive display or in general microscopy. I was motivated to create this device as part of my continued and longstanding volunteer work for the museum of archeology, paleontology, and science (MAPS) in New Port Richey. In addition to being a museum display, this microscope serves as a prototyping and development platform for future work planned in microscopy.</p>
             <button class="read-more">Read more →</button>
         </div>
     </a>
 
-    <a href="/projects/sonos-teardown/sonos/" class="project-link">
+    <a href="/projects/flight-computer/index/" class="project-link">
         <div class="project-card">
             
             
-            <img src="/_projects/sonos-teardownproject-image.webp" alt="Sonos teardown image">
-            <h3 class="project-title">Sonos teardown</h3>
+            <img src="/_projects/flight-computer/mainFC.jpg" alt="Custom Flight Computer image">
+            <h3 class="project-title">Custom Flight Computer</h3>
             <div class="project-skills">
                 
-                    <span class="skill">drumel</span>
+                    <span class="skill">C++</span>
                 
-                    <span class="skill">microprobing</span>
+                    <span class="skill">Embedded Systems</span>
                 
-                    <span class="skill">Electronics Teardown</span>
+                    <span class="skill">Electrical Design</span>
                 
-                    <span class="skill">PCB analysis</span>
+                    <span class="skill">Avionics</span>
                 
-                    <span class="skill">audio system design</span>
+                    <span class="skill">Control Systems</span>
                 
             </div>
-            <p class="project-description">Conducted detailed teardown analysis of Sonos Era speaker, documenting internal components, driver configuration, and PCB design. Created technical documentation with photos and assembly insights for engineering reference.</p>
+            <p class="project-description">A barometric-altitude-based flight computer with an integrated accelerometer. This computer is designed for use in test flights that will play a crucial role in the future development of staged-flight systems. The flight computer continuously records acceleration and filtered altitude data to a CSV file on the onboard microSD card. Altitude is also checked against a user-set altitude, at which point a servo is actuated to separate the stages via mechanical linkage. Absolute magnitude of acceleration is calculated and used for launch detection.</p>
+            <button class="read-more">Read more →</button>
+        </div>
+    </a>
+
+    <a href="/projects/led-controller/index/" class="project-link">
+        <div class="project-card">
+            
+            
+            <img src="/_projects/led-controller/hardaf.jpg" alt="BlackBeard LED Controller image">
+            <h3 class="project-title">BlackBeard LED Controller</h3>
+            <div class="project-skills">
+                
+                    <span class="skill">C++</span>
+                
+                    <span class="skill">Embedded Systems</span>
+                
+                    <span class="skill">PCB Design</span>
+                
+                    <span class="skill">KiCad</span>
+                
+                    <span class="skill">Product Development</span>
+                
+                    <span class="skill">3D Printing</span>
+                
+            </div>
+            <p class="project-description">This universal LED controller was developed as part of my mentorship of FIRST Robotics Competition (FRC) Team 79 “Krunch”. Throughout my 6 years on the team I went from member to president, and now mentor. In that time,I’ve found a distinct lack of suitable, robotics-focused LED controllers on the market. These controllers, notably REV Blinkin, are some combination of far too expensive or functionally limited. Therefore, I sought to challenge myself in developing a custom PCB and thus superior LED controller. Overall, this controller was designed to be flexible, inexpensive, and extremely easy to assemble.</p>
+            <button class="read-more">Read more →</button>
+        </div>
+    </a>
+
+    <a href="/projects/prop-data/index/" class="project-link">
+        <div class="project-card">
+            
+            
+            <img src="/_projects/prop-data/daqlaunch.jpg" alt="Custom Data Acquisition System image">
+            <h3 class="project-title">Custom Data Acquisition System</h3>
+            <div class="project-skills">
+                
+                    <span class="skill">C++</span>
+                
+                    <span class="skill">Python</span>
+                
+                    <span class="skill">Embedded Systems</span>
+                
+                    <span class="skill">Data Analytics</span>
+                
+                    <span class="skill">Propulsion</span>
+                
+                    <span class="skill">SolidWorks</span>
+                
+                    <span class="skill">3D Printing</span>
+                
+            </div>
+            <p class="project-description">A custom data aquisition system (DAQ) for propulsion development. This DAQ is designed for use in testing and verifying prototype rocket motors and propellant formulation. The system records casing temperature, thrust, and combustion chamber pressure. This data is then immediately stored as a CSV to the on-board micro-SD card. Supplemental software was developed in Python for rapid report making and classification of rocket motors.</p>
             <button class="read-more">Read more →</button>
         </div>
     </a>
@@ -215,8 +277,19 @@
 
  </section>
 
+<!-- <!--
+SECTION: Volunteering
+<section id="volunteering" class="project-grid-section">
+    <h2>Volunteering</h2>
+
+    <div class="grid-container">
+        
+    </div>
+</section>
+<!--
+ -->
 <section id="skills" class="skills-section">
-    <h2>Skills</h2>
+  <h2 class="section-title">Skills</h2>
         
     <ul class="skill-categories">
         
@@ -235,27 +308,7 @@
                   </li>
                 
                   <li class="skill">
-                    Creo
-                  </li>
-                
-                  <li class="skill">
                     Fusion 360 (Autodesk)
-                  </li>
-                
-                  <li class="skill">
-                    Blender (for complex shapes or animations)
-                  </li>
-                
-                  <li class="skill">
-                    Siemens NX
-                  </li>
-                
-                  <li class="skill">
-                    Inventor (Autodesk)
-                  </li>
-                
-                  <li class="skill">
-                    CATIA (Dassault Systèmes)
                   </li>
                 
                 </ul>
@@ -282,35 +335,15 @@
                   </li>
                 
                   <li class="skill">
-                    SLS
+                    Microcontrollers
                   </li>
                 
                   <li class="skill">
-                    DMLS
+                    Single Board Computers
                   </li>
                 
                   <li class="skill">
-                    PolyJet Printing
-                  </li>
-                
-                  <li class="skill">
-                    Vacuum Casting
-                  </li>
-                
-                  <li class="skill">
-                    Laser Cutting
-                  </li>
-                
-                  <li class="skill">
-                    Water Jet Cutting
-                  </li>
-                
-                  <li class="skill">
-                    Arduino / Raspberry Pi
-                  </li>
-                
-                  <li class="skill">
-                    Breadboarding for circuit testing
+                    Breadboarding For Circuit Testing
                   </li>
                 
                 </ul>
@@ -320,20 +353,20 @@
         
           <li>
             <div class="skills-card">
-              <span class="category-label">Design Standards / Practices</span>
+              <span class="category-label">Programming</span>
             
               <ul class="skills-list">
                 
                   <li class="skill">
-                    GD&T ASME Y14
+                    Python
                   </li>
                 
                   <li class="skill">
-                    ISO fits and tolerances
+                    C++
                   </li>
                 
                   <li class="skill">
-                    PLM (PTC Windchill / Arena)
+                    MATLAB
                   </li>
                 
                 </ul>
@@ -348,46 +381,11 @@
               <ul class="skills-list">
                 
                   <li class="skill">
-                    Altium Designer
-                  </li>
-                
-                  <li class="skill">
-                    Altium
-                  </li>
-                
-                  <li class="skill">
-                    Eagle
-                  </li>
-                
-                  <li class="skill">
                     KiCad
                   </li>
                 
-                </ul>
-            </div>
-            
-          </li> 
-        
-          <li>
-            <div class="skills-card">
-              <span class="category-label">Problem Solving / Risk Management</span>
-            
-              <ul class="skills-list">
-                
                   <li class="skill">
-                    Root Cause Analysis (e.g., 5 Whys, Fishbone Diagram)
-                  </li>
-                
-                  <li class="skill">
-                    DFMEA / PFMEA
-                  </li>
-                
-                  <li class="skill">
-                    Six Sigma methodologies
-                  </li>
-                
-                  <li class="skill">
-                    Shain Red-X
+                    In-House PCB Manufacturing
                   </li>
                 
                 </ul>
@@ -399,23 +397,37 @@
 
 </section>
 <!-- SECTION 4: Contact-->
-<section id="contact" class= "contact-section">
-    <h2>Contact</h2>
+<section id="contact" class="contact-section">
+    <h2 class="section-title">Contact</h2>
 
-    <div class="group">
-      
-        <form action="https://formspree.io/f/https://formspree.io/f/{8-digit key}" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name">
+    <div class="contact-wrapper">
+                <style>
+                @media (max-width:850px){
+                    .contact-wrapper{padding:8px !important; gap:8px !important}
+                    .contact-text{padding:6px 8px !important; font-size:13px !important}
+                    .contact-text p{margin:6px 0 !important}
+                    .contact-card input, .contact-card textarea{font-size:13px !important}
+                    .contact-card button{height:44px}
+                }
+                </style>
+        <div class="contact-card">
+            <form action="https://formspree.io/f/mjkolvnl" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
 
-            <label for="message">Message</label>
-            <textarea id="message" cols = "30" rows="10" name="message"></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" cols="30" rows="10" name="message"></textarea>
 
-            <button type="submit">Send Message</button>
-        </form>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-text">
+            <p>If you'd like to collaborate, have questions about projects, or want to learn more about my work, send me a message. I will respond as soon as possible!</p>
+        </div>
     </div>
   </section>
 </div>
@@ -432,14 +444,18 @@
             <a href="/projects/">
                 <span>Projects</span>
             </a>
-            <a href=https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/view?usp=sharing target="_blank" rel="noopener noreferrer">
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span> -->
+            </a>
+            <a href=https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing target="_blank" rel="noopener noreferrer">
                 <span>Resume</span>
             </a>
         </div>
     </div>
     <div class="license">
-        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="https://createdotshow.com"> Here</a> </span>
-        <p>FreeToEngineer portfolio template © 2025 by Aram Lee is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="mailto:admin@lowinertia.com"> Here</a> </span>
+        <p>Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
     </div>
 </footer>
+
 </html>
