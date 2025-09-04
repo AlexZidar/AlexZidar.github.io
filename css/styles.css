@@ -486,6 +486,28 @@ nav .mobile-nav {
     .contact-card textarea {
         font-size: 13px;
     }
+
+    /* Stronger overrides in case other rules are taking precedence */
+    .contact-section .contact-text,
+    .contact-section .contact-text p,
+    .contact-section .contact-text h3 {
+        font-size: 13px !important;
+        padding: 6px 8px !important;
+        margin: 6px 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    .contact-section .contact-text h3 {
+        font-size: 16px !important;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .contact-section .contact-card input,
+    .contact-section .contact-card textarea {
+        font-size: 13px !important;
+        padding: 8px 10px !important;
+    }
 }
 
 /* Responsive: stack columns on narrow screens */
