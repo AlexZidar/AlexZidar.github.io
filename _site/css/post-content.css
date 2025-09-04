@@ -1,0 +1,61 @@
+.post-view {
+    color: var(--text-color) !important;
+}
+
+.post-view h1,
+.post-view h2,
+.post-view h3,
+.post-view h4,
+.post-view h5,
+.post-view h6,
+.post-view p,
+.post-view li,
+.post-view code,
+.post-view pre {
+    color: var(--text-color) !important;
+}
+
+.post-view ul,
+.post-view ol,
+.post-view li {
+    color: var(--text-color) !important;
+}
+
+.post-view h1,
+.post-view h2,
+.post-view h3,
+.post-view h4,
+.post-view h5,
+.post-view h6,
+.post-view p {
+    color: var(--text-color);
+}
+
+.post-view pre {
+    background-color: var(--light-background-color);
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.post-view p code {
+    background-color: var(--light-background-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+.post-view ul,
+.post-view ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+.post-view li {
+    margin-bottom: 0.5em;
+}
+
+/* Override any other styles that might be affecting the text color */
+.post-view * {
+    color: var(--text-color);
+}

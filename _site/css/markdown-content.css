@@ -1,0 +1,43 @@
+/* Styling for markdown content */
+.post-content {
+    color: var(--text-color);
+}
+
+/* Code blocks */
+.post-content code {
+    color: var(--code-color);
+}
+
+.post-content pre {
+    color: var(--code-color);
+    background-color: var(--light-background-color);
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+/* Lists */
+.post-content ul,
+.post-content ol {
+    color: var(--list-color);
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.post-content li {
+    color: var(--list-color);
+    margin-bottom: 0.5em;
+}
+
+/* Code within list items */
+.post-content li code {
+    color: var(--code-color);
+}
+
+/* Inline code */
+.post-content p code {
+    color: var(--code-color);
+    background-color: var(--light-background-color);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}

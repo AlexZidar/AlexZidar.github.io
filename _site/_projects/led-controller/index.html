@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/post-content.css">
+
+    <script src="/pages/AlexZidar/assets/js/script.js"></script>
+    
+    <style>
+        :root {
+            --text-color: #e0e0e0 !important;
+            --background-color: #22272e !important;
+            --light-background-color: #2d333b !important;
+        }
+        body {
+            color: var(--text-color) !important;
+            background-color: var(--background-color) !important;
+        }
+    </style>
+
+    
+    <title>Alexander Zidar's Portfolio</title>
+    
+
+</head>
+<body>
+    <!-- NAVBAR -->
+     <!-- _includes/nav.html -->
+<nav>
+    <div class="left">
+        <a href="/">Alexander Zidar</a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="right desktop-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fa fa-bars fa-2x"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+</nav>
+
+     <div class="page"><div class="post-view">
+    <div class="summary">
+        
+       
+        
+               
+        <img src="/_projects/led-controller/hardaf.jpg" alt="BlackBeard LED Controller image">
+        
+        <div class="title-header">
+            <h1>BlackBeard LED Controller</h1>
+        </div>
+        
+        <div class="project-description">
+            <h2>Project Overview</h2>
+            <p>This universal LED controller was developed as part of my mentorship of FIRST Robotics Competition (FRC) Team 79 “Krunch”. Throughout my 6 years on the team I went from member to president, and now mentor. In that time,I’ve found a distinct lack of suitable, robotics-focused LED controllers on the market. These controllers, notably REV Blinkin, are some combination of far too expensive or functionally limited. Therefore, I sought to challenge myself in developing a custom PCB and thus superior LED controller. Overall, this controller was designed to be flexible, inexpensive, and extremely easy to assemble.</p>
+        </div>
+        <div class="skills-card">
+            <h2>Skills Used</h2> 
+            <div class="skills-list">
+                
+                <span class="skill">C++</span>    
+                
+                <span class="skill">Embedded Systems</span>    
+                
+                <span class="skill">PCB Design</span>    
+                
+                <span class="skill">KiCad</span>    
+                
+                <span class="skill">Product Development</span>    
+                
+                <span class="skill">3D Printing</span>    
+                
+            </div>
+        </div>
+    </div>
+      
+    <div class="content">
+        <hr />
+<h2 id="results">Results:</h2>
+<h3 id="excluding-optional-pin-headers-only-4-unique-components-are-required-the-board-can-receive-commands-via-wifi-bluetooth-gpio-i2c-or-spi-from-there-the-microcontroller-interprets-the-commands-to-control-two-individually-addressable-strips-and-three-power-transistors-one-for-each-color-channel-of-non-addressable-led-strips">Excluding optional pin headers, only 4 unique components are required. The board can receive commands via WiFi, Bluetooth, GPIO, I2C, or SPI. From there, the microcontroller interprets the commands to control two individually addressable strips and three power transistors, one for each color channel of non-addressable LED strips.</h3>
+
+<hr />
+
+<h2 id="demonstration-video-team-79">Demonstration Video: Team-79</h2>
+<h3 id="celebratory-lighting-on-successful-action-handled-by-the-blackbeard">Celebratory lighting on successful action, handled by the BlackBeard</h3>
+
+<div class="youtube-container" style="--max-width: 560px">
+    <div class="youtube-aspect-ratio">
+        <iframe src="https://www.youtube.com/embed/jPneyFgghBk?mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+        </iframe>
+    </div>
+</div>
+
+<hr />
+
+<h2 id="bare-pcb">Bare PCB:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          
+          <img src="/_projects/led-controller/BarePCB.jpg" alt="BarePCB.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<h2 id="fully-assembled">Fully Assembled:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px;">
+  
+      
+      
+          
+          <img src="/_projects/led-controller/FullPCB.jpg" alt="FullPCB.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="features">Features:</h2>
+<ul>
+  <li>Comms over WiFi, Bluetooth, GPIO, I2C, or SPI</li>
+  <li>Both Addressable and Non-Addressable LEDs</li>
+  <li>Sub-$10 Total Component Cost</li>
+  <li>Easy Assembly for Students</li>
+  <li>Easy Programming for Students</li>
+</ul>
+
+<hr />
+
+<h2 id="components">Components:</h2>
+<ul>
+  <li>Custom PCB</li>
+  <li>3x TIP41C Power Transistor</li>
+  <li>LM085IT3.3 Linear Dropout Regulator</li>
+  <li>JST 1x2 Header</li>
+  <li>2x JST 1x6 Header</li>
+  <li>3x JST 1x3 Header</li>
+  <li>3x JST 1x4 Header</li>
+</ul>
+
+<hr />
+
+<h2 id="pwm-control-code-snippet">PWM Control Code Snippet:</h2>
+<h3 id="shows-how-the-esp32-accepts-pwm-inputs-for-color-and-optionally-for-brightness">Shows how the ESP32 accepts PWM inputs for color, and optionally for brightness.</h3>
+<pre><code class="language-C++">void loop() {
+  // Read the pulse width from the color control PWM input
+  unsigned long colorPulseWidth = pulseIn(PWM_COLOR_PIN, HIGH, 30000);
+  
+  // Read the pulse width from the brightness control PWM input
+  unsigned long brightnessPulseWidth = pulseIn(PWM_BRIGHTNESS_PIN, HIGH, 30000);
+  
+  // If no pulse is detected on the color input, skip this loop iteration
+  if (colorPulseWidth == 0) {
+    return;
+  }
+  
+  // For debugging: print the measured pulse widths
+  Serial.print("Color Pulse width: ");
+  Serial.print(colorPulseWidth);
+  Serial.print(" us, Brightness Pulse width: ");
+  Serial.print(brightnessPulseWidth);
+  Serial.println(" us");
+   // Map the color pulse width to an RGB color.
+  uint8_t r = 0, g = 0, b = 0;
+  if (colorPulseWidth &lt; 1100) {
+    r = 255; g = 0;   b = 0;    // Red
+  } else if (colorPulseWidth &lt; 1200) {
+    r = 255; g = 128; b = 0;    // Orange
+  } else if (colorPulseWidth &lt; 1300) {
+    r = 255; g = 255; b = 0;    // Yellow
+  } else if (colorPulseWidth &lt; 1400) {
+    r = 0;   g = 255; b = 0;    // Green
+  } else if (colorPulseWidth &lt; 1500) {
+    r = 0;   g = 255; b = 255;  // Cyan
+  } else if (colorPulseWidth &lt; 1600) {
+    r = 0;   g = 0;   b = 255;  // Blue
+  } else if (colorPulseWidth &lt; 1700) {
+    r = 75;  g = 0;   b = 130;  // Indigo
+  } else if (colorPulseWidth &lt; 1800) {
+    r = 148; g = 0;   b = 211;  // Violet
+  } else {
+    r = 255; g = 255; b = 255;  // White
+  }
+</code></pre>
+
+    </div>
+</div>
+
+</div>
+
+     
+</body>
+
+    <footer>
+    <div class="footer-content">
+        <div class="links">
+            <a href="/">
+                <span>Home</span>
+            </a>
+            <a href="/projects/">
+                <span>Projects</span>
+            </a>
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span> -->
+            </a>
+            <a href=https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing target="_blank" rel="noopener noreferrer">
+                <span>Resume</span>
+            </a>
+        </div>
+    </div>
+    <div class="license">
+        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="mailto:admin@lowinertia.com"> Here</a> </span>
+        <p>Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+    </div>
+</footer>
+
+</html>
