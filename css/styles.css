@@ -508,6 +508,19 @@ nav .mobile-nav {
         font-size: 13px !important;
         padding: 8px 10px !important;
     }
+
+    /* Stop viewport-based scaling inside the contact box: use fixed px sizes so
+       the small paragraph doesn't shrink drastically when viewport narrows. */
+    .contact-section .contact-text,
+    .contact-section .contact-text p {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+    }
+
+    .contact-section .contact-text h3 {
+        font-size: 15px !important;
+        margin: 6px 0 !important;
+    }
 }
 
 /* Responsive: stack columns on narrow screens */
