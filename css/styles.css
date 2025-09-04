@@ -402,7 +402,7 @@ nav .mobile-nav {
 /* Responsive: stack contact columns and remove divider on smaller screens */
 @media (max-width: 850px) {
     .contact-wrapper {
-        flex-direction: column;
+        flex-direction: column-reverse; /* show contact-text on top when stacked */
         padding: 18px !important;
         gap: 16px;
     }
