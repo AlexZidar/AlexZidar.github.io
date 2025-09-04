@@ -403,8 +403,8 @@ nav .mobile-nav {
 @media (max-width: 850px) {
     .contact-wrapper {
         flex-direction: column-reverse; /* show contact-text on top when stacked */
-        padding: 18px !important;
-        gap: 16px;
+        padding: 12px !important; /* reduced padding to tighten vertical spacing */
+        gap: 8px; /* smaller gap between the text block and the form */
     }
 
     .contact-card {
@@ -462,12 +462,12 @@ nav .mobile-nav {
 /* When stacked (mobile), center the contact text block content */
 @media (max-width: 850px) {
     .contact-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8px 8px; /* reduce vertical padding */
     }
 }
 
