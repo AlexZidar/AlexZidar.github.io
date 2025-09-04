@@ -370,7 +370,8 @@ nav .mobile-nav {
     margin: 0 auto; /* center the pair */
     align-items: flex-start;
     justify-content: center;
-    background: var(--light-background-color) !important;
+    /* match the surrounding page background so the contact box no longer looks like a separate grey panel */
+    background: var(--background-color) !important;
     padding: 28px !important; /* slightly larger padding */
     border-radius: 10px !important;
 }
