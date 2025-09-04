@@ -366,13 +366,13 @@ nav .mobile-nav {
 .contact-wrapper {
     display: flex;
     gap: 40px; /* increased gap for more breathing room */
-    max-width: 1200px; /* increased to give more horizontal room */
+    max-width: 1400px; /* give substantially more horizontal room on large screens */
     margin: 0 auto; /* center the pair */
     align-items: flex-start;
     justify-content: center;
     /* match the surrounding page background so the contact box no longer looks like a separate grey panel */
     background: var(--background-color) !important;
-    padding: 28px !important; /* slightly larger padding */
+    padding: 36px !important; /* more breathing room */
     border-radius: 10px !important;
 }
 
