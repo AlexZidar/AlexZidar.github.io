@@ -51,11 +51,13 @@ skills:
     - Onshape
     - Solidworks
     - Fusion 360 (Autodesk)
-  - category: Prototyping
+  - category: Prototyping & Fabrication
     tools:
     - SLA
-    - CNC
     - FDM
+    - CNC
+    - Manual Mills
+    - Manual Lathes
     - Microcontrollers
     - Single Board Computers
     - Breadboarding For Circuit Testing
