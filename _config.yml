@@ -60,6 +60,8 @@ skills:
     - Manual Lathes
     - Microcontrollers
     - Single Board Computers
+    - Soldering
+    - Pneumatics
     - Breadboarding For Circuit Testing
   - category: Programming
     tools:
@@ -68,6 +70,7 @@ skills:
     - MATLAB
   - category: PCB Design
     tools:
+    - Altium
     - KiCad
     - In-House PCB Manufacturing
 
