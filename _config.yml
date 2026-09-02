@@ -135,6 +135,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  archive:
+    output: true
+    permalink: /archive/:path/
   # volunteering:
   #   output: true
   #   permalink: /volunteering/:path/
@@ -158,6 +161,7 @@ plugins:
 
 include:
   - _projects
+  - _archive
 
 
 # Exclude from processing.

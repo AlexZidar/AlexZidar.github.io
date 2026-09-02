@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/post-content.css">
 
-    <script src="/pages/AlexZidar/assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     
     <style>
         :root {
@@ -50,6 +53,9 @@
         <a href="/projects/">
             <span>Projects</span>
         </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
         <!-- <a href="/volunteering/">
             <span>Volunteering</span>
         </a> -->
@@ -71,6 +77,9 @@
         <a href="/projects/">
             <span>Projects</span>
         </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
         <!-- <a href="/volunteering/">
             <span>Volunteering</span>
         </a> -->
@@ -86,108 +95,156 @@
 
     <div class="grid-container">
         
-    <a href="/projects/MAPS-micro/index/" class="project-link">
-        <div class="project-card">
             
+<a href="/projects/MAPS-micro/index/" class="project-link">
+    <div class="project-card">
+        
+        
+        <img src="/_projects/MAPS-micro/micro1.jpg" alt="Motorized Digital Microscope image">
+        <h3 class="project-title">Motorized Digital Microscope</h3>
+        <div class="project-skills">
             
-            <img src="/_projects/MAPS-micro/micro1.jpg" alt="Motorized Digital Microscope image">
-            <h3 class="project-title">Motorized Digital Microscope</h3>
-            <div class="project-skills">
-                
-                    <span class="skill">SolidWorks</span>
-                
-                    <span class="skill">Python</span>
-                
-                    <span class="skill">3D Printing</span>
-                
-                    <span class="skill">PCB Design</span>
-                
-                    <span class="skill">Product Development</span>
-                
-            </div>
-            <p class="project-description">A custom built, sub-$150, digital microscope for use as an interactive display or in general microscopy. I was motivated to create this device as part of my continued and longstanding volunteer work for the museum of archeology, paleontology, and science (MAPS) in New Port Richey. In addition to being a museum display, this microscope serves as a prototyping and development platform for future work planned in microscopy.</p>
-            <button class="read-more">Read more →</button>
+                <span class="skill">SolidWorks</span>
+            
+                <span class="skill">Python</span>
+            
+                <span class="skill">3D Printing</span>
+            
+                <span class="skill">PCB Design</span>
+            
+                <span class="skill">Product Development</span>
+            
         </div>
-    </a>
+        <p class="project-description">A custom built, sub-$150, digital microscope for use as an interactive display or in general microscopy. I was motivated to create this device as part of my continued and longstanding volunteer work for the museum of archeology, paleontology, and science (MAPS) in New Port Richey. In addition to being a museum display, this microscope serves as a prototyping and development platform for future work planned in microscopy.</p>
+        <button class="read-more">Read more →</button>
+    </div>
+</a>
 
-    <a href="/projects/flight-computer/index/" class="project-link">
-        <div class="project-card">
+        
             
+<a href="/projects/antenna-tracker/index/" class="project-link">
+    <div class="project-card">
+        
+        
+        <img src="/_projects/antenna-tracker/tracker_launch.jpg" alt="Autonomous Rocket Tracker & Ground Station image">
+        <h3 class="project-title">Autonomous Rocket Tracker & Ground Station</h3>
+        <div class="project-skills">
             
-            <img src="/_projects/flight-computer/mainFC.jpg" alt="Custom Flight Computer image">
-            <h3 class="project-title">Custom Flight Computer</h3>
-            <div class="project-skills">
-                
-                    <span class="skill">C++</span>
-                
-                    <span class="skill">Embedded Systems</span>
-                
-                    <span class="skill">Electrical Design</span>
-                
-                    <span class="skill">Avionics</span>
-                
-                    <span class="skill">Control Systems</span>
-                
-            </div>
-            <p class="project-description">A barometric-altitude-based flight computer with an integrated accelerometer. This computer is designed for use in test flights that will play a crucial role in the future development of staged-flight systems. The flight computer continuously records acceleration and filtered altitude data to a CSV file on the onboard microSD card. Altitude is also checked against a user-set altitude, at which point a servo is actuated to separate the stages via mechanical linkage. Absolute magnitude of acceleration is calculated and used for launch detection.</p>
-            <button class="read-more">Read more →</button>
+                <span class="skill">C++</span>
+            
+                <span class="skill">Embedded Systems</span>
+            
+                <span class="skill">Control Systems</span>
+            
+                <span class="skill">Mechatronics</span>
+            
+                <span class="skill">Python</span>
+            
+                <span class="skill">SolidWorks</span>
+            
+                <span class="skill">3D Printing</span>
+            
         </div>
-    </a>
+        <p class="project-description">An autonomous 2-axis (pan-tilt) antenna tracker engineered for Swamp Launch Student Rocketry to track our high-powered rockets during high-speed ascent and recovery. By continuously aligning high-gain directional antennas with the rocket's position, the ground station maintains a robust, low-latency RF telemetry link and live-streamed onboard video feed throughout the flight. The tracker utilizes a duplicate Rasalhague telemetry board as its central receiver and real-time motion controller.</p>
+        <button class="read-more">Read more →</button>
+    </div>
+</a>
 
-    <a href="/projects/led-controller/index/" class="project-link">
-        <div class="project-card">
+        
             
+<a href="/projects/marfik-daq/index/" class="project-link">
+    <div class="project-card">
+        
+        
+        <img src="/_projects/marfik-daq/marfik_schematic.png" alt="Marfik: High-Speed Flight DAQ & Acoustic Recorder image">
+        <h3 class="project-title">Marfik: High-Speed Flight DAQ & Acoustic Recorder</h3>
+        <div class="project-skills">
             
-            <img src="/_projects/led-controller/hardaf.jpg" alt="BlackBeard LED Controller image">
-            <h3 class="project-title">BlackBeard LED Controller</h3>
-            <div class="project-skills">
-                
-                    <span class="skill">C++</span>
-                
-                    <span class="skill">Embedded Systems</span>
-                
-                    <span class="skill">PCB Design</span>
-                
-                    <span class="skill">KiCad</span>
-                
-                    <span class="skill">Product Development</span>
-                
-                    <span class="skill">3D Printing</span>
-                
-            </div>
-            <p class="project-description">This universal LED controller was developed as part of my mentorship of FIRST Robotics Competition (FRC) Team 79 “Krunch”. Throughout my 6 years on the team I went from member to president, and now mentor. In that time,I’ve found a distinct lack of suitable, robotics-focused LED controllers on the market. These controllers, notably REV Blinkin, are some combination of far too expensive or functionally limited. Therefore, I sought to challenge myself in developing a custom PCB and thus superior LED controller. Overall, this controller was designed to be flexible, inexpensive, and extremely easy to assemble.</p>
-            <button class="read-more">Read more →</button>
+                <span class="skill">C++</span>
+            
+                <span class="skill">FreeRTOS</span>
+            
+                <span class="skill">PCB Design</span>
+            
+                <span class="skill">KiCad</span>
+            
+                <span class="skill">Embedded Systems</span>
+            
+                <span class="skill">Avionics</span>
+            
+                <span class="skill">Python</span>
+            
+                <span class="skill">Signal Processing</span>
+            
         </div>
-    </a>
+        <p class="project-description">An ultra-high-speed avionics flight data acquisition system and static test instrumentation board engineered for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series. Featuring an ESP32-S3 dual-core microcontroller, Marfik records 500 Hz deterministic multi-sensor telemetry (6-DoF dynamics, 400G impact accel, high-temp thermocouple, dual pressure transducers, and 4-channel 24-bit strain gauges) alongside 16 kHz I2S acoustic audio to onboard 4GB parallel eMMC flash storage with post-flight Wi-Fi recovery.</p>
+        <button class="read-more">Read more →</button>
+    </div>
+</a>
 
-    <a href="/projects/prop-data/index/" class="project-link">
-        <div class="project-card">
+        
             
+<a href="/projects/prop-data/index/" class="project-link">
+    <div class="project-card">
+        
+        
+        <img src="/_projects/prop-data/daqlaunch.jpg" alt="Serpens: Next-Generation Propulsion DAQ image">
+        <h3 class="project-title">Serpens: Next-Generation Propulsion DAQ</h3>
+        <div class="project-skills">
             
-            <img src="/_projects/prop-data/daqlaunch.jpg" alt="Custom Data Acquisition System image">
-            <h3 class="project-title">Custom Data Acquisition System</h3>
-            <div class="project-skills">
-                
-                    <span class="skill">C++</span>
-                
-                    <span class="skill">Python</span>
-                
-                    <span class="skill">Embedded Systems</span>
-                
-                    <span class="skill">Data Analytics</span>
-                
-                    <span class="skill">Propulsion</span>
-                
-                    <span class="skill">SolidWorks</span>
-                
-                    <span class="skill">3D Printing</span>
-                
-            </div>
-            <p class="project-description">A custom data aquisition system (DAQ) for propulsion development. This DAQ is designed for use in testing and verifying prototype rocket motors and propellant formulation. The system records casing temperature, thrust, and combustion chamber pressure. This data is then immediately stored as a CSV to the on-board micro-SD card. Supplemental software was developed in Python for rapid report making and classification of rocket motors.</p>
-            <button class="read-more">Read more →</button>
+                <span class="skill">C++</span>
+            
+                <span class="skill">Python</span>
+            
+                <span class="skill">PCB Design</span>
+            
+                <span class="skill">KiCad</span>
+            
+                <span class="skill">Embedded Systems</span>
+            
+                <span class="skill">Propulsion</span>
+            
+                <span class="skill">Data Analytics</span>
+            
+                <span class="skill">Control Systems</span>
+            
         </div>
-    </a>
+        <p class="project-description">The next-generation propulsion data acquisition system for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series of custom avionics boards. Advancing upon the original DAQ V1, Serpens integrates an ESP32-S3 microcontroller, 4-channel 0-4.5V pressure transducer digitizers, dual high-precision load cell bridges, 3 hardware-monitored thermocouple interfaces, and a 10-channel addressable ARGB diagnostic ring with high-speed SD logging and wireless live telemetry streaming.</p>
+        <button class="read-more">Read more →</button>
+    </div>
+</a>
 
+        
+            
+<a href="/projects/rasalhague-telemetry/index/" class="project-link">
+    <div class="project-card">
+        
+        
+        <img src="/_projects/rasalhague-telemetry/schematic.png" alt="Rasalhague: Long-Range Telemetry Flight Computer image">
+        <h3 class="project-title">Rasalhague: Long-Range Telemetry Flight Computer</h3>
+        <div class="project-skills">
+            
+                <span class="skill">C++</span>
+            
+                <span class="skill">PCB Design</span>
+            
+                <span class="skill">KiCad</span>
+            
+                <span class="skill">Embedded Systems</span>
+            
+                <span class="skill">Avionics</span>
+            
+                <span class="skill">Python</span>
+            
+                <span class="skill">FreeRTOS</span>
+            
+        </div>
+        <p class="project-description">A custom-designed, high-power long-range telemetry flight computer engineered for Swamp Launch Student Rocketry. Powered by an ESP32-S3 microcontroller, Rasalhague integrates a 2W (33 dBm) LoRa transceiver, u-blox SAM-M10Q multi-constellation GNSS, BMP581 precision barometer, LSM6DSOX 6-axis IMU, and MMC5983MA electronic compass. It features dynamic RF power/spreading factor staging, high-speed 4GB onboard eMMC black-box logging, and an active-cooled RF power amplifier stage.</p>
+        <button class="read-more">Read more →</button>
+    </div>
+</a>
+
+        
     </div>
 
 
@@ -207,10 +264,13 @@
             <a href="/projects/">
                 <span>Projects</span>
             </a>
-            <!-- <a href="/volunteering/">
-                <span>Volunteering</span> -->
+            <a href="/archive/">
+                <span>Archive</span>
             </a>
-            <a href=https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing target="_blank" rel="noopener noreferrer">
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span>
+            </a> -->
+            <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <span>Resume</span>
             </a>
         </div>

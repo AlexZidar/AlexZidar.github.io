@@ -1,0 +1,266 @@
+{% assign model_height = include.height | default: "500" %}
+{% assign viewer_id = include.model | slugify | default: "cad-model" %}
+
+<style>
+@keyframes cad-spinner-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.cad-spinner-icon {
+    display: inline-block;
+    animation: cad-spinner-rotate 1.2s linear infinite;
+}
+</style>
+
+<div class="cad-viewer-container" id="container-{{ viewer_id }}" style="position: relative; width: 100%; height: {{ model_height }}px; margin: 24px 0; background: radial-gradient(circle at 50% 30%, #2e3242 0%, #16171e 100%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Top Floating Toolbar -->
+    <div style="position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; pointer-events: none;">
+        <div style="font-size: 13px; font-weight: 500; color: #e2e8f0; background: rgba(15, 17, 23, 0.85); padding: 6px 12px; border-radius: 6px; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-cube" style="color: #60a5fa;"></i>
+            <span>{{ include.alt | default: "Interactive 3D CAD Model" }}</span>
+        </div>
+
+        <div style="display: flex; gap: 8px; pointer-events: auto;">
+            <button id="btn-edges-{{ viewer_id }}" title="Toggle CAD Outlines" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #93c5fd; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-vector-square"></i> <span>Edges</span>
+            </button>
+            <button id="btn-reset-{{ viewer_id }}" title="Reset View" style="background: rgba(15, 17, 23, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-crosshairs"></i> <span>Reset</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas Container -->
+    <div id="canvas-{{ viewer_id }}" style="width: 100%; height: 100%; cursor: grab;"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-{{ viewer_id }}" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #14151c; z-index: 5; color: #94a3b8; transition: opacity 0.4s ease;">
+        <i class="fa-solid fa-circle-notch cad-spinner-icon fa-2x" style="color: #60a5fa; margin-bottom: 12px; font-size: 28px;"></i>
+        <span id="loading-text-{{ viewer_id }}" style="font-size: 14px; letter-spacing: 0.5px;">Loading 3D CAD Geometry &amp; Colors...</span>
+    </div>
+
+    <!-- Bottom Helper Hint -->
+    <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #718096; background: rgba(15, 17, 23, 0.7); padding: 4px 12px; border-radius: 12px; pointer-events: none; backdrop-filter: blur(4px); white-space: nowrap;">
+        Left-click: Rotate &bull; Right-click: Pan &bull; Scroll: Zoom
+    </div>
+</div>
+
+<script>
+(function() {
+    function startViewer() {
+        if (typeof THREE === 'undefined' || !THREE.OrbitControls || !THREE.GLTFLoader) {
+            setTimeout(startViewer, 50);
+            return;
+        }
+
+        var container = document.getElementById('container-{{ viewer_id }}');
+        if (!container) return;
+        var mount = document.getElementById('canvas-{{ viewer_id }}');
+        var loaderEl = document.getElementById('loading-{{ viewer_id }}');
+        var loaderText = document.getElementById('loading-text-{{ viewer_id }}');
+        var btnEdges = document.getElementById('btn-edges-{{ viewer_id }}');
+        var btnReset = document.getElementById('btn-reset-{{ viewer_id }}');
+
+        var width = mount.clientWidth || container.clientWidth || 800;
+        var height = mount.clientHeight || container.clientHeight || 500;
+
+        // Scene & Camera with ultra-near clipping plane (0.002) for super close-up inspection
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(40, width / height, 0.002, 5000);
+
+        // Renderer with enhanced studio exposure
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        if (THREE.ACESFilmicToneMapping) {
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.35;
+        }
+        mount.appendChild(renderer.domElement);
+
+        // OrbitControls with continuous auto-rotate permanently active
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+        controls.minDistance = 0.01; // Allows zooming very close to components
+
+        // Brightened Studio CAD Lighting
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1.25);
+        scene.add(ambientLight);
+
+        // Front-upper-right key light
+        var dirLight1 = new THREE.DirectionalLight(0xffffff, 1.8);
+        dirLight1.position.set(200, 300, 200);
+        scene.add(dirLight1);
+
+        // Fill light from lower-left
+        var dirLight2 = new THREE.DirectionalLight(0xcfd8dc, 1.1);
+        dirLight2.position.set(-200, -100, -200);
+        scene.add(dirLight2);
+
+        // Top rim light
+        var dirLight3 = new THREE.DirectionalLight(0xffffff, 0.9);
+        dirLight3.position.set(0, 250, -150);
+        scene.add(dirLight3);
+
+        // Bottom bounce light for underside definition
+        var dirLight4 = new THREE.DirectionalLight(0xffffff, 0.5);
+        dirLight4.position.set(0, -200, 0);
+        scene.add(dirLight4);
+
+        var initialCameraPosition = new THREE.Vector3();
+        var initialTarget = new THREE.Vector3();
+        var edgeLines = [];
+        var edgesVisible = true;
+
+        // Load GLTF Model
+        var loader = new THREE.GLTFLoader();
+        var modelUrl = '{{ include.model }}';
+
+        loader.load(
+            modelUrl,
+            function(gltf) {
+                var root = gltf.scene;
+
+                // Process meshes and compute sharp CAD outlines
+                var edgeMaterial = new THREE.LineBasicMaterial({
+                    color: 0x0a0a0f,
+                    transparent: true,
+                    opacity: 0.8,
+                    depthTest: true
+                });
+
+                root.traverse(function(child) {
+                    if (child.isMesh && child.geometry) {
+                        if (child.material) {
+                            child.material.roughness = Math.max(child.material.roughness || 0.4, 0.2);
+                        }
+
+                        // Compute crease / feature edges (> 26 degrees)
+                        try {
+                            var edgesGeom = new THREE.EdgesGeometry(child.geometry, 26);
+                            var line = new THREE.LineSegments(edgesGeom, edgeMaterial);
+                            child.add(line);
+                            edgeLines.push(line);
+                        } catch (e) {
+                            // Skip if geometry doesn't support EdgesGeometry
+                        }
+                    }
+                });
+
+                // Center root at origin
+                var box = new THREE.Box3().setFromObject(root);
+                var center = box.getCenter(new THREE.Vector3());
+                root.position.sub(center); // Center at (0, 0, 0)
+
+                // Wrapper group for orientation
+                var modelGroup = new THREE.Group();
+                modelGroup.add(root);
+
+                {% if include.pitch %}
+                modelGroup.rotation.x = THREE.MathUtils.degToRad({{ include.pitch }});
+                {% endif %}
+                {% if include.yaw %}
+                modelGroup.rotation.y = THREE.MathUtils.degToRad({{ include.yaw }});
+                {% endif %}
+                {% if include.roll %}
+                modelGroup.rotation.z = THREE.MathUtils.degToRad({{ include.roll }});
+                {% endif %}
+
+                scene.add(modelGroup);
+
+                // Auto-frame camera based on final oriented bounds
+                var finalBox = new THREE.Box3().setFromObject(modelGroup);
+                var finalCenter = finalBox.getCenter(new THREE.Vector3());
+                modelGroup.position.sub(finalCenter); // Perfectly center oriented bounds at origin
+
+                {% if include.offset_y %}
+                modelGroup.position.y += {{ include.offset_y }};
+                {% endif %}
+
+                finalBox.setFromObject(modelGroup);
+                var size = finalBox.getSize(new THREE.Vector3());
+
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var fov = camera.fov * (Math.PI / 180);
+                var dist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.05;
+
+                // Lower camera elevation for a more centered, eye-level perspective
+                camera.position.set(dist * 0.45, dist * 0.52, dist * 0.72);
+                camera.lookAt(0, 0, 0);
+
+                controls.target.set(0, 0, 0);
+                controls.update();
+
+                initialCameraPosition.copy(camera.position);
+                initialTarget.copy(controls.target);
+
+                // Hide loading indicator
+                if (loaderEl) {
+                    loaderEl.style.opacity = '0';
+                    setTimeout(function() { loaderEl.style.display = 'none'; }, 400);
+                }
+            },
+            function(xhr) {
+                if (xhr.lengthComputable && xhr.total > 0 && loaderText) {
+                    var pct = Math.round((xhr.loaded / xhr.total) * 100);
+                    loaderText.textContent = 'Loading 3D CAD Model... (' + pct + '%)';
+                }
+            },
+            function(error) {
+                console.error('Error loading 3D model:', error);
+                if (loaderEl) {
+                    loaderEl.innerHTML = '<div style="color:#ef4444; font-size:14px;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading 3D model.</div>';
+                }
+            }
+        );
+
+        // UI Event Listeners
+        if (btnEdges) {
+            btnEdges.addEventListener('click', function() {
+                edgesVisible = !edgesVisible;
+                for (var i = 0; i < edgeLines.length; i++) {
+                    edgeLines[i].visible = edgesVisible;
+                }
+                btnEdges.style.background = edgesVisible ? 'rgba(59, 130, 246, 0.3)' : 'rgba(15, 17, 23, 0.85)';
+                btnEdges.style.borderColor = edgesVisible ? '#3b82f6' : 'rgba(255, 255, 255, 0.15)';
+                btnEdges.style.color = edgesVisible ? '#93c5fd' : '#cbd5e1';
+            });
+        }
+
+        if (btnReset) {
+            btnReset.addEventListener('click', function() {
+                camera.position.copy(initialCameraPosition);
+                controls.target.copy(initialTarget);
+                controls.update();
+            });
+        }
+
+        // Resize handler
+        window.addEventListener('resize', function() {
+            var w = mount.clientWidth;
+            var h = mount.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startViewer);
+    } else {
+        startViewer();
+    }
+})();
+</script>

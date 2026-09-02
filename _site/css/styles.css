@@ -505,6 +505,19 @@ nav .mobile-nav {
         font-size: 13px !important;
         padding: 8px 10px !important;
     }
+
+    /* Stop viewport-based scaling inside the contact box: use fixed px sizes so
+       the small paragraph doesn't shrink drastically when viewport narrows. */
+    .contact-section .contact-text,
+    .contact-section .contact-text p {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+    }
+
+    .contact-section .contact-text h3 {
+        font-size: 15px !important;
+        margin: 6px 0 !important;
+    }
 }
 
 /* Responsive: stack columns on narrow screens */
@@ -910,11 +923,12 @@ footer p {
 .post-view .content .image-gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     width: 100%;
-    gap: 10px
+    margin: 20px auto;
+    gap: 15px;
 }
 
 .post-view .content .image-gallery img {
@@ -922,7 +936,15 @@ footer p {
     width: auto; 
     max-width: 100%;
     object-fit: contain;
-    align-self: flex-start;
+    align-self: center;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.post-view .content img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
 }
   
 .post-view .content  a {

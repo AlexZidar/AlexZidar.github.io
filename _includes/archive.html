@@ -1,0 +1,10 @@
+<!-- SECTION: Archive -->
+<section id="archive" class="project-grid-section">
+    <h2 class="section-title">Archive</h2>
+
+    <div class="grid-container">
+        {% for item in site.archive %}
+            {% include project-card.html item=item %}
+        {% endfor %}
+    </div>
+</section>

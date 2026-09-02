@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/post-content.css">
+
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <style>
+        :root {
+            --text-color: #e0e0e0 !important;
+            --background-color: #22272e !important;
+            --light-background-color: #2d333b !important;
+        }
+        body {
+            color: var(--text-color) !important;
+            background-color: var(--background-color) !important;
+        }
+    </style>
+
+    
+    <title>Alexander Zidar's Portfolio</title>
+    
+
+</head>
+<body>
+    <!-- NAVBAR -->
+     <!-- _includes/nav.html -->
+<nav>
+    <div class="left">
+        <a href="/">Alexander Zidar</a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="right desktop-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fa fa-bars fa-2x"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+</nav>
+
+     <div class="page"><div class="post-view">
+    <div class="summary">
+        
+       
+        
+               
+        <img src="/_projects/antenna-tracker/tracker_launch.jpg" alt="Autonomous Rocket Tracker & Ground Station image">
+        
+        <div class="title-header">
+            <h1>Autonomous Rocket Tracker & Ground Station</h1>
+        </div>
+        
+        <div class="project-description">
+            <h2>Project Overview</h2>
+            <p>An autonomous 2-axis (pan-tilt) antenna tracker engineered for Swamp Launch Student Rocketry to track our high-powered rockets during high-speed ascent and recovery. By continuously aligning high-gain directional antennas with the rocket's position, the ground station maintains a robust, low-latency RF telemetry link and live-streamed onboard video feed throughout the flight. The tracker utilizes a duplicate Rasalhague telemetry board as its central receiver and real-time motion controller.</p>
+        </div>
+        <div class="skills-card">
+            <h2>Skills Used</h2> 
+            <div class="skills-list">
+                
+                <span class="skill">C++</span>    
+                
+                <span class="skill">Embedded Systems</span>    
+                
+                <span class="skill">Control Systems</span>    
+                
+                <span class="skill">Mechatronics</span>    
+                
+                <span class="skill">Python</span>    
+                
+                <span class="skill">SolidWorks</span>    
+                
+                <span class="skill">3D Printing</span>    
+                
+            </div>
+        </div>
+    </div>
+      
+    <div class="content">
+        <hr />
+<h2 id="ascent-tracking--flight-profile">Ascent Tracking &amp; Flight Profile:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/antenna-tracker/tracker_launch.jpg" alt="tracker_launch.jpg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="overview">Overview:</h2>
+<p>During high-power rocket flights with <strong>Swamp Launch Student Rocketry</strong>, maintaining a high-bandwidth, reliable radio frequency (RF) link is critical for both real-time telemetry streaming and live onboard video. Standard omnidirectional antennas suffer from severe free-space path loss and multipath fading as the vehicle climbs thousands of feet and drifts downrange.</p>
+
+<p>To overcome this, I developed an autonomous 2-axis (pan and tilt) ground antenna tracker. The system dynamically aims high-gain directional antennas directly at the ascending rocket in real time, maximizing signal margin and ensuring continuous data reception from pad release to touchdown.</p>
+
+<hr />
+
+<h2 id="interactive-3d-ground-station-cad-model">Interactive 3D Ground Station CAD Model:</h2>
+
+<style>
+@keyframes cad-spinner-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.cad-spinner-icon {
+    display: inline-block;
+    animation: cad-spinner-rotate 1.2s linear infinite;
+}
+</style>
+
+<div class="cad-viewer-container" id="container-projects-antenna-tracker-project-sauron-glb" style="position: relative; width: 100%; height: 520px; margin: 24px 0; background: radial-gradient(circle at 50% 30%, #2e3242 0%, #16171e 100%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Top Floating Toolbar -->
+    <div style="position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; pointer-events: none;">
+        <div style="font-size: 13px; font-weight: 500; color: #e2e8f0; background: rgba(15, 17, 23, 0.85); padding: 6px 12px; border-radius: 6px; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-cube" style="color: #60a5fa;"></i>
+            <span>Project Sauron: Autonomous Ground Station Gimbal CAD</span>
+        </div>
+
+        <div style="display: flex; gap: 8px; pointer-events: auto;">
+            <button id="btn-edges-projects-antenna-tracker-project-sauron-glb" title="Toggle CAD Outlines" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #93c5fd; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-vector-square"></i> <span>Edges</span>
+            </button>
+            <button id="btn-reset-projects-antenna-tracker-project-sauron-glb" title="Reset View" style="background: rgba(15, 17, 23, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-crosshairs"></i> <span>Reset</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas Container -->
+    <div id="canvas-projects-antenna-tracker-project-sauron-glb" style="width: 100%; height: 100%; cursor: grab;"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-projects-antenna-tracker-project-sauron-glb" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #14151c; z-index: 5; color: #94a3b8; transition: opacity 0.4s ease;">
+        <i class="fa-solid fa-circle-notch cad-spinner-icon fa-2x" style="color: #60a5fa; margin-bottom: 12px; font-size: 28px;"></i>
+        <span id="loading-text-projects-antenna-tracker-project-sauron-glb" style="font-size: 14px; letter-spacing: 0.5px;">Loading 3D CAD Geometry &amp; Colors...</span>
+    </div>
+
+    <!-- Bottom Helper Hint -->
+    <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #718096; background: rgba(15, 17, 23, 0.7); padding: 4px 12px; border-radius: 12px; pointer-events: none; backdrop-filter: blur(4px); white-space: nowrap;">
+        Left-click: Rotate &bull; Right-click: Pan &bull; Scroll: Zoom
+    </div>
+</div>
+
+<script>
+(function() {
+    function startViewer() {
+        if (typeof THREE === 'undefined' || !THREE.OrbitControls || !THREE.GLTFLoader) {
+            setTimeout(startViewer, 50);
+            return;
+        }
+
+        var container = document.getElementById('container-projects-antenna-tracker-project-sauron-glb');
+        if (!container) return;
+        var mount = document.getElementById('canvas-projects-antenna-tracker-project-sauron-glb');
+        var loaderEl = document.getElementById('loading-projects-antenna-tracker-project-sauron-glb');
+        var loaderText = document.getElementById('loading-text-projects-antenna-tracker-project-sauron-glb');
+        var btnEdges = document.getElementById('btn-edges-projects-antenna-tracker-project-sauron-glb');
+        var btnReset = document.getElementById('btn-reset-projects-antenna-tracker-project-sauron-glb');
+
+        var width = mount.clientWidth || container.clientWidth || 800;
+        var height = mount.clientHeight || container.clientHeight || 500;
+
+        // Scene & Camera with ultra-near clipping plane (0.002) for super close-up inspection
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(40, width / height, 0.002, 5000);
+
+        // Renderer with enhanced studio exposure
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        if (THREE.ACESFilmicToneMapping) {
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.35;
+        }
+        mount.appendChild(renderer.domElement);
+
+        // OrbitControls with continuous auto-rotate permanently active
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+        controls.minDistance = 0.01; // Allows zooming very close to components
+
+        // Brightened Studio CAD Lighting
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1.25);
+        scene.add(ambientLight);
+
+        // Front-upper-right key light
+        var dirLight1 = new THREE.DirectionalLight(0xffffff, 1.8);
+        dirLight1.position.set(200, 300, 200);
+        scene.add(dirLight1);
+
+        // Fill light from lower-left
+        var dirLight2 = new THREE.DirectionalLight(0xcfd8dc, 1.1);
+        dirLight2.position.set(-200, -100, -200);
+        scene.add(dirLight2);
+
+        // Top rim light
+        var dirLight3 = new THREE.DirectionalLight(0xffffff, 0.9);
+        dirLight3.position.set(0, 250, -150);
+        scene.add(dirLight3);
+
+        // Bottom bounce light for underside definition
+        var dirLight4 = new THREE.DirectionalLight(0xffffff, 0.5);
+        dirLight4.position.set(0, -200, 0);
+        scene.add(dirLight4);
+
+        var initialCameraPosition = new THREE.Vector3();
+        var initialTarget = new THREE.Vector3();
+        var edgeLines = [];
+        var edgesVisible = true;
+
+        // Load GLTF Model
+        var loader = new THREE.GLTFLoader();
+        var modelUrl = '/_projects/antenna-tracker/Project_Sauron.glb';
+
+        loader.load(
+            modelUrl,
+            function(gltf) {
+                var root = gltf.scene;
+
+                // Process meshes and compute sharp CAD outlines
+                var edgeMaterial = new THREE.LineBasicMaterial({
+                    color: 0x0a0a0f,
+                    transparent: true,
+                    opacity: 0.8,
+                    depthTest: true
+                });
+
+                root.traverse(function(child) {
+                    if (child.isMesh && child.geometry) {
+                        if (child.material) {
+                            child.material.roughness = Math.max(child.material.roughness || 0.4, 0.2);
+                        }
+
+                        // Compute crease / feature edges (> 26 degrees)
+                        try {
+                            var edgesGeom = new THREE.EdgesGeometry(child.geometry, 26);
+                            var line = new THREE.LineSegments(edgesGeom, edgeMaterial);
+                            child.add(line);
+                            edgeLines.push(line);
+                        } catch (e) {
+                            // Skip if geometry doesn't support EdgesGeometry
+                        }
+                    }
+                });
+
+                // Center root at origin
+                var box = new THREE.Box3().setFromObject(root);
+                var center = box.getCenter(new THREE.Vector3());
+                root.position.sub(center); // Center at (0, 0, 0)
+
+                // Wrapper group for orientation
+                var modelGroup = new THREE.Group();
+                modelGroup.add(root);
+
+                
+                modelGroup.rotation.x = THREE.MathUtils.degToRad(-90);
+                
+                
+                
+
+                scene.add(modelGroup);
+
+                // Auto-frame camera based on final oriented bounds
+                var finalBox = new THREE.Box3().setFromObject(modelGroup);
+                var finalCenter = finalBox.getCenter(new THREE.Vector3());
+                modelGroup.position.sub(finalCenter); // Perfectly center oriented bounds at origin
+
+                
+
+                finalBox.setFromObject(modelGroup);
+                var size = finalBox.getSize(new THREE.Vector3());
+
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var fov = camera.fov * (Math.PI / 180);
+                var dist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.05;
+
+                // Lower camera elevation for a more centered, eye-level perspective
+                camera.position.set(dist * 0.45, dist * 0.52, dist * 0.72);
+                camera.lookAt(0, 0, 0);
+
+                controls.target.set(0, 0, 0);
+                controls.update();
+
+                initialCameraPosition.copy(camera.position);
+                initialTarget.copy(controls.target);
+
+                // Hide loading indicator
+                if (loaderEl) {
+                    loaderEl.style.opacity = '0';
+                    setTimeout(function() { loaderEl.style.display = 'none'; }, 400);
+                }
+            },
+            function(xhr) {
+                if (xhr.lengthComputable && xhr.total > 0 && loaderText) {
+                    var pct = Math.round((xhr.loaded / xhr.total) * 100);
+                    loaderText.textContent = 'Loading 3D CAD Model... (' + pct + '%)';
+                }
+            },
+            function(error) {
+                console.error('Error loading 3D model:', error);
+                if (loaderEl) {
+                    loaderEl.innerHTML = '<div style="color:#ef4444; font-size:14px;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading 3D model.</div>';
+                }
+            }
+        );
+
+        // UI Event Listeners
+        if (btnEdges) {
+            btnEdges.addEventListener('click', function() {
+                edgesVisible = !edgesVisible;
+                for (var i = 0; i < edgeLines.length; i++) {
+                    edgeLines[i].visible = edgesVisible;
+                }
+                btnEdges.style.background = edgesVisible ? 'rgba(59, 130, 246, 0.3)' : 'rgba(15, 17, 23, 0.85)';
+                btnEdges.style.borderColor = edgesVisible ? '#3b82f6' : 'rgba(255, 255, 255, 0.15)';
+                btnEdges.style.color = edgesVisible ? '#93c5fd' : '#cbd5e1';
+            });
+        }
+
+        if (btnReset) {
+            btnReset.addEventListener('click', function() {
+                camera.position.copy(initialCameraPosition);
+                controls.target.copy(initialTarget);
+                controls.update();
+            });
+        }
+
+        // Resize handler
+        window.addEventListener('resize', function() {
+            var w = mount.clientWidth;
+            var h = mount.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startViewer);
+    } else {
+        startViewer();
+    }
+})();
+</script>
+
+<hr />
+
+<h2 id="hand-in-hand-dual-board-architecture">Hand-in-Hand Dual Board Architecture:</h2>
+<p>The ground tracker and rocket avionics operate as an integrated pair. The ground station uses an identical duplicate <strong>Rasalhague</strong> board as its central receiver and controller:</p>
+<ul>
+  <li><strong>RF Demodulation:</strong> The onboard Semtech SX1262 LoRa module receives binary telemetry packets broadcast by the rocket at 915 MHz.</li>
+  <li><strong>Local Sensors &amp; Reference:</strong> The ground board utilizes its own onboard u-blox GPS, BMP581 barometer, and electronic compass to establish a precise local East-North-Up (ENU) coordinate frame without manual calibration.</li>
+  <li><strong>Dual-Stream Link:</strong> The tracker platform carries both high-gain directional LoRa antennas (for sensor telemetry) and directional 5.8 GHz video receiver antennas (for low-latency cockpit video).</li>
+</ul>
+
+<hr />
+
+<h2 id="live-streamed-video-integration">Live-Streamed Video Integration:</h2>
+
+<div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/antenna-tracker/video_link.png" alt="video_link.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<p>To deliver a pilot’s-eye view of the launch, the rocket carries a RunCam WiFiLink digital video transmitter in the avionics bay. The ground station’s motorized gimbal keeps high-gain helical receiver antennas aimed at the airframe, preserving video bitrate and frame rates that would otherwise drop out during high-G flight regimes.</p>
+
+<hr />
+
+<h2 id="vehicle-integration">Vehicle Integration:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/antenna-tracker/rocket_field.jpg" alt="rocket_field.jpg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="pan--tilt-gimbal--closed-loop-motion">Pan / Tilt Gimbal &amp; Closed-Loop Motion:</h2>
+<ul>
+  <li><strong>Actuation:</strong> 2x NEMA 17 stepper motors driving precision azimuth (pan) and elevation (tilt) axes.</li>
+  <li><strong>Closed-Loop Drivers:</strong> Makerbase <strong>MKS SERVO42C</strong> closed-loop stepper controllers communicate directly with the ESP32-S3 over a high-speed hardware UART bus (115200 baud).</li>
+  <li><strong>Zero Step Loss:</strong> Integrated magnetic encoders monitor shaft position at 20 kHz, automatically compensating for wind loads and high-acceleration tracking maneuvers without lost steps.</li>
+  <li><strong>Native Addressing:</strong> The pan axis is addressed at <code class="language-plaintext highlighter-rouge">0xE0</code> and the tilt axis at <code class="language-plaintext highlighter-rouge">0xE1</code>, supporting relative/absolute positioning, velocity profiling, and one-command hardware homing (<code class="language-plaintext highlighter-rouge">0x94</code>).</li>
+</ul>
+
+<hr />
+
+<h2 id="real-time-target-tracking-snippet">Real-Time Target Tracking Snippet:</h2>
+<h3 id="computes-look-angles-from-incoming-rocket-telemetry-and-commands-closed-loop-steppers">Computes look angles from incoming rocket telemetry and commands closed-loop steppers:</h3>
+<pre><code class="language-C++">#include "stepper_controller.h"
+#include "telemetry_format.h"
+
+// Calculate Azimuth and Elevation to rocket from Ground Station coordinates
+void updateTrackerTarget(const TelemetryPacket&amp; rocket, double groundLat, double groundLon, float groundAlt) {
+    // Convert GPS delta to local flat-Earth ENU coordinates (meters)
+    double dLat = (rocket.gps_latitude_deg - groundLat) * 111319.5;
+    double dLon = (rocket.gps_longitude_deg - groundLon) * 111319.5 * cos(groundLat * DEG_TO_RAD);
+    float dAlt = rocket.gps_alt_msl_m - groundAlt;
+    
+    float groundDistance = sqrt(dLon * dLon + dLat * dLat);
+    
+    // Compute target look angles (degrees)
+    float targetAzimuth = atan2(dLon, dLat) * RAD_TO_DEG;
+    if (targetAzimuth &lt; 0.0f) targetAzimuth += 360.0f;
+    
+    float targetElevation = atan2(dAlt, groundDistance) * RAD_TO_DEG;
+    targetElevation = constrain(targetElevation, 0.0f, 90.0f);
+    
+    // Command closed-loop MKS SERVO42C stepper drivers over UART
+    writeMotorAngle(MOTOR_ID_AZIMUTH, targetAzimuth, 1200);
+    writeMotorAngle(MOTOR_ID_ELEVATION, targetElevation, 800);
+}
+</code></pre>
+
+<hr />
+
+<h2 id="system-capabilities">System Capabilities:</h2>
+<ul>
+  <li><strong>Closed-Loop Stepper Control:</strong> Real-time UART bus commanding up to 1200 pulses/sec with magnetic encoder position verification.</li>
+  <li><strong>Autonomous Alignment:</strong> Self-aligns heading and position using base-station GPS and MMC5983MA 3-axis electronic compass.</li>
+  <li><strong>High-Gain Dual Link:</strong> Simultaneously tracks 915 MHz LoRa telemetry and 5.8 GHz digital live video stream.</li>
+  <li><strong>Redundant Ground Logging:</strong> Logs all incoming telemetry directly to onboard 4GB eMMC storage while streaming CSV data to ground monitors over serial.</li>
+</ul>
+
+<hr />
+
+<h2 id="components">Components:</h2>
+<ul>
+  <li>Central Controller: Duplicate Rasalhague Avionics Board (ESP32-S3-N8)</li>
+  <li>RF Front-End: EBYTE E22-900M33S (Semtech SX1262 + 2W PA / LNA)</li>
+  <li>Pan &amp; Tilt Motors: 2x NEMA 17 High-Torque Stepper Motors</li>
+  <li>Closed-Loop Drivers: 2x Makerbase MKS SERVO42C Controllers</li>
+  <li>Video Transmitter: RunCam WiFiLink 2 System</li>
+  <li>Directional Antennas: High-Gain Helical and Yagi-Uda Array</li>
+  <li>Local Sensors: u-blox SAM-M10Q GNSS, BMP581 Barometer, MMC5983MA Compass</li>
+  <li>Power System: 3S LiPo with onboard buck regulation</li>
+</ul>
+
+    </div>
+</div>
+
+</div>
+
+     
+</body>
+
+    <footer>
+    <div class="footer-content">
+        <div class="links">
+            <a href="/">
+                <span>Home</span>
+            </a>
+            <a href="/projects/">
+                <span>Projects</span>
+            </a>
+            <a href="/archive/">
+                <span>Archive</span>
+            </a>
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span>
+            </a> -->
+            <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span>Resume</span>
+            </a>
+        </div>
+    </div>
+    <div class="license">
+        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="mailto:admin@lowinertia.com"> Here</a> </span>
+        <p>Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+    </div>
+</footer>
+
+</html>

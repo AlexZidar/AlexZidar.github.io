@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/post-content.css">
 
-    <script src="/pages/AlexZidar/assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     
     <style>
         :root {
@@ -50,6 +53,9 @@
         <a href="/projects/">
             <span>Projects</span>
         </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
         <!-- <a href="/volunteering/">
             <span>Volunteering</span>
         </a> -->
@@ -71,6 +77,9 @@
         <a href="/projects/">
             <span>Projects</span>
         </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
         <!-- <a href="/volunteering/">
             <span>Volunteering</span>
         </a> -->
@@ -86,15 +95,15 @@
        
         
                
-        <img src="/_projects/prop-data/daqlaunch.jpg" alt="Custom Data Acquisition System image">
+        <img src="/_projects/prop-data/daqlaunch.jpg" alt="Serpens: Next-Generation Propulsion DAQ image">
         
         <div class="title-header">
-            <h1>Custom Data Acquisition System</h1>
+            <h1>Serpens: Next-Generation Propulsion DAQ</h1>
         </div>
         
         <div class="project-description">
             <h2>Project Overview</h2>
-            <p>A custom data aquisition system (DAQ) for propulsion development. This DAQ is designed for use in testing and verifying prototype rocket motors and propellant formulation. The system records casing temperature, thrust, and combustion chamber pressure. This data is then immediately stored as a CSV to the on-board micro-SD card. Supplemental software was developed in Python for rapid report making and classification of rocket motors.</p>
+            <p>The next-generation propulsion data acquisition system for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series of custom avionics boards. Advancing upon the original DAQ V1, Serpens integrates an ESP32-S3 microcontroller, 4-channel 0-4.5V pressure transducer digitizers, dual high-precision load cell bridges, 3 hardware-monitored thermocouple interfaces, and a 10-channel addressable ARGB diagnostic ring with high-speed SD logging and wireless live telemetry streaming.</p>
         </div>
         <div class="skills-card">
             <h2>Skills Used</h2> 
@@ -104,15 +113,17 @@
                 
                 <span class="skill">Python</span>    
                 
-                <span class="skill">Embedded Systems</span>    
+                <span class="skill">PCB Design</span>    
                 
-                <span class="skill">Data Analytics</span>    
+                <span class="skill">KiCad</span>    
+                
+                <span class="skill">Embedded Systems</span>    
                 
                 <span class="skill">Propulsion</span>    
                 
-                <span class="skill">SolidWorks</span>    
+                <span class="skill">Data Analytics</span>    
                 
-                <span class="skill">3D Printing</span>    
+                <span class="skill">Control Systems</span>    
                 
             </div>
         </div>
@@ -121,134 +132,371 @@
     <div class="content">
         <hr />
 
-<h2 id="electronics">Electronics:</h2>
-
-<div class="image-gallery" style="--gallery-height: 400px;">
-  
-      
-      
-          
-          <img src="/_projects/prop-data/daqelectronics.jpg" alt="daqelectronics.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
+<h2 id="continuation-of-original-daq-project">Continuation of Original DAQ Project:</h2>
+<p>Serpens represents the next-generation evolution of our static test stand instrumentation, directly succeeding and advancing the capabilities of the <a href="/archive/prop-data/index/">Original Propulsion DAQ (V1)</a> now located in the Archive. While V1 established our initial baseline for high-speed hot-fire recording, Serpens was completely redesigned from the ground up as part of the <strong>Ophiuchus Constellation</strong> family of aerospace electronics.</p>
 
 <hr />
 
-<h2 id="enclosure">Enclosure:</h2>
+<h2 id="interactive-3d-cad-model">Interactive 3D CAD Model:</h2>
 
-<div class="image-gallery" style="--gallery-height: 400px;">
-  
-      
-      
-          
-          <img src="/_projects/prop-data/daqenclosure.jpg" alt="daqenclosure.jpg" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
+<style>
+@keyframes cad-spinner-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.cad-spinner-icon {
+    display: inline-block;
+    animation: cad-spinner-rotate 1.2s linear infinite;
+}
+</style>
+
+<div class="cad-viewer-container" id="container-projects-prop-data-serpens-glb" style="position: relative; width: 100%; height: 480px; margin: 24px 0; background: radial-gradient(circle at 50% 30%, #2e3242 0%, #16171e 100%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Top Floating Toolbar -->
+    <div style="position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; pointer-events: none;">
+        <div style="font-size: 13px; font-weight: 500; color: #e2e8f0; background: rgba(15, 17, 23, 0.85); padding: 6px 12px; border-radius: 6px; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-cube" style="color: #60a5fa;"></i>
+            <span>Serpens Propulsion DAQ 3D CAD Model</span>
+        </div>
+
+        <div style="display: flex; gap: 8px; pointer-events: auto;">
+            <button id="btn-edges-projects-prop-data-serpens-glb" title="Toggle CAD Outlines" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #93c5fd; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-vector-square"></i> <span>Edges</span>
+            </button>
+            <button id="btn-reset-projects-prop-data-serpens-glb" title="Reset View" style="background: rgba(15, 17, 23, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-crosshairs"></i> <span>Reset</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas Container -->
+    <div id="canvas-projects-prop-data-serpens-glb" style="width: 100%; height: 100%; cursor: grab;"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-projects-prop-data-serpens-glb" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #14151c; z-index: 5; color: #94a3b8; transition: opacity 0.4s ease;">
+        <i class="fa-solid fa-circle-notch cad-spinner-icon fa-2x" style="color: #60a5fa; margin-bottom: 12px; font-size: 28px;"></i>
+        <span id="loading-text-projects-prop-data-serpens-glb" style="font-size: 14px; letter-spacing: 0.5px;">Loading 3D CAD Geometry &amp; Colors...</span>
+    </div>
+
+    <!-- Bottom Helper Hint -->
+    <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #718096; background: rgba(15, 17, 23, 0.7); padding: 4px 12px; border-radius: 12px; pointer-events: none; backdrop-filter: blur(4px); white-space: nowrap;">
+        Left-click: Rotate &bull; Right-click: Pan &bull; Scroll: Zoom
+    </div>
 </div>
 
-<hr />
+<script>
+(function() {
+    function startViewer() {
+        if (typeof THREE === 'undefined' || !THREE.OrbitControls || !THREE.GLTFLoader) {
+            setTimeout(startViewer, 50);
+            return;
+        }
 
-<h2 id="analysis-tool">Analysis Tool:</h2>
+        var container = document.getElementById('container-projects-prop-data-serpens-glb');
+        if (!container) return;
+        var mount = document.getElementById('canvas-projects-prop-data-serpens-glb');
+        var loaderEl = document.getElementById('loading-projects-prop-data-serpens-glb');
+        var loaderText = document.getElementById('loading-text-projects-prop-data-serpens-glb');
+        var btnEdges = document.getElementById('btn-edges-projects-prop-data-serpens-glb');
+        var btnReset = document.getElementById('btn-reset-projects-prop-data-serpens-glb');
 
-<div class="image-gallery" style="--gallery-height: 400px;">
-  
-      
-      
-          
-          <img src="/_projects/prop-data/daqanalysis.png" alt="daqanalysis.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
+        var width = mount.clientWidth || container.clientWidth || 800;
+        var height = mount.clientHeight || container.clientHeight || 500;
 
-<h2 id="example-output-report">Example Output Report:</h2>
+        // Scene & Camera with ultra-near clipping plane (0.002) for super close-up inspection
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(40, width / height, 0.002, 5000);
 
-<div class="image-gallery" style="--gallery-height: 399px;">
-  
-      
-      
-          
-          <img src="/_projects/prop-data/daqresults1.png" alt="daqresults1.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
+        // Renderer with enhanced studio exposure
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        if (THREE.ACESFilmicToneMapping) {
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.35;
+        }
+        mount.appendChild(renderer.domElement);
 
-<div class="image-gallery" style="--gallery-height: 400px;">
-  
-      
-      
-          
-          <img src="/_projects/prop-data/daqresults2.png" alt="daqresults2.png" loading="lazy" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
-      
-  
-</div>
+        // OrbitControls with continuous auto-rotate permanently active
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+        controls.minDistance = 0.01; // Allows zooming very close to components
 
-<hr />
+        // Brightened Studio CAD Lighting
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1.25);
+        scene.add(ambientLight);
 
-<h2 id="capabilities">Capabilities:</h2>
-<ul>
-  <li>Temperature at 200hz</li>
-  <li>Thrust at 320hz</li>
-  <li>Pressure at 320hz</li>
-  <li>Automatic Motor Classification and Report Generation</li>
-</ul>
+        // Front-upper-right key light
+        var dirLight1 = new THREE.DirectionalLight(0xffffff, 1.8);
+        dirLight1.position.set(200, 300, 200);
+        scene.add(dirLight1);
 
-<hr />
+        // Fill light from lower-left
+        var dirLight2 = new THREE.DirectionalLight(0xcfd8dc, 1.1);
+        dirLight2.position.set(-200, -100, -200);
+        scene.add(dirLight2);
 
-<h2 id="components">Components:</h2>
-<ul>
-  <li>Teensy 4.1 Microcontroller</li>
-  <li>Adafruit MCP9601 Thermocouple Amplifier</li>
-  <li>LM085IT3.3 Linear Dropout Regulator</li>
-  <li>SparkFun Qwiic Scale - NAU7802</li>
-  <li>1000 kG Load Cell</li>
-  <li>1000 psi Pressure Transducer</li>
-  <li>Generic K-Type Thermocouple</li>
-  <li>Indicator LED</li>
-  <li>Record Switch</li>
-  <li>JST 1x2 Header</li>
-  <li>JST 1X3 Header</li>
-</ul>
+        // Top rim light
+        var dirLight3 = new THREE.DirectionalLight(0xffffff, 0.9);
+        dirLight3.position.set(0, 250, -150);
+        scene.add(dirLight3);
 
-<hr />
+        // Bottom bounce light for underside definition
+        var dirLight4 = new THREE.DirectionalLight(0xffffff, 0.5);
+        dirLight4.position.set(0, -200, 0);
+        scene.add(dirLight4);
 
-<h2 id="report-maker-code-snippet">Report Maker Code Snippet:</h2>
-<h3 id="highlights-calculation-of-a-variety-of-important-data">Highlights calculation of a variety of important data.</h3>
-<pre><code class="language-Python"> # Calculate time differences between data points for integration
-    df['delta_t'] = df['time_seconds'].diff().fillna(0)
-    
-    # Calculate impulse at each time step
-    df['impulse_step'] = df['thrust_newtons'] * df['delta_t']
-    
-    # Calculate total impulse
-    total_impulse = df['impulse_step'].sum()
-    
-    # Calculate average thrust
-    avg_thrust = df['thrust_newtons'].mean()
-    max_thrust = df['thrust_newtons'].max()
-    
-    # Calculate burn time (time from first non-zero thrust to last non-zero thrust)
-    thrust_threshold = max_thrust * 0.05  # 5% of max thrust as threshold
-    thrust_data = df[df['thrust_newtons'] &gt; thrust_threshold]
-    if not thrust_data.empty:
-        burn_time = thrust_data['time_seconds'].max() - thrust_data['time_seconds'].min()
-    else:
-        burn_time = 0
-    
-    # Motor classification based on total impulse
-    motor_classes = {
-        0: "N/A", 1.26: "A", 2.51: "B", 5.01: "C", 10.01: "D", 20.01: "E",
-        40.01: "F", 80.01: "G", 160.01: "H", 320.01: "I", 640.01: "J",
-        1280.01: "K", 2560.01: "L", 5120.01: "M", 10240.01: "N", 20480.01: "O"
+        var initialCameraPosition = new THREE.Vector3();
+        var initialTarget = new THREE.Vector3();
+        var edgeLines = [];
+        var edgesVisible = true;
+
+        // Load GLTF Model
+        var loader = new THREE.GLTFLoader();
+        var modelUrl = '/_projects/prop-data/Serpens.glb';
+
+        loader.load(
+            modelUrl,
+            function(gltf) {
+                var root = gltf.scene;
+
+                // Process meshes and compute sharp CAD outlines
+                var edgeMaterial = new THREE.LineBasicMaterial({
+                    color: 0x0a0a0f,
+                    transparent: true,
+                    opacity: 0.8,
+                    depthTest: true
+                });
+
+                root.traverse(function(child) {
+                    if (child.isMesh && child.geometry) {
+                        if (child.material) {
+                            child.material.roughness = Math.max(child.material.roughness || 0.4, 0.2);
+                        }
+
+                        // Compute crease / feature edges (> 26 degrees)
+                        try {
+                            var edgesGeom = new THREE.EdgesGeometry(child.geometry, 26);
+                            var line = new THREE.LineSegments(edgesGeom, edgeMaterial);
+                            child.add(line);
+                            edgeLines.push(line);
+                        } catch (e) {
+                            // Skip if geometry doesn't support EdgesGeometry
+                        }
+                    }
+                });
+
+                // Center root at origin
+                var box = new THREE.Box3().setFromObject(root);
+                var center = box.getCenter(new THREE.Vector3());
+                root.position.sub(center); // Center at (0, 0, 0)
+
+                // Wrapper group for orientation
+                var modelGroup = new THREE.Group();
+                modelGroup.add(root);
+
+                
+                
+                
+
+                scene.add(modelGroup);
+
+                // Auto-frame camera based on final oriented bounds
+                var finalBox = new THREE.Box3().setFromObject(modelGroup);
+                var finalCenter = finalBox.getCenter(new THREE.Vector3());
+                modelGroup.position.sub(finalCenter); // Perfectly center oriented bounds at origin
+
+                
+
+                finalBox.setFromObject(modelGroup);
+                var size = finalBox.getSize(new THREE.Vector3());
+
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var fov = camera.fov * (Math.PI / 180);
+                var dist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.05;
+
+                // Lower camera elevation for a more centered, eye-level perspective
+                camera.position.set(dist * 0.45, dist * 0.52, dist * 0.72);
+                camera.lookAt(0, 0, 0);
+
+                controls.target.set(0, 0, 0);
+                controls.update();
+
+                initialCameraPosition.copy(camera.position);
+                initialTarget.copy(controls.target);
+
+                // Hide loading indicator
+                if (loaderEl) {
+                    loaderEl.style.opacity = '0';
+                    setTimeout(function() { loaderEl.style.display = 'none'; }, 400);
+                }
+            },
+            function(xhr) {
+                if (xhr.lengthComputable && xhr.total > 0 && loaderText) {
+                    var pct = Math.round((xhr.loaded / xhr.total) * 100);
+                    loaderText.textContent = 'Loading 3D CAD Model... (' + pct + '%)';
+                }
+            },
+            function(error) {
+                console.error('Error loading 3D model:', error);
+                if (loaderEl) {
+                    loaderEl.innerHTML = '<div style="color:#ef4444; font-size:14px;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading 3D model.</div>';
+                }
+            }
+        );
+
+        // UI Event Listeners
+        if (btnEdges) {
+            btnEdges.addEventListener('click', function() {
+                edgesVisible = !edgesVisible;
+                for (var i = 0; i < edgeLines.length; i++) {
+                    edgeLines[i].visible = edgesVisible;
+                }
+                btnEdges.style.background = edgesVisible ? 'rgba(59, 130, 246, 0.3)' : 'rgba(15, 17, 23, 0.85)';
+                btnEdges.style.borderColor = edgesVisible ? '#3b82f6' : 'rgba(255, 255, 255, 0.15)';
+                btnEdges.style.color = edgesVisible ? '#93c5fd' : '#cbd5e1';
+            });
+        }
+
+        if (btnReset) {
+            btnReset.addEventListener('click', function() {
+                camera.position.copy(initialCameraPosition);
+                controls.target.copy(initialTarget);
+                controls.update();
+            });
+        }
+
+        // Resize handler
+        window.addEventListener('resize', function() {
+            var w = mount.clientWidth;
+            var h = mount.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
     }
-    
-    motor_class = "N/A"
-    for impulse_threshold, class_letter in sorted(motor_classes.items()):
-        if total_impulse &gt;= impulse_threshold:
-            motor_class = class_letter
-        else:
-            break
-</code></pre>
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startViewer);
+    } else {
+        startViewer();
+    }
+})();
+</script>
+
+<hr />
+
+<h2 id="hot-fire-testing--motor-verification">Hot Fire Testing &amp; Motor Verification:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/prop-data/daqlaunch.jpg" alt="daqlaunch.jpg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="overview">Overview:</h2>
+<p><strong>Serpens</strong> is a high-speed, multi-channel propulsion data acquisition and test stand controller designed for solid rocket motor and hybrid propulsion hot-fire testing with <strong>Swamp Launch Student Rocketry</strong>.</p>
+
+<p>Engineered around the Espressif ESP32-S3 dual-core microcontroller running at 240 MHz, Serpens provides high-frequency synchronous sampling of thrust, multiple combustion chamber pressures, feed line pressures, and high-temperature thermal profiles. The system logs raw data to an onboard high-speed SPI microSD card while simultaneously transmitting live telemetry wirelessly to our ground control software over Wi-Fi.</p>
+
+<hr />
+
+<h2 id="sensor-array--subsystems">Sensor Array &amp; Subsystems:</h2>
+<ul>
+  <li><strong>4-Channel Pressure Transducers:</strong> Texas Instruments ADS1015IDGS at <code class="language-plaintext highlighter-rouge">0x48</code> configured to digitize 0–4.5V industrial pressure transducers across all 4 channels (chamber pressure, pre/post injector pressures, and manifold pressures).</li>
+  <li><strong>Dual Strain Gauge Load Cells:</strong> Nuvoton NAU7802 24-bit differential bridge ADC at <code class="language-plaintext highlighter-rouge">0x2A</code> utilizing Channels A &amp; B to capture multi-axis thrust profiles and side loads with 128x programmable gain.</li>
+  <li><strong>3 Dedicated Thermocouple Channels:</strong> Three Maxim MAX31856 precision thermocouple digitizers on a dedicated secondary SPI bus (<code class="language-plaintext highlighter-rouge">SPI_1</code>: MISO 40, CLK 41, MOSI 42) with independent chip selects (CS 4, 5, 6) and hardware data-ready interrupts (DRDY 14, 15, 16) for real-time monitoring of nozzle throat erosion and casing temperatures up to +1370°C.</li>
+  <li><strong>10-Channel ARGB Status Ring (WS2812B-1010):</strong> A custom chain of 10 micro addressable RGB LEDs positioned next to each terminal block providing real-time hardware diagnostics:
+    <ul>
+      <li><strong>Solid Green:</strong> Channel configured, sensor online, healthy baseline.</li>
+      <li><strong>Solid Red:</strong> Channel disabled / unconfigured in current test profile.</li>
+      <li><strong>Flashing Red:</strong> Hardware fault, open-circuit thermocouple, or ADC out-of-range alert.</li>
+    </ul>
+  </li>
+  <li><strong>Local Display &amp; Range Safety:</strong> 0.91-inch SSD1306 OLED (<code class="language-plaintext highlighter-rouge">0x3C</code>) for local status readouts, passive buzzer, and high-power indicator lamp for audible and visual hot-fire countdown warnings.</li>
+  <li><strong>Battery Fuel Gauge:</strong> Precision voltage divider (499 kΩ / 100 kΩ) on Pin 7 for accurate battery pack health monitoring.</li>
+</ul>
+
+<hr />
+
+<h2 id="serpens-ground-control-gui">Serpens Ground Control GUI:</h2>
+
+<div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/prop-data/serpens_gui.png" alt="serpens_gui.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<p>I developed a Python desktop application using PyQt6 and pyqtgraph to communicate with Serpens over local Wi-Fi telemetry:</p>
+<ul>
+  <li><strong>Real-Time Visualization:</strong> Simultaneous real-time waveform plotting of 4 pressure transducers (PSI), dual load cells (lbf), and 3 thermocouple channels (°C).</li>
+  <li><strong>Test Stand Arming &amp; Countdown:</strong> Remote countdown sequencer, ignition relay arming, and synchronized high-speed recording triggers.</li>
+  <li><strong>Live Terminal Health:</strong> Mirrored ARGB channel status display matching the physical board’s LED indicators.</li>
+  <li><strong>Sensor Calibration Suite:</strong> Multi-point calibration wizards for load cells and pressure transducers with real-time tare and offset compensation.</li>
+</ul>
+
+<hr />
+
+<h2 id="automated-motor-ballistics--analysis-reports">Automated Motor Ballistics &amp; Analysis Reports:</h2>
+
+<div class="image-gallery" style="--gallery-height: 420px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/prop-data/serpens_ballistics_report.png" alt="serpens_ballistics_report.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+      
+      
+          
+          <img src="/_projects/prop-data/serpens_thrust_plots.png" alt="serpens_thrust_plots.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<p>Following each test, the integrated analysis engine processes raw test data to automatically compute motor ballistics and generate comprehensive PDF qualification reports:</p>
+<ul>
+  <li><strong>Total Impulse (It):</strong> Numerical integration of the thrust-time curve (∫ F dt).</li>
+  <li><strong>Maximum &amp; Average Thrust (F_max, F_avg)</strong></li>
+  <li><strong>Burn &amp; Action Times (tb, ta):</strong> Standard 5% and 10% threshold definitions.</li>
+  <li><strong>Chamber Pressure Integral (∫ Pc dt):</strong> Characteristic velocity (C*) and thrust coefficient (CF).</li>
+  <li><strong>Motor Classification:</strong> Instant classification according to Tripoli Rocketry Association / NAR standards (e.g. K737).</li>
+</ul>
+
+<hr />
+
+<h2 id="hardware-architecture">Hardware Architecture:</h2>
+<ul>
+  <li><strong>Processor:</strong> Espressif ESP32-S3 Dual-Core Xtensa LX7 @ 240 MHz</li>
+  <li><strong>Pressure ADC:</strong> TI ADS1015 (4-Channel 12-Bit Differential, I2C <code class="language-plaintext highlighter-rouge">0x48</code>)</li>
+  <li><strong>Thrust ADC:</strong> Nuvoton NAU7802 (Dual-Channel 24-Bit Differential, I2C <code class="language-plaintext highlighter-rouge">0x2A</code>)</li>
+  <li><strong>Thermal Digitizers:</strong> 3x Maxim MAX31856 (K-Type, SPI_1 Bus)</li>
+  <li><strong>Local Diagnostics:</strong> 10x WS2812B-1010 ARGB Ring + SSD1306 128x32 OLED</li>
+  <li><strong>Storage:</strong> High-Speed MicroSD Card Slot (Dedicated SPI Bus)</li>
+  <li><strong>Communications:</strong> 802.11 b/g/n Wi-Fi Telemetry &amp; USB-C Programming</li>
+</ul>
 
     </div>
 </div>
@@ -267,10 +515,13 @@
             <a href="/projects/">
                 <span>Projects</span>
             </a>
-            <!-- <a href="/volunteering/">
-                <span>Volunteering</span> -->
+            <a href="/archive/">
+                <span>Archive</span>
             </a>
-            <a href=https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing target="_blank" rel="noopener noreferrer">
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span>
+            </a> -->
+            <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <span>Resume</span>
             </a>
         </div>

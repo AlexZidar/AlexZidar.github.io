@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/post-content.css">
+
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <style>
+        :root {
+            --text-color: #e0e0e0 !important;
+            --background-color: #22272e !important;
+            --light-background-color: #2d333b !important;
+        }
+        body {
+            color: var(--text-color) !important;
+            background-color: var(--background-color) !important;
+        }
+    </style>
+
+    
+    <title>Alexander Zidar's Portfolio</title>
+    
+
+</head>
+<body>
+    <!-- NAVBAR -->
+     <!-- _includes/nav.html -->
+<nav>
+    <div class="left">
+        <a href="/">Alexander Zidar</a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="right desktop-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fa fa-bars fa-2x"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+</nav>
+
+     <div class="page"><div class="post-view">
+    <div class="summary">
+        
+       
+        
+               
+        <img src="/_projects/rasalhague-telemetry/schematic.png" alt="Rasalhague: Long-Range Telemetry Flight Computer image">
+        
+        <div class="title-header">
+            <h1>Rasalhague: Long-Range Telemetry Flight Computer</h1>
+        </div>
+        
+        <div class="project-description">
+            <h2>Project Overview</h2>
+            <p>A custom-designed, high-power long-range telemetry flight computer engineered for Swamp Launch Student Rocketry. Powered by an ESP32-S3 microcontroller, Rasalhague integrates a 2W (33 dBm) LoRa transceiver, u-blox SAM-M10Q multi-constellation GNSS, BMP581 precision barometer, LSM6DSOX 6-axis IMU, and MMC5983MA electronic compass. It features dynamic RF power/spreading factor staging, high-speed 4GB onboard eMMC black-box logging, and an active-cooled RF power amplifier stage.</p>
+        </div>
+        <div class="skills-card">
+            <h2>Skills Used</h2> 
+            <div class="skills-list">
+                
+                <span class="skill">C++</span>    
+                
+                <span class="skill">PCB Design</span>    
+                
+                <span class="skill">KiCad</span>    
+                
+                <span class="skill">Embedded Systems</span>    
+                
+                <span class="skill">Avionics</span>    
+                
+                <span class="skill">Python</span>    
+                
+                <span class="skill">FreeRTOS</span>    
+                
+            </div>
+        </div>
+    </div>
+      
+    <div class="content">
+        <hr />
+<h2 id="complete-electrical-schematic">Complete Electrical Schematic:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/rasalhague-telemetry//schematic.png" alt="schematic.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="overview">Overview:</h2>
+<p><strong>Rasalhague</strong> is a high-performance, long-range telemetry flight computer designed for high-powered rocketry with <strong>Swamp Launch Student Rocketry</strong>. Built to operate both as an onboard rocket transmitter and as a ground station receiver, Rasalhague solves the critical challenge of telemetry loss during extreme altitude flights and long-distance drifts.</p>
+
+<p>By combining an ESP32-S3 microcontroller with a 2W (33 dBm) Semtech SX1262 LoRa front-end, multi-sensor avionics array, and vibration-immune 4GB eMMC storage, Rasalhague streams flight telemetry in real time while maintaining a complete, high-frequency flight record.</p>
+
+<hr />
+
+<h2 id="fabricated-circuit-boards">Fabricated Circuit Boards:</h2>
+
+<div class="image-gallery" style="--gallery-height: 400px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/rasalhague-telemetry//pcbs.jpg" alt="pcbs.jpg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="interactive-3d-cad-model">Interactive 3D CAD Model:</h2>
+
+<style>
+@keyframes cad-spinner-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.cad-spinner-icon {
+    display: inline-block;
+    animation: cad-spinner-rotate 1.2s linear infinite;
+}
+</style>
+
+<div class="cad-viewer-container" id="container-projects-rasalhague-telemetry-rasalhague-glb" style="position: relative; width: 100%; height: 480px; margin: 24px 0; background: radial-gradient(circle at 50% 30%, #2e3242 0%, #16171e 100%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Top Floating Toolbar -->
+    <div style="position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; pointer-events: none;">
+        <div style="font-size: 13px; font-weight: 500; color: #e2e8f0; background: rgba(15, 17, 23, 0.85); padding: 6px 12px; border-radius: 6px; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-cube" style="color: #60a5fa;"></i>
+            <span>Rasalhague Telemetry Flight Computer 3D Model</span>
+        </div>
+
+        <div style="display: flex; gap: 8px; pointer-events: auto;">
+            <button id="btn-edges-projects-rasalhague-telemetry-rasalhague-glb" title="Toggle CAD Outlines" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #93c5fd; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-vector-square"></i> <span>Edges</span>
+            </button>
+            <button id="btn-reset-projects-rasalhague-telemetry-rasalhague-glb" title="Reset View" style="background: rgba(15, 17, 23, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-crosshairs"></i> <span>Reset</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas Container -->
+    <div id="canvas-projects-rasalhague-telemetry-rasalhague-glb" style="width: 100%; height: 100%; cursor: grab;"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-projects-rasalhague-telemetry-rasalhague-glb" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #14151c; z-index: 5; color: #94a3b8; transition: opacity 0.4s ease;">
+        <i class="fa-solid fa-circle-notch cad-spinner-icon fa-2x" style="color: #60a5fa; margin-bottom: 12px; font-size: 28px;"></i>
+        <span id="loading-text-projects-rasalhague-telemetry-rasalhague-glb" style="font-size: 14px; letter-spacing: 0.5px;">Loading 3D CAD Geometry &amp; Colors...</span>
+    </div>
+
+    <!-- Bottom Helper Hint -->
+    <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #718096; background: rgba(15, 17, 23, 0.7); padding: 4px 12px; border-radius: 12px; pointer-events: none; backdrop-filter: blur(4px); white-space: nowrap;">
+        Left-click: Rotate &bull; Right-click: Pan &bull; Scroll: Zoom
+    </div>
+</div>
+
+<script>
+(function() {
+    function startViewer() {
+        if (typeof THREE === 'undefined' || !THREE.OrbitControls || !THREE.GLTFLoader) {
+            setTimeout(startViewer, 50);
+            return;
+        }
+
+        var container = document.getElementById('container-projects-rasalhague-telemetry-rasalhague-glb');
+        if (!container) return;
+        var mount = document.getElementById('canvas-projects-rasalhague-telemetry-rasalhague-glb');
+        var loaderEl = document.getElementById('loading-projects-rasalhague-telemetry-rasalhague-glb');
+        var loaderText = document.getElementById('loading-text-projects-rasalhague-telemetry-rasalhague-glb');
+        var btnEdges = document.getElementById('btn-edges-projects-rasalhague-telemetry-rasalhague-glb');
+        var btnReset = document.getElementById('btn-reset-projects-rasalhague-telemetry-rasalhague-glb');
+
+        var width = mount.clientWidth || container.clientWidth || 800;
+        var height = mount.clientHeight || container.clientHeight || 500;
+
+        // Scene & Camera with ultra-near clipping plane (0.002) for super close-up inspection
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(40, width / height, 0.002, 5000);
+
+        // Renderer with enhanced studio exposure
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        if (THREE.ACESFilmicToneMapping) {
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.35;
+        }
+        mount.appendChild(renderer.domElement);
+
+        // OrbitControls with continuous auto-rotate permanently active
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+        controls.minDistance = 0.01; // Allows zooming very close to components
+
+        // Brightened Studio CAD Lighting
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1.25);
+        scene.add(ambientLight);
+
+        // Front-upper-right key light
+        var dirLight1 = new THREE.DirectionalLight(0xffffff, 1.8);
+        dirLight1.position.set(200, 300, 200);
+        scene.add(dirLight1);
+
+        // Fill light from lower-left
+        var dirLight2 = new THREE.DirectionalLight(0xcfd8dc, 1.1);
+        dirLight2.position.set(-200, -100, -200);
+        scene.add(dirLight2);
+
+        // Top rim light
+        var dirLight3 = new THREE.DirectionalLight(0xffffff, 0.9);
+        dirLight3.position.set(0, 250, -150);
+        scene.add(dirLight3);
+
+        // Bottom bounce light for underside definition
+        var dirLight4 = new THREE.DirectionalLight(0xffffff, 0.5);
+        dirLight4.position.set(0, -200, 0);
+        scene.add(dirLight4);
+
+        var initialCameraPosition = new THREE.Vector3();
+        var initialTarget = new THREE.Vector3();
+        var edgeLines = [];
+        var edgesVisible = true;
+
+        // Load GLTF Model
+        var loader = new THREE.GLTFLoader();
+        var modelUrl = '/_projects/rasalhague-telemetry/Rasalhague.glb';
+
+        loader.load(
+            modelUrl,
+            function(gltf) {
+                var root = gltf.scene;
+
+                // Process meshes and compute sharp CAD outlines
+                var edgeMaterial = new THREE.LineBasicMaterial({
+                    color: 0x0a0a0f,
+                    transparent: true,
+                    opacity: 0.8,
+                    depthTest: true
+                });
+
+                root.traverse(function(child) {
+                    if (child.isMesh && child.geometry) {
+                        if (child.material) {
+                            child.material.roughness = Math.max(child.material.roughness || 0.4, 0.2);
+                        }
+
+                        // Compute crease / feature edges (> 26 degrees)
+                        try {
+                            var edgesGeom = new THREE.EdgesGeometry(child.geometry, 26);
+                            var line = new THREE.LineSegments(edgesGeom, edgeMaterial);
+                            child.add(line);
+                            edgeLines.push(line);
+                        } catch (e) {
+                            // Skip if geometry doesn't support EdgesGeometry
+                        }
+                    }
+                });
+
+                // Center root at origin
+                var box = new THREE.Box3().setFromObject(root);
+                var center = box.getCenter(new THREE.Vector3());
+                root.position.sub(center); // Center at (0, 0, 0)
+
+                // Wrapper group for orientation
+                var modelGroup = new THREE.Group();
+                modelGroup.add(root);
+
+                
+                
+                
+
+                scene.add(modelGroup);
+
+                // Auto-frame camera based on final oriented bounds
+                var finalBox = new THREE.Box3().setFromObject(modelGroup);
+                var finalCenter = finalBox.getCenter(new THREE.Vector3());
+                modelGroup.position.sub(finalCenter); // Perfectly center oriented bounds at origin
+
+                
+
+                finalBox.setFromObject(modelGroup);
+                var size = finalBox.getSize(new THREE.Vector3());
+
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var fov = camera.fov * (Math.PI / 180);
+                var dist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.05;
+
+                // Lower camera elevation for a more centered, eye-level perspective
+                camera.position.set(dist * 0.45, dist * 0.52, dist * 0.72);
+                camera.lookAt(0, 0, 0);
+
+                controls.target.set(0, 0, 0);
+                controls.update();
+
+                initialCameraPosition.copy(camera.position);
+                initialTarget.copy(controls.target);
+
+                // Hide loading indicator
+                if (loaderEl) {
+                    loaderEl.style.opacity = '0';
+                    setTimeout(function() { loaderEl.style.display = 'none'; }, 400);
+                }
+            },
+            function(xhr) {
+                if (xhr.lengthComputable && xhr.total > 0 && loaderText) {
+                    var pct = Math.round((xhr.loaded / xhr.total) * 100);
+                    loaderText.textContent = 'Loading 3D CAD Model... (' + pct + '%)';
+                }
+            },
+            function(error) {
+                console.error('Error loading 3D model:', error);
+                if (loaderEl) {
+                    loaderEl.innerHTML = '<div style="color:#ef4444; font-size:14px;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading 3D model.</div>';
+                }
+            }
+        );
+
+        // UI Event Listeners
+        if (btnEdges) {
+            btnEdges.addEventListener('click', function() {
+                edgesVisible = !edgesVisible;
+                for (var i = 0; i < edgeLines.length; i++) {
+                    edgeLines[i].visible = edgesVisible;
+                }
+                btnEdges.style.background = edgesVisible ? 'rgba(59, 130, 246, 0.3)' : 'rgba(15, 17, 23, 0.85)';
+                btnEdges.style.borderColor = edgesVisible ? '#3b82f6' : 'rgba(255, 255, 255, 0.15)';
+                btnEdges.style.color = edgesVisible ? '#93c5fd' : '#cbd5e1';
+            });
+        }
+
+        if (btnReset) {
+            btnReset.addEventListener('click', function() {
+                camera.position.copy(initialCameraPosition);
+                controls.target.copy(initialTarget);
+                controls.update();
+            });
+        }
+
+        // Resize handler
+        window.addEventListener('resize', function() {
+            var w = mount.clientWidth;
+            var h = mount.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startViewer);
+    } else {
+        startViewer();
+    }
+})();
+</script>
+
+<hr />
+
+<h2 id="pre-flight-configuration-tool">Pre-Flight Configuration Tool:</h2>
+
+<div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/rasalhague-telemetry//config_gui.png" alt="config_gui.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/rasalhague-telemetry//config_gui_pinout.png" alt="config_gui_pinout.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<p>To streamline launch-day operations, I created a custom PyQt6 configuration application. Through a simple USB-C interface, team members can:</p>
+<ul>
+  <li>Configure amateur radio callsign (FCC Part 97 identification)</li>
+  <li>Set LoRa carrier frequency, bandwidth, and power profiles</li>
+  <li>Define flight-event acceleration thresholds and descent rate triggers</li>
+  <li>Review live pinout references and diagnostic status before arming on the pad</li>
+</ul>
+
+<hr />
+
+<h2 id="2w-lora-rf-subsystem--dynamic-staging">2W LoRa RF Subsystem &amp; Dynamic Staging:</h2>
+<p>Rasalhague pairs a Semtech SX1262 transceiver with an EBYTE E22-900M33S power amplifier module capable of transmitting up to <strong>+33 dBm (2000 mW)</strong> on 915 MHz. To optimize link budget and battery life, the firmware implements dynamic RF flight staging:</p>
+<ul>
+  <li><strong>PAD (0):</strong> Transmits at low power (10 dBm, SF7) to avoid saturating nearby ground station receivers on the launch rail.</li>
+  <li><strong>BOOST (1) &amp; COAST (2):</strong> Upon detecting launch acceleration (&gt;3.5g), the board throttles to full 2W power and SF8 to beam high-rate telemetry through vehicle burnout and apogee.</li>
+  <li><strong>DESCENT (3) &amp; RECOVERY (4):</strong> At parachute deployment, the radio switches to maximum spreading factor (SF11) at 2W power, dedicating bandwidth to high-reliability GPS recovery packets to guarantee recovery even in dense brush or distant terrain.</li>
+</ul>
+
+<hr />
+
+<h2 id="sensor-array--black-box-emmc-storage">Sensor Array &amp; Black-Box eMMC Storage:</h2>
+<p>All flight-critical sensors interface over a dedicated 400 kHz I2C bus:</p>
+<ul>
+  <li><strong>Bosch BMP581:</strong> High-precision barometric pressure sensor for sub-meter altitude resolution.</li>
+  <li><strong>STMicroelectronics LSM6DSOX:</strong> 6-DOF IMU operating at 833 Hz ODR (16g accelerometer, 2000 dps gyroscope).</li>
+  <li><strong>Memsic MMC5983MA:</strong> 100 Hz 3-axis electronic compass for attitude determination.</li>
+  <li><strong>u-blox SAM-M10Q:</strong> Multi-constellation GNSS receiver streaming binary UBX NAV-PVT packets at 25 Hz.</li>
+  <li><strong>4GB eMMC Storage:</strong> Replaces vibration-prone physical microSD card slots with high-speed surface-mount eMMC memory operated over a 1-bit SD_MMC bus.</li>
+  <li><strong>Active Thermal Management:</strong> Integrated 5V fan driver on Pin 34 keeps the RF power amplifier cool during extended high-power transmissions.</li>
+</ul>
+
+<hr />
+
+<h2 id="firmware-flight-state-machine-snippet">Firmware Flight State Machine Snippet:</h2>
+<h3 id="dynamic-rf-power-and-modulation-control-based-on-sensor-triggers">Dynamic RF power and modulation control based on sensor triggers:</h3>
+<pre><code class="language-C++">// Dynamic LoRa power scaling based on flight state
+void updateRadioStaging(FlightState currentState) {
+    switch (currentState) {
+        case STATE_PAD:
+            // Low power on pad to prevent receiver saturation
+            radio.setOutputPower(10); // 10 dBm (10 mW)
+            radio.setSpreadingFactor(7);
+            break;
+
+        case STATE_BOOST:
+        case STATE_COAST:
+            // Maximum power during high-speed ascent and apogee coast
+            setPAActiveCoolingFan(true);
+            radio.setOutputPower(33); // 33 dBm (2000 mW / 2W)
+            radio.setSpreadingFactor(8);
+            break;
+
+        case STATE_DESCENT:
+        case STATE_LANDED:
+            // Maximum range recovery mode: high SF prioritizes GPS link margin
+            radio.setOutputPower(33);
+            radio.setSpreadingFactor(11);
+            break;
+    }
+}
+</code></pre>
+
+<hr />
+
+<h2 id="hardware-specifications">Hardware Specifications:</h2>
+<ul>
+  <li><strong>MCU:</strong> Espressif ESP32-S3-N8 (Dual-Core Xtensa LX7 @ 240 MHz, FreeRTOS)</li>
+  <li><strong>RF Transceiver:</strong> EBYTE E22-900M33S (Semtech SX1262 + 2W PA, 915 MHz)</li>
+  <li><strong>GNSS Receiver:</strong> u-blox SAM-M10Q-00B (GPS / Galileo / GLONASS / BeiDou @ 25 Hz)</li>
+  <li><strong>Barometer:</strong> Bosch BMP581 (High-accuracy ±0.5 Pa)</li>
+  <li><strong>IMU:</strong> ST LSM6DSOX (16g Accel, 2000 dps Gyro @ 833 Hz)</li>
+  <li><strong>Magnetometer:</strong> Memsic MMC5983MA 3-Axis Electronic Compass</li>
+  <li><strong>Onboard Storage:</strong> 4GB eMMC Flash Memory (1-Bit SD_MMC)</li>
+  <li><strong>Status Display:</strong> 0.91-inch 128x32 OLED Display (SSD1306)</li>
+  <li><strong>Power Architecture:</strong> BQ24074 Li-Ion Charger &amp; Power Path, 4.8A 5.25V Boost, 3.3V LDO</li>
+</ul>
+
+    </div>
+</div>
+
+</div>
+
+     
+</body>
+
+    <footer>
+    <div class="footer-content">
+        <div class="links">
+            <a href="/">
+                <span>Home</span>
+            </a>
+            <a href="/projects/">
+                <span>Projects</span>
+            </a>
+            <a href="/archive/">
+                <span>Archive</span>
+            </a>
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span>
+            </a> -->
+            <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span>Resume</span>
+            </a>
+        </div>
+    </div>
+    <div class="license">
+        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="mailto:admin@lowinertia.com"> Here</a> </span>
+        <p>Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+    </div>
+</footer>
+
+</html>
