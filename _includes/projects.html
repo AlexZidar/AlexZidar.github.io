@@ -3,7 +3,8 @@
     <h2 class="section-title">Projects</h2>
 
     <div class="grid-container">
-        {% for item in site.projects %}
+        {% assign sorted_projects = site.projects | sort: "order" %}
+        {% for item in sorted_projects %}
             {% include project-card.html item=item %}
         {% endfor %}
     </div>

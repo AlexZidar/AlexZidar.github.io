@@ -11,7 +11,9 @@ skills:
   - SolidWorks
   - 3D Printing
 
-main-image: /tracker_launch.jpg
+main-image: /pan_tilt.gif
+card-image: /pan_tilt_zoom.gif
+order: 1
 ---
 
 ---
@@ -41,7 +43,7 @@ The ground tracker and rocket avionics operate as an integrated pair. The ground
 ---
 
 ## Live-Streamed Video Integration:
-{% include image-gallery.html images="video_link.png" height="380" %}
+{% include image-gallery.html images="runcam_wifilink.png" height="380" %}
 
 To deliver a pilot’s-eye view of the launch, the rocket carries a RunCam WiFiLink digital video transmitter in the avionics bay. The ground station's motorized gimbal keeps high-gain helical receiver antennas aimed at the airframe, preserving video bitrate and frame rates that would otherwise drop out during high-G flight regimes.
 

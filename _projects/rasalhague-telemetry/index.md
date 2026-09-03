@@ -11,12 +11,14 @@ skills:
   - Python
   - FreeRTOS
 
-main-image: /schematic.png
+main-image: /back_full.png
+card-image: /rasalhague_card.png
+order: 4
 ---
 
 ---
 ## Complete Electrical Schematic:
-{% include image-gallery.html images="schematic.png" height="400" %}  
+{% include image-gallery.html images="schematic.png" height="600" %}  
 
 ---
 
@@ -28,7 +30,8 @@ By combining an ESP32-S3 microcontroller with a 2W (33 dBm) Semtech SX1262 LoRa 
 ---
 
 ## Fabricated Circuit Boards:
-{% include image-gallery.html images="pcbs.jpg" height="400" %}
+{% include image-gallery.html images="fab_front.jpg" height="420" %}
+{% include image-gallery.html images="fab_back.jpg" height="420" %}
 
 ---
 

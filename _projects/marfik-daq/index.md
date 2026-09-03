@@ -13,13 +13,19 @@ skills:
   - Python
   - Signal Processing
 
-main-image: /marfik_schematic.png
+main-image: /marfik_cover.jpg
+order: 2
 ---
 
 ---
 
 ## Complete Electrical Schematic:
-{% include image-gallery.html images="marfik_schematic.png" height="400" %}  
+{% include image-gallery.html images="marfik_schematic.png" height="600" %}  
+
+---
+
+## Fabricated & Assembled Hardware:
+{% include image-gallery.html images="front_OLED.jpg, back.jpg" height="420" %}
 
 ---
 

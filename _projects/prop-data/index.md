@@ -14,12 +14,18 @@ skills:
   - Control Systems
 
 main-image: /daqlaunch.jpg
+order: 3
 ---
 
 ---
 
 ## Continuation of Original DAQ Project:
 Serpens represents the next-generation evolution of our static test stand instrumentation, directly succeeding and advancing the capabilities of the [Original Propulsion DAQ (V1)](/archive/prop-data/index/) now located in the Archive. While V1 established our initial baseline for high-speed hot-fire recording, Serpens was completely redesigned from the ground up as part of the **Ophiuchus Constellation** family of aerospace electronics.
+
+---
+
+## Complete Electrical Schematic:
+{% include image-gallery.html images="serpens_schematic.png" height="600" %}  
 
 ---
 

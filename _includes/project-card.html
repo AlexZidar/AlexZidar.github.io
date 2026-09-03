@@ -2,7 +2,8 @@
 <a href="{{ item.url }}" class="project-link">
     <div class="project-card">
         {% assign folder_path = item.path | split: "/" | slice: 0, 2 | join: "/" %}
-        {% assign image_path = "/" | append: folder_path | append: item['main-image'] %}
+        {% assign card_img = item['card-image'] | default: item['main-image'] %}
+        {% assign image_path = "/" | append: folder_path | append: card_img %}
         <img src="{{ image_path }}" alt="{{ item.title }} image">
         <h3 class="project-title">{{ item.title }}</h3>
         <div class="project-skills">
