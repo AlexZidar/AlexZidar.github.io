@@ -3,11 +3,13 @@ layout: post
 title: Motorized Digital Microscope
 description: A custom built, sub-$150, digital microscope for use as an interactive display or in general microscopy. I was motivated to create this device as part of my continued and longstanding volunteer work for the museum of archeology, paleontology, and science (MAPS) in New Port Richey. In addition to being a museum display, this microscope serves as a prototyping and development platform for future work planned in microscopy. 
 skills: 
+  - CAD Design
   - SolidWorks
-  - Python
+  - Product Development
+  - Mechatronics
   - 3D Printing
   - PCB Design
-  - Product Development
+  - Python
 
 main-image: /micro1.jpg
 order: 5

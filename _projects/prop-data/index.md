@@ -4,17 +4,18 @@ title: "Serpens: Next-Generation Propulsion DAQ"
 description: The next-generation propulsion data acquisition system for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series of custom avionics boards. Advancing upon the original DAQ V1, Serpens integrates an ESP32-S3 microcontroller, 4-channel 0-4.5V pressure transducer digitizers, dual high-precision load cell bridges, 3 hardware-monitored thermocouple interfaces, and a 10-channel addressable ARGB diagnostic ring with high-speed SD logging and wireless live telemetry streaming.
 
 skills: 
+  - Data Analytics
+  - KiCad Design
+  - PCB Design
+  - Product Development
+  - Propulsion
+  - Control Systems
+  - Embedded Systems
   - C++
   - Python
-  - PCB Design
-  - KiCad
-  - Embedded Systems
-  - Propulsion
-  - Data Analytics
-  - Control Systems
 
 main-image: /daqlaunch.jpg
-order: 3
+order: 4
 ---
 
 ---

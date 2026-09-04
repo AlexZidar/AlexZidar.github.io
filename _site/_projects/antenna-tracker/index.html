@@ -109,19 +109,25 @@
             <h2>Skills Used</h2> 
             <div class="skills-list">
                 
-                <span class="skill">C++</span>    
-                
-                <span class="skill">Embedded Systems</span>    
-                
-                <span class="skill">Control Systems</span>    
-                
-                <span class="skill">Mechatronics</span>    
-                
-                <span class="skill">Python</span>    
+                <span class="skill">CAD Design</span>    
                 
                 <span class="skill">SolidWorks</span>    
                 
+                <span class="skill">Mechatronics</span>    
+                
+                <span class="skill">Robotics</span>    
+                
+                <span class="skill">Product Development</span>    
+                
+                <span class="skill">Control Systems</span>    
+                
                 <span class="skill">3D Printing</span>    
+                
+                <span class="skill">Embedded Systems</span>    
+                
+                <span class="skill">C++</span>    
+                
+                <span class="skill">Python</span>    
                 
             </div>
         </div>
@@ -413,7 +419,7 @@
 <hr />
 
 <h2 id="hand-in-hand-dual-board-architecture">Hand-in-Hand Dual Board Architecture:</h2>
-<p>The ground tracker and rocket avionics operate as an integrated pair. The ground station uses an identical duplicate <strong>Rasalhague</strong> board as its central receiver and controller:</p>
+<p>The ground tracker and rocket avionics operate as an integrated pair. The ground station uses an identical duplicate <a href="/projects/rasalhague-telemetry/index/"><strong>Rasalhague Telemetry Flight Computer</strong></a> as its central receiver and controller:</p>
 <ul>
   <li><strong>RF Demodulation:</strong> The onboard Semtech SX1262 LoRa module receives binary telemetry packets broadcast by the rocket at 915 MHz.</li>
   <li><strong>Local Sensors &amp; Reference:</strong> The ground board utilizes its own onboard u-blox GPS, BMP581 barometer, and electronic compass to establish a precise local East-North-Up (ENU) coordinate frame without manual calibration.</li>
@@ -462,29 +468,181 @@
 
 <hr />
 
+<h2 id="tracking-architecture--geodesy-pipeline">Tracking Architecture &amp; Geodesy Pipeline:</h2>
+
+<div class="image-gallery" style="--gallery-height: 520px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/_projects/antenna-tracker/tracker_pipeline.svg" alt="tracker_pipeline.svg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<p>The end-to-end tracking architecture spans three synchronized operational domains:</p>
+<ol>
+  <li><strong>Airborne State Estimation &amp; Telemetry Downlink:</strong> The flight computer continuously evaluates navigation solution validity, streaming high-rate position, velocity, and pressure packets over long-range 915 MHz LoRa.</li>
+  <li><strong>Autonomous Base Station Localization:</strong> The ground receiver self-localizes in geodetic space, pairing an onboard GPS fix with a World Magnetic Model declination lookup table and electronic compass to resolve True Geodetic North without external survey tools.</li>
+  <li><strong>Ellipsoidal Kinematics &amp; Closed-Loop Steering:</strong> The central motion controller transforms raw spherical coordinates into a topocentric East-North-Up (ENU) tangent plane via WGS-84 oblate spheroid equations, calculating real-time azimuth and elevation steering commands for dual closed-loop stepper axes.</li>
+</ol>
+
+<hr />
+
+<h2 id="accounting-for-an-oblate-spheroid-curved-earth-geodesy">Accounting for an Oblate Spheroid (Curved Earth Geodesy):</h2>
+<p>High-powered sounding rockets achieve altitudes exceeding 30,000–50,000+ feet and can drift miles downrange under high-altitude jet streams. Over these baselines, simplistic flat-Earth assumptions or spherical approximations introduce multiple degrees of angular pointing error. Because high-gain directional antennas (such as 14 dBi axial-mode helicals and multi-element Yagi arrays) exhibit narrow half-power beamwidths (18° – 25°), a pointing divergence of even 2° – 5° causes severe link margin degradation or outright signal loss.</p>
+
+<p>To maintain sub-degree pointing accuracy, the tracking algorithm models the Earth as an <strong>oblate spheroid</strong> flattened at the poles by centrifugal planetary rotation, utilizing the <strong>WGS-84 (World Geodetic System 1984)</strong> reference ellipsoid:</p>
+<ul>
+  <li><strong>Semi-major axis (equatorial radius):</strong> <code class="language-plaintext highlighter-rouge">a = 6,378,137.0 m</code></li>
+  <li><strong>Flattening:</strong> <code class="language-plaintext highlighter-rouge">f = 1 / 298.257223563</code></li>
+  <li><strong>First eccentricity squared:</strong> <code class="language-plaintext highlighter-rouge">e² = 2f - f² ≈ 0.00669437999014</code></li>
+</ul>
+
+<h3 id="1-geodetic-to-earth-centered-earth-fixed-ecef-conversion">1. Geodetic to Earth-Centered Earth-Fixed (ECEF) Conversion</h3>
+<p>Both the rocket’s reported position <code class="language-plaintext highlighter-rouge">(φ_R, λ_R, h_R)</code> and the ground station’s local position <code class="language-plaintext highlighter-rouge">(φ_GS, λ_GS, h_GS)</code> are first mapped into a 3D Cartesian ECEF frame. The radius of curvature in the prime vertical <code class="language-plaintext highlighter-rouge">N(φ)</code> accounts for the ellipsoidal equatorial bulge:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N(φ) = a / √(1 - e² · sin²(φ))
+
+X = (N(φ) + h) · cos(φ) · cos(λ)
+Y = (N(φ) + h) · cos(φ) · sin(λ)
+Z = (N(φ) · (1 - e²) + h) · sin(φ)
+</code></pre></div></div>
+
+<h3 id="2-topocentric-east-north-up-enu-transformation">2. Topocentric East-North-Up (ENU) Transformation</h3>
+<p>The relative line-of-sight displacement vector <code class="language-plaintext highlighter-rouge">Δr_ECEF = r_rocket - r_GS</code> is rotated into the local tangent plane centered at the ground station’s latitude <code class="language-plaintext highlighter-rouge">φ_GS</code> and longitude <code class="language-plaintext highlighter-rouge">λ_GS</code>:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ ΔE ]   [ -sin(λ)             cos(λ)            0      ] [ X_rocket - X_gs ]
+[ ΔN ] = [ -sin(φ)·cos(λ)     -sin(φ)·sin(λ)     cos(φ) ] [ Y_rocket - Y_gs ]
+[ ΔU ]   [  cos(φ)·cos(λ)      cos(φ)·sin(λ)     sin(φ) ] [ Z_rocket - Z_gs ]
+</code></pre></div></div>
+
+<h3 id="3-look-angle-resolution">3. Look Angle Resolution</h3>
+<p>From the topocentric <code class="language-plaintext highlighter-rouge">(ΔE, ΔN, ΔU)</code> vector, the true geodetic line-of-sight azimuth <code class="language-plaintext highlighter-rouge">α_true</code> and elevation <code class="language-plaintext highlighter-rouge">θ</code> are calculated directly:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d_ground = √(ΔE² + ΔN²)
+
+α_true   = atan2(ΔE, ΔN)
+θ        = atan2(ΔU, d_ground)
+</code></pre></div></div>
+
+<p>By calculating look angles in the true ellipsoidal topocentric frame, geometric projection distortion is completely eliminated across any latitude or launch trajectory.</p>
+
+<hr />
+
+<h2 id="cocom-limit-mitigation--supersonic-inertial-dead-reckoning">CoCom Limit Mitigation &amp; Supersonic Inertial Dead-Reckoning:</h2>
+<p>Commercial GNSS receivers (including the onboard u-blox SAM-M10Q) are legally subject to <strong>CoCom Regulations</strong> (and ITAR export controls), which mandate navigation lockouts if a vehicle exceeds velocities of 1,000 knots (514 m/s / Mach 1.5+) and/or altitudes of 18,000 meters (59,000 ft). Furthermore, extreme launch jerk, motor acoustic vibration, and ionized rocket exhaust plumes can induce loss of phase lock in GNSS carrier tracking loops during max-Q.</p>
+
+<p>To prevent the ground station from losing antenna lock during supersonic boost, the airborne avionics architecture on <a href="/projects/rasalhague-telemetry/index/"><strong>Rasalhague</strong></a> implements an automated <strong>inertial failover pipeline</strong>:</p>
+
+<ul>
+  <li><strong>Lockout Detection:</strong> The flight computer polls the <code class="language-plaintext highlighter-rouge">UBX-NAV-PVT</code> navigation message at high frequency, monitoring fix validity flags (<code class="language-plaintext highlighter-rouge">gnssFixOK</code>), carrier-to-noise thresholds, and position dilution of precision (PDOP).</li>
+  <li><strong>IMU Dead-Reckoning Failover:</strong> If GPS lock drops or CoCom thresholds are triggered during boost, the state estimator automatically transfers control to high-rate strapdown inertial dead-reckoning. The system integrates 6-axis IMU linear accelerations (ST LSM6DSOX) through orientation quaternions <code class="language-plaintext highlighter-rouge">q</code>, initialized from the vehicle’s last confirmed kinematic state vector:
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v(t) = v(t - Δt) + (q ⊗ a_body ⊗ q* - g) · Δt
+p(t) = p(t - Δt) + v(t) · Δt
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Barometric Altitude Anchoring:</strong> Accelerometer double-integration suffers from quadratic drift (<code class="language-plaintext highlighter-rouge">~ t²</code>). To prevent runaway vertical error during the GPS outage, the vertical state is firmly anchored to the <strong>Bosch BMP581 precision barometer</strong>. Immune to CoCom velocity lockouts, the barometer delivers high-rate (100 Hz), drift-free pressure altitude through the entire boost phase.</li>
+  <li><strong>Continuous Telemetry Stream:</strong> The projected state vector is packaged into standard binary LoRa packets and broadcast down to the ground station. The ground gimbal continues tracking smoothly along the vehicle’s true ascent arc through the supersonic window until GNSS tracking loops re-lock post-burnout.</li>
+</ul>
+
+<hr />
+
+<h2 id="autonomous-true-north-localization-via-geomagnetic-declination-lookup">Autonomous True North Localization via Geomagnetic Declination Lookup:</h2>
+<p>To orient the pan-tilt gimbal’s motorized end-effector toward the rocket, the ground station must know its own orientation relative to <strong>True (Geographic) North</strong>.</p>
+
+<p>The ground station’s onboard <strong>MMC5983MA 3-axis electronic compass</strong> measures Earth’s magnetic flux density vectors, determining heading relative to <strong>Magnetic North</strong>. However, Magnetic North and True North diverge by the <strong>Magnetic Declination angle (δ)</strong>, which varies substantially by geographic location (ranging from +15° East to -15° West across North America). Because high-gain helical and Yagi antennas have narrow beamwidths, a 5° – 10° uncorrected magnetic declination error would cause the antenna array to point completely off-target.</p>
+
+<p>To eliminate the need for manual compass surveying or physical sighting during field operations, the ground station performs autonomous True North localization:</p>
+
+<ol>
+  <li><strong>Local GNSS Fix:</strong> Upon boot, the ground receiver acquires its local geodetic coordinates <code class="language-plaintext highlighter-rouge">(φ_GS, λ_GS)</code>.</li>
+  <li><strong>World Magnetic Model (WMM) Lookup:</strong> The ESP32-S3 queries an internal 2D <strong>magnetic declination lookup table (LUT)</strong> pre-computed from NOAA’s World Magnetic Model. By bilinearly interpolating the LUT using local latitude and longitude, the controller computes the local declination offset <code class="language-plaintext highlighter-rouge">δ</code> to within <code class="language-plaintext highlighter-rouge">&lt; 0.1°</code> without requiring cellular or internet access.</li>
+  <li><strong>Hard &amp; Soft-Iron Calibration:</strong> Raw magnetometer measurements are compensated for chassis hard-iron biases (static fields from screws, motor coils, and casing) and soft-iron ferromagnetic distortions:
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>B_cal = A_soft · (B_raw - B_hard)
+</code></pre></div>    </div>
+  </li>
+  <li><strong>True North Resolution:</strong> Magnetic heading <code class="language-plaintext highlighter-rouge">Ψ_mag = atan2(B_y,cal, B_x,cal)</code> is combined with the local declination:
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ψ_true = Ψ_mag + δ
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Gimbal Azimuth Coordinate Mapping:</strong> The azimuth command sent to the pan stepper motor is offset by the ground chassis’s True North heading:
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>α_motor = α_true - Ψ_true
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="dual-operating-modes">Dual Operating Modes:</h3>
+<ul>
+  <li><strong>Static Mode (Launch Pad Baseline):</strong> During pre-launch countdown, the stationary ground station runs a 1 Hz multi-sample low-pass filter over GPS coordinates and magnetic heading. This eliminates high-frequency multipath noise and environmental magnetic jitter, locking in a high-confidence geodetic datum that is carried throughout the flight.</li>
+  <li><strong>Dynamic Mode (Mobile Chase Vehicle):</strong> If the tracker is deployed on the roof of a recovery vehicle to track the payload under canopy, the firmware continuously updates base GPS position and compass heading in real time. The gimbal dynamically compensates for the moving chase car’s velocity and heading changes, maintaining antenna lock on the descending rocket.</li>
+</ul>
+
+<hr />
+
 <h2 id="real-time-target-tracking-snippet">Real-Time Target Tracking Snippet:</h2>
-<h3 id="computes-look-angles-from-incoming-rocket-telemetry-and-commands-closed-loop-steppers">Computes look angles from incoming rocket telemetry and commands closed-loop steppers:</h3>
+<h3 id="computes-wgs-84-ellipsoidal-look-angles-and-commands-closed-loop-steppers">Computes WGS-84 ellipsoidal look angles and commands closed-loop steppers:</h3>
 <pre><code class="language-C++">#include "stepper_controller.h"
 #include "telemetry_format.h"
+#include &lt;cmath&gt;
 
-// Calculate Azimuth and Elevation to rocket from Ground Station coordinates
-void updateTrackerTarget(const TelemetryPacket&amp; rocket, double groundLat, double groundLon, float groundAlt) {
-    // Convert GPS delta to local flat-Earth ENU coordinates (meters)
-    double dLat = (rocket.gps_latitude_deg - groundLat) * 111319.5;
-    double dLon = (rocket.gps_longitude_deg - groundLon) * 111319.5 * cos(groundLat * DEG_TO_RAD);
-    float dAlt = rocket.gps_alt_msl_m - groundAlt;
-    
-    float groundDistance = sqrt(dLon * dLon + dLat * dLat);
-    
-    // Compute target look angles (degrees)
-    float targetAzimuth = atan2(dLon, dLat) * RAD_TO_DEG;
+// WGS-84 Reference Ellipsoid Constants
+constexpr double WGS84_A  = 6378137.0;            // Semi-major axis (meters)
+constexpr double WGS84_F  = 1.0 / 298.257223563;  // Flattening
+constexpr double WGS84_E2 = 2.0 * WGS84_F - WGS84_F * WGS84_F; // First eccentricity squared
+
+// Convert Geodetic (lat/lon in radians, alt in meters) to ECEF (X, Y, Z)
+void geodeticToECEF(double latRad, double lonRad, double altM, double&amp; X, double&amp; Y, double&amp; Z) {
+    double sinLat = sin(latRad);
+    double cosLat = cos(latRad);
+    double N = WGS84_A / sqrt(1.0 - WGS84_E2 * sinLat * sinLat);
+    X = (N + altM) * cosLat * cos(lonRad);
+    Y = (N + altM) * cosLat * sin(lonRad);
+    Z = (N * (1.0 - WGS84_E2) + altM) * sinLat;
+}
+
+// Computes Azimuth and Elevation look angles from incoming rocket telemetry
+void updateTrackerTarget(const TelemetryPacket&amp; rocket, double gsLatDeg, double gsLonDeg, double gsAltM, float gsTrueNorthDeg) {
+    double gsLatRad = gsLatDeg * DEG_TO_RAD;
+    double gsLonRad = gsLonDeg * DEG_TO_RAD;
+    double rkLatRad = rocket.gps_latitude_deg * DEG_TO_RAD;
+    double rkLonRad = rocket.gps_longitude_deg * DEG_TO_RAD;
+
+    // 1. Convert Ground Station and Rocket Geodetic positions to WGS-84 ECEF
+    double gsX, gsY, gsZ;
+    double rkX, rkY, rkZ;
+    geodeticToECEF(gsLatRad, gsLonRad, gsAltM, gsX, gsY, gsZ);
+    geodeticToECEF(rkLatRad, rkLonRad, rocket.altitude_msl_m, rkX, rkY, rkZ);
+
+    // 2. Relative ECEF vector
+    double dX = rkX - gsX;
+    double dY = rkY - gsY;
+    double dZ = rkZ - gsZ;
+
+    // 3. Rotate into local topocentric East-North-Up (ENU) tangent plane
+    double sinLat = sin(gsLatRad), cosLat = cos(gsLatRad);
+    double sinLon = sin(gsLonRad), cosLon = cos(gsLonRad);
+
+    double dEast  = -sinLon * dX + cosLon * dY;
+    double dNorth = -sinLat * cosLon * dX - sinLat * sinLon * dY + cosLat * dZ;
+    double dUp    =  cosLat * cosLon * dX + cosLat * sinLon * dY + sinLat * dZ;
+
+    double groundDist = sqrt(dEast * dEast + dNorth * dNorth);
+
+    // 4. Compute True Geodetic Look Angles
+    float targetAzimuth = atan2(dEast, dNorth) * RAD_TO_DEG;
     if (targetAzimuth &lt; 0.0f) targetAzimuth += 360.0f;
-    
-    float targetElevation = atan2(dAlt, groundDistance) * RAD_TO_DEG;
-    targetElevation = constrain(targetElevation, 0.0f, 90.0f);
-    
-    // Command closed-loop MKS SERVO42C stepper drivers over UART
-    writeMotorAngle(MOTOR_ID_AZIMUTH, targetAzimuth, 1200);
+
+    float targetElevation = atan2(dUp, groundDist) * RAD_TO_DEG;
+    targetElevation = fmax(0.0f, fmin(targetElevation, 90.0f));
+
+    // 5. Offset Azimuth by Ground Station True North chassis heading
+    float motorAzimuth = targetAzimuth - gsTrueNorthDeg;
+    while (motorAzimuth &lt; 0.0f)   motorAzimuth += 360.0f;
+    while (motorAzimuth &gt;= 360.0f) motorAzimuth -= 360.0f;
+
+    // 6. Command closed-loop MKS SERVO42C stepper drivers over UART
+    writeMotorAngle(MOTOR_ID_AZIMUTH, motorAzimuth, 1200);
     writeMotorAngle(MOTOR_ID_ELEVATION, targetElevation, 800);
 }
 </code></pre>
@@ -503,7 +661,7 @@ void updateTrackerTarget(const TelemetryPacket&amp; rocket, double groundLat, do
 
 <h2 id="components">Components:</h2>
 <ul>
-  <li>Central Controller: Duplicate Rasalhague Avionics Board (ESP32-S3-N8)</li>
+  <li>Central Controller: Duplicate <a href="/projects/rasalhague-telemetry/index/"><strong>Rasalhague Avionics Board</strong></a> (ESP32-S3-N8)</li>
   <li>RF Front-End: EBYTE E22-900M33S (Semtech SX1262 + 2W PA / LNA)</li>
   <li>Pan &amp; Tilt Motors: 2x NEMA 17 High-Torque Stepper Motors</li>
   <li>Closed-Loop Drivers: 2x Makerbase MKS SERVO42C Controllers</li>

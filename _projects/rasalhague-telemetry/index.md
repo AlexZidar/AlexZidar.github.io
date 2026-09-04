@@ -3,17 +3,18 @@ layout: post
 title: "Rasalhague: Long-Range Telemetry Flight Computer"
 description: A custom-designed, high-power long-range telemetry flight computer engineered for Swamp Launch Student Rocketry. Powered by an ESP32-S3 microcontroller, Rasalhague integrates a 2W (33 dBm) LoRa transceiver, u-blox SAM-M10Q multi-constellation GNSS, BMP581 precision barometer, LSM6DSOX 6-axis IMU, and MMC5983MA electronic compass. It features dynamic RF power/spreading factor staging, high-speed 4GB onboard eMMC black-box logging, and an active-cooled RF power amplifier stage.
 skills: 
-  - C++
-  - PCB Design
-  - KiCad
-  - Embedded Systems
   - Avionics
-  - Python
+  - KiCad Design
+  - PCB Design
+  - Product Development
+  - Embedded Systems
   - FreeRTOS
+  - C++
+  - Python
 
 main-image: /back_full.png
 card-image: /rasalhague_card.png
-order: 4
+order: 2
 ---
 
 ---

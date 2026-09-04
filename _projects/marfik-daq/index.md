@@ -4,17 +4,19 @@ title: "Marfik: High-Speed Flight DAQ & Acoustic Recorder"
 description: An ultra-high-speed avionics flight data acquisition system and static test instrumentation board engineered for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series. Featuring an ESP32-S3 dual-core microcontroller, Marfik records 500 Hz deterministic multi-sensor telemetry (6-DoF dynamics, 400G impact accel, high-temp thermocouple, dual pressure transducers, and 4-channel 24-bit strain gauges) alongside 16 kHz I2S acoustic audio to onboard 4GB parallel eMMC flash storage with post-flight Wi-Fi recovery.
 
 skills: 
-  - C++
-  - FreeRTOS
-  - PCB Design
-  - KiCad
-  - Embedded Systems
   - Avionics
-  - Python
+  - KiCad Design
+  - PCB Design
+  - Product Development
+  - Data Analytics
   - Signal Processing
+  - Embedded Systems
+  - FreeRTOS
+  - C++
+  - Python
 
 main-image: /marfik_cover.jpg
-order: 2
+order: 3
 ---
 
 ---
