@@ -181,7 +181,7 @@ You can run the live preview server at any time to see changes in real time.
 
 In PowerShell:
 ```powershell
-$env:Path = "C:\msys64\ucrt64\bin;C:\msys64\usr\bin;C:\Ruby33-x64\bin;" + $env:Path
+$env:Path = "C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Ruby33-x64\bin;" + $env:Path
 bundle exec jekyll serve --livereload --port 4000
 ```
 

@@ -103,7 +103,7 @@
         
         <div class="project-description">
             <h2>Project Overview</h2>
-            <p>An ultra-high-speed avionics flight data acquisition system and static test instrumentation board engineered for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series. Featuring an ESP32-S3 dual-core microcontroller, Marfik records 500 Hz deterministic multi-sensor telemetry (6-DoF dynamics, 400G impact accel, high-temp thermocouple, dual pressure transducers, and 4-channel 24-bit strain gauges) alongside 16 kHz I2S acoustic audio to onboard 4GB parallel eMMC flash storage with post-flight Wi-Fi recovery.</p>
+            <p>A high-speed flight data acquisition and static test instrumentation board designed for Swamp Launch Student Rocketry. Built around an ESP32-S3, Marfik logs 500 Hz telemetry across 6-DoF dynamics, a 400G impact accelerometer, thermocouples, dual pressure transducers, and 4-channel strain gauges alongside 16 kHz audio directly to onboard 4GB eMMC flash, with wireless data download over Wi-Fi after landing.</p>
         </div>
         <div class="skills-card">
             <h2>Skills Used</h2> 
@@ -431,41 +431,41 @@
 <hr />
 
 <h2 id="overview">Overview:</h2>
-<p><strong>Marfik</strong> is a dual-core, high-speed avionics flight computer and static test data acquisition system developed for <strong>Swamp Launch Student Rocketry</strong> as part of the <strong>Ophiuchus Constellation</strong> avionics architecture.</p>
+<p>Marfik is a high-speed avionics and test stand data acquisition board developed for Swamp Launch Student Rocketry as part of our custom electronics stack.</p>
 
-<p>Engineered around the Espressif ESP32-S3 microcontroller operating at 240 MHz, Marfik delivers 500 Hz multi-sensor deterministic telemetry logging and 16 kHz acoustic audio recording directly to onboard 4 GB eMMC flash storage. Designed for high-G aerospace environments, Marfik eliminates mechanical vibration vulnerabilities while enabling rapid wireless data offload over Wi-Fi after recovery.</p>
+<p>Built around an ESP32-S3 running at 240 MHz, Marfik logs multi-sensor telemetry at 500 Hz alongside 16 kHz audio directly to onboard 4GB eMMC flash memory. Because the storage is soldered directly to the board, it holds up under high vibrations that could shake a microSD card loose, while built-in Wi-Fi lets us offload data in the field without opening the avionics bay.</p>
 
 <hr />
 
-<h2 id="high-density-multi-sensor-array">High-Density Multi-Sensor Array:</h2>
-<p>Marfik integrates an extensive suite of embedded and analog front-end sensors designed to capture rapid vehicle dynamics and extreme physical environments:</p>
+<h2 id="sensor-suite">Sensor Suite:</h2>
+<p>Marfik integrates a sensor suite designed to capture fast vehicle dynamics, motor performance, and structural strain:</p>
 
 <ul>
-  <li><strong>Primary Dynamics (6-DoF):</strong> STMicroelectronics LSM6DSO32TR 3-axis accelerometer (±16 G) and 3-axis gyroscope (±2000°/s) sampled at 500 Hz.</li>
-  <li><strong>Extreme-G Impact &amp; Stage Separation:</strong> High-G accelerometer (H3LIS331DLTR) with a ±400 G range (12-bit resolution) to capture violent motor ignition transients, pyrotechnic staging shocks, and ground impact events.</li>
-  <li><strong>3-Axis Magnetometer:</strong> Memsic MMC5983MA 18-bit electronic compass with 0.0625 mG field resolution.</li>
-  <li><strong>Atmospheric &amp; Environmental Telemetry:</strong> Bosch BME690 measuring pressure (300–1100 hPa), temperature, relative humidity, and gas resistance.</li>
-  <li><strong>High-Temperature Thermocouple Digitizer:</strong> Microchip MCP9601 / MCP9600 cold-junction compensated thermocouple amplifier (-200°C to +1370°C with 0.0625°C resolution, supporting Types K, J, T, N, S, E, B, R) for rocket casing and exhaust boundary monitoring.</li>
-  <li><strong>Dual Pressure Transducers:</strong> TI ADS1015 12-bit differential ADC capturing dual 0–3.3V or 0–5V analog pressure transducers at 100 Hz.</li>
-  <li><strong>4-Channel Strain Gauge Load Cells:</strong> Dual Nuvoton NAU7802 24-bit ADCs (128x PGA) digitizing 4 full-bridge strain gauge channels at 500 Hz for airframe aerodynamic strain and static motor thrust.</li>
+  <li><strong>6-DoF IMU:</strong> STMicroelectronics LSM6DSO32TR (±16g accelerometer and ±2000°/s gyroscope) sampled at 500 Hz.</li>
+  <li><strong>High-G Impact Accelerometer:</strong> H3LIS331DLTR with a ±400g range to measure motor ignition shocks, staging events, and landing impacts.</li>
+  <li><strong>3-Axis Magnetometer:</strong> Memsic MMC5983MA electronic compass for orientation data.</li>
+  <li><strong>Environmental Sensor:</strong> Bosch BME690 measuring ambient pressure from 300 to 1100 hPa, temperature, and humidity.</li>
+  <li><strong>Thermocouple Interface:</strong> Microchip MCP9601 amplifier with cold-junction compensation for monitoring motor casing and exhaust temperatures up to 1370°C.</li>
+  <li><strong>Dual Pressure Transducers:</strong> TI ADS1015 12-bit ADC reading two analog pressure sensors at 100 Hz.</li>
+  <li><strong>4-Channel Strain Gauges:</strong> Dual Nuvoton NAU7802 24-bit ADCs reading four full-bridge strain gauge channels at 500 Hz for static thrust stands or airframe strain.</li>
 </ul>
 
 <hr />
 
-<h2 id="16-khz-i2s-acoustic-audio-recording">16 kHz I2S Acoustic Audio Recording:</h2>
-<p>To capture combustion instability, transonic acoustic resonance, and staging events, Marfik includes an onboard <strong>DMM-4026-B-R</strong> digital MEMS microphone. The audio is streamed directly into an internal FreeRTOS circular DMA ring buffer over I2S at 16 kHz (16-bit mono PCM) and automatically finalized with standard WAV audio headers onto the storage partition.</p>
+<h2 id="16-khz-i2s-audio-recording">16 kHz I2S Audio Recording:</h2>
+<p>To capture motor sound, staging noises, and airframe vibrations during flight, Marfik includes an onboard DMM-4026-B-R digital MEMS microphone. Audio streams over I2S into a FreeRTOS DMA ring buffer at 16 kHz in 16-bit mono and is saved directly as standard WAV files on the flash storage.</p>
 
 <hr />
 
-<h2 id="high-speed-4gb-emmc--dual-redundant-storage">High-Speed 4GB eMMC &amp; Dual Redundant Storage:</h2>
+<h2 id="onboard-4gb-emmc--dual-storage">Onboard 4GB eMMC &amp; Dual Storage:</h2>
 <ul>
-  <li><strong>Primary eMMC Storage:</strong> Micron 4GB eMMC flash memory configured in a 4-bit parallel <code class="language-plaintext highlighter-rouge">SD_MMC</code> bus, sustaining over 40 MB/s write throughput. Because the flash memory is soldered directly to the PCB, it is completely immune to the connector chatter and unseating issues that plague physical microSD cards under high launch vibration.</li>
-  <li><strong>Secondary MicroSD Mirror:</strong> Secondary SPI MicroSD card slot providing automated post-flight mirrored copies of binary telemetry files (<code class="language-plaintext highlighter-rouge">.bin</code>), configuration manifests (<code class="language-plaintext highlighter-rouge">.json</code>), and acoustic tracks (<code class="language-plaintext highlighter-rouge">.wav</code>).</li>
+  <li><strong>Primary eMMC Storage:</strong> Micron 4GB eMMC flash memory running over a 4-bit parallel SD_MMC bus, sustaining up to 40 MB/s write speeds. Soldering the memory directly to the PCB eliminates card unseating and contact chatter during high-G launch and landing.</li>
+  <li><strong>Secondary MicroSD Mirror:</strong> MicroSD card slot providing an optional backup copy with binary telemetry files (.bin), JSON configuration manifests, and WAV audio tracks.</li>
 </ul>
 
 <hr />
 
-<h2 id="standalone-ground-control-desktop-gui">Standalone Ground Control Desktop GUI:</h2>
+<h2 id="ground-control-desktop-gui">Ground Control Desktop GUI:</h2>
 
 <div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
   
@@ -477,10 +477,10 @@
   
 </div>
 
-<p>I developed a Python PyQt6 desktop application for pre-flight calibration, live USB diagnostics, and post-flight recovery:</p>
+<p>I developed a Python PyQt6 desktop app for bench diagnostics, calibration, and data offload:</p>
 <ul>
-  <li><strong>Pre-Flight Configuration:</strong> Set launch acceleration triggers, burnout detection windows, sensor offsets, and strain gauge calibration factors.</li>
-  <li><strong>Wireless SoftAP Offload:</strong> After touchdown, Marfik hosts an autonomous Wi-Fi SoftAP (<code class="language-plaintext highlighter-rouge">Marfik-[BoardName]</code>) and embedded HTTP web server, allowing field recovery teams to download complete flight data logs directly to a laptop or smartphone without disassembling the rocket airframe.</li>
+  <li><strong>Pre-Flight Setup:</strong> Set acceleration triggers, sensor zero-offsets, and strain gauge calibration constants over USB.</li>
+  <li><strong>Wireless Data Download:</strong> After recovery, Marfik can host a local Wi-Fi access point and web server, letting us download flight logs directly to a phone or laptop in the field without taking apart the airframe.</li>
 </ul>
 
 <hr />
@@ -516,10 +516,10 @@ void vSensorTask(void *pvParameters) {
 <h2 id="technical-specifications">Technical Specifications:</h2>
 <ul>
   <li><strong>MCU:</strong> Espressif ESP32-S3 Dual-Core 240 MHz (FreeRTOS)</li>
-  <li><strong>Flash Storage:</strong> 4 GB Parallel 4-bit eMMC Flash (~40 MB/s) + MicroSD Slot</li>
-  <li><strong>Acoustic Audio:</strong> 16 kHz 16-Bit Mono I2S MEMS Microphone (DMM-4026-B-R)</li>
-  <li><strong>Dynamics Sensors:</strong> ST LSM6DSO32TR (6-DoF, 500 Hz) &amp; H3LIS331DLTR (400G Shock)</li>
-  <li><strong>Analog Front Ends:</strong> Dual NAU7802 (4x 24-bit strain gauges) &amp; TI ADS1015 (2x pressure transducers)</li>
+  <li><strong>Flash Storage:</strong> 4 GB Parallel 4-bit eMMC Flash and MicroSD Slot</li>
+  <li><strong>Acoustic Audio:</strong> DMM-4026-B-R MEMS Microphone over 16 kHz I2S</li>
+  <li><strong>Dynamics Sensors:</strong> ST LSM6DSO32TR 6-DoF IMU and H3LIS331DLTR 400G Shock Accelerometer</li>
+  <li><strong>Analog Front Ends:</strong> Dual NAU7802 ADCs for 4 strain gauge channels and TI ADS1015 for 2 pressure transducers</li>
   <li><strong>Thermal Digitizer:</strong> Microchip MCP9601 Cold-Junction Thermocouple Digitizer</li>
   <li><strong>Display &amp; Audio:</strong> SSD1306 128x32 OLED Display + Piezo Acoustic Locator Beacon</li>
   <li><strong>Recovery Wireless:</strong> Standalone 802.11 b/g/n Wi-Fi Access Point &amp; HTTP File Server</li>

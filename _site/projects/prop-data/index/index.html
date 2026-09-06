@@ -103,7 +103,7 @@
         
         <div class="project-description">
             <h2>Project Overview</h2>
-            <p>The next-generation propulsion data acquisition system for Swamp Launch Student Rocketry, part of the Ophiuchus Constellation series of custom avionics boards. Advancing upon the original DAQ V1, Serpens integrates an ESP32-S3 microcontroller, 4-channel 0-4.5V pressure transducer digitizers, dual high-precision load cell bridges, 3 hardware-monitored thermocouple interfaces, and a 10-channel addressable ARGB diagnostic ring with high-speed SD logging and wireless live telemetry streaming.</p>
+            <p>A multi-channel propulsion data acquisition board built for Swamp Launch Student Rocketry to support solid and hybrid motor static testing. Succeeding our first DAQ, Serpens uses an ESP32-S3 to read 4 pressure transducer channels, dual load cells, and 3 thermocouple inputs, featuring a 10-channel LED diagnostic ring, local SD logging, and wireless telemetry.</p>
         </div>
         <div class="skills-card">
             <h2>Skills Used</h2> 
@@ -135,7 +135,7 @@
         <hr />
 
 <h2 id="continuation-of-original-daq-project">Continuation of Original DAQ Project:</h2>
-<p>Serpens represents the next-generation evolution of our static test stand instrumentation, directly succeeding and advancing the capabilities of the <a href="/archive/prop-data/index/">Original Propulsion DAQ (V1)</a> now located in the Archive. While V1 established our initial baseline for high-speed hot-fire recording, Serpens was completely redesigned from the ground up as part of the <strong>Ophiuchus Constellation</strong> family of aerospace electronics.</p>
+<p>Serpens succeeds our <a href="/archive/prop-data/index/">Original Propulsion DAQ (V1)</a>, which is now in the archive. While V1 served as our initial test stand logger, Serpens was rebuilt from scratch to expand our sensor channels, improve noise immunity, and integrate into our broader rocket electronics stack.</p>
 
 <hr />
 
@@ -428,31 +428,31 @@
 <hr />
 
 <h2 id="overview">Overview:</h2>
-<p><strong>Serpens</strong> is a high-speed, multi-channel propulsion data acquisition and test stand controller designed for solid rocket motor and hybrid propulsion hot-fire testing with <strong>Swamp Launch Student Rocketry</strong>.</p>
+<p>Serpens is a multi-channel data acquisition and test stand controller built for solid and hybrid rocket motor testing with Swamp Launch Student Rocketry.</p>
 
-<p>Engineered around the Espressif ESP32-S3 dual-core microcontroller running at 240 MHz, Serpens provides high-frequency synchronous sampling of thrust, multiple combustion chamber pressures, feed line pressures, and high-temperature thermal profiles. The system logs raw data to an onboard high-speed SPI microSD card while simultaneously transmitting live telemetry wirelessly to our ground control software over Wi-Fi.</p>
+<p>Powered by an ESP32-S3 running at 240 MHz, the board synchronously samples motor thrust, chamber and feed line pressures, and exhaust temperatures. It writes high-speed raw logs to a microSD card while streaming real-time telemetry over Wi-Fi to our test control station.</p>
 
 <hr />
 
 <h2 id="sensor-array--subsystems">Sensor Array &amp; Subsystems:</h2>
 <ul>
-  <li><strong>4-Channel Pressure Transducers:</strong> Texas Instruments ADS1015IDGS at <code class="language-plaintext highlighter-rouge">0x48</code> configured to digitize 0–4.5V industrial pressure transducers across all 4 channels (chamber pressure, pre/post injector pressures, and manifold pressures).</li>
-  <li><strong>Dual Strain Gauge Load Cells:</strong> Nuvoton NAU7802 24-bit differential bridge ADC at <code class="language-plaintext highlighter-rouge">0x2A</code> utilizing Channels A &amp; B to capture multi-axis thrust profiles and side loads with 128x programmable gain.</li>
-  <li><strong>3 Dedicated Thermocouple Channels:</strong> Three Maxim MAX31856 precision thermocouple digitizers on a dedicated secondary SPI bus (<code class="language-plaintext highlighter-rouge">SPI_1</code>: MISO 40, CLK 41, MOSI 42) with independent chip selects (CS 4, 5, 6) and hardware data-ready interrupts (DRDY 14, 15, 16) for real-time monitoring of nozzle throat erosion and casing temperatures up to +1370°C.</li>
-  <li><strong>10-Channel ARGB Status Ring (WS2812B-1010):</strong> A custom chain of 10 micro addressable RGB LEDs positioned next to each terminal block providing real-time hardware diagnostics:
+  <li><strong>4-Channel Pressure Transducers:</strong> TI ADS1015 12-bit ADC reading 0 to 4.5V industrial transducers for chamber pressure, injector feed lines, and manifold pressures.</li>
+  <li><strong>Dual Load Cell Inputs:</strong> Nuvoton NAU7802 24-bit differential ADC reading load cells with up to 128x programmable gain for thrust and side loads.</li>
+  <li><strong>3 Dedicated Thermocouple Channels:</strong> Three Maxim MAX31856 digitizers on a secondary SPI bus for monitoring nozzle throat erosion and motor casing temperatures up to 1370°C.</li>
+  <li><strong>10-Channel ARGB Status Ring:</strong> Addressable LEDs placed next to each screw terminal to give immediate visual feedback on sensor connections:
     <ul>
-      <li><strong>Solid Green:</strong> Channel configured, sensor online, healthy baseline.</li>
-      <li><strong>Solid Red:</strong> Channel disabled / unconfigured in current test profile.</li>
-      <li><strong>Flashing Red:</strong> Hardware fault, open-circuit thermocouple, or ADC out-of-range alert.</li>
+      <li><strong>Solid Green:</strong> Sensor online and reading within expected baseline.</li>
+      <li><strong>Solid Red:</strong> Channel unassigned in the current test profile.</li>
+      <li><strong>Flashing Red:</strong> Sensor fault, open thermocouple wire, or out-of-range signal.</li>
     </ul>
   </li>
-  <li><strong>Local Display &amp; Range Safety:</strong> 0.91-inch SSD1306 OLED (<code class="language-plaintext highlighter-rouge">0x3C</code>) for local status readouts, passive buzzer, and high-power indicator lamp for audible and visual hot-fire countdown warnings.</li>
-  <li><strong>Battery Fuel Gauge:</strong> Precision voltage divider (499 kΩ / 100 kΩ) on Pin 7 for accurate battery pack health monitoring.</li>
+  <li><strong>Local Display &amp; Safety Indicators:</strong> Onboard 0.91-inch OLED display, piezo buzzer, and high-power indicator lamp for countdown warnings on the pad.</li>
+  <li><strong>Battery Monitoring:</strong> Resistor divider on an analog pin to track supply voltage during long test days.</li>
 </ul>
 
 <hr />
 
-<h2 id="serpens-ground-control-gui">Serpens Ground Control GUI:</h2>
+<h2 id="ground-control-gui">Ground Control GUI:</h2>
 
 <div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
   
@@ -464,17 +464,17 @@
   
 </div>
 
-<p>I developed a Python desktop application using PyQt6 and pyqtgraph to communicate with Serpens over local Wi-Fi telemetry:</p>
+<p>I developed a Python desktop application with PyQt6 and pyqtgraph to display live test data over Wi-Fi:</p>
 <ul>
-  <li><strong>Real-Time Visualization:</strong> Simultaneous real-time waveform plotting of 4 pressure transducers (PSI), dual load cells (lbf), and 3 thermocouple channels (°C).</li>
-  <li><strong>Test Stand Arming &amp; Countdown:</strong> Remote countdown sequencer, ignition relay arming, and synchronized high-speed recording triggers.</li>
-  <li><strong>Live Terminal Health:</strong> Mirrored ARGB channel status display matching the physical board’s LED indicators.</li>
-  <li><strong>Sensor Calibration Suite:</strong> Multi-point calibration wizards for load cells and pressure transducers with real-time tare and offset compensation.</li>
+  <li><strong>Live Graphing:</strong> Real-time plots for pressure curves in psi, thrust in lbf, and temperatures in °C.</li>
+  <li><strong>Countdown &amp; Arming:</strong> Remote test countdown sequencer, ignition relay arming, and synchronized recording triggers.</li>
+  <li><strong>Status Mirroring:</strong> Graphical view mirroring the board’s LED indicators so operators can verify all sensors are connected from the bunker.</li>
+  <li><strong>Sensor Calibration:</strong> Calibration tools for load cells and pressure transducers with quick tare and zeroing.</li>
 </ul>
 
 <hr />
 
-<h2 id="automated-motor-ballistics--analysis-reports">Automated Motor Ballistics &amp; Analysis Reports:</h2>
+<h2 id="motor-ballistics--analysis-reports">Motor Ballistics &amp; Analysis Reports:</h2>
 
 <div class="image-gallery" style="--gallery-height: 420px; justify-content: center; text-align: center;">
   
@@ -492,25 +492,25 @@
   
 </div>
 
-<p>Following each test, the integrated analysis engine processes raw test data to automatically compute motor ballistics and generate comprehensive PDF qualification reports:</p>
+<p>After each burn, a Python analysis script processes the raw log files to calculate standard propulsion metrics and generate a test summary:</p>
 <ul>
-  <li><strong>Total Impulse (It):</strong> Numerical integration of the thrust-time curve (∫ F dt).</li>
-  <li><strong>Maximum &amp; Average Thrust (F_max, F_avg)</strong></li>
-  <li><strong>Burn &amp; Action Times (tb, ta):</strong> Standard 5% and 10% threshold definitions.</li>
-  <li><strong>Chamber Pressure Integral (∫ Pc dt):</strong> Characteristic velocity (C*) and thrust coefficient (CF).</li>
-  <li><strong>Motor Classification:</strong> Instant classification according to Tripoli Rocketry Association / NAR standards (e.g. K737).</li>
+  <li><strong>Total Impulse:</strong> Numerical integration of the thrust curve over burn duration.</li>
+  <li><strong>Peak and Average Thrust:</strong> Max and average thrust values throughout the burn.</li>
+  <li><strong>Burn and Action Time:</strong> Standard 5% and 10% threshold definitions.</li>
+  <li><strong>Chamber Pressure Integral:</strong> Characteristic velocity and thrust coefficient.</li>
+  <li><strong>Motor Classification:</strong> Automatic Tripoli / NAR letter classification, such as a K-class motor.</li>
 </ul>
 
 <hr />
 
-<h2 id="hardware-architecture">Hardware Architecture:</h2>
+<h2 id="hardware-specifications">Hardware Specifications:</h2>
 <ul>
   <li><strong>Processor:</strong> Espressif ESP32-S3 Dual-Core Xtensa LX7 @ 240 MHz</li>
-  <li><strong>Pressure ADC:</strong> TI ADS1015 (4-Channel 12-Bit Differential, I2C <code class="language-plaintext highlighter-rouge">0x48</code>)</li>
-  <li><strong>Thrust ADC:</strong> Nuvoton NAU7802 (Dual-Channel 24-Bit Differential, I2C <code class="language-plaintext highlighter-rouge">0x2A</code>)</li>
-  <li><strong>Thermal Digitizers:</strong> 3x Maxim MAX31856 (K-Type, SPI_1 Bus)</li>
+  <li><strong>Pressure ADC:</strong> TI ADS1015 4-channel 12-bit differential ADC at I2C <code class="language-plaintext highlighter-rouge">0x48</code></li>
+  <li><strong>Thrust ADC:</strong> Nuvoton NAU7802 dual-channel 24-bit differential ADC at I2C <code class="language-plaintext highlighter-rouge">0x2A</code></li>
+  <li><strong>Thermal Digitizers:</strong> 3x Maxim MAX31856 K-type digitizers on secondary SPI bus</li>
   <li><strong>Local Diagnostics:</strong> 10x WS2812B-1010 ARGB Ring + SSD1306 128x32 OLED</li>
-  <li><strong>Storage:</strong> High-Speed MicroSD Card Slot (Dedicated SPI Bus)</li>
+  <li><strong>Storage:</strong> High-speed microSD card slot over a dedicated SPI bus</li>
   <li><strong>Communications:</strong> 802.11 b/g/n Wi-Fi Telemetry &amp; USB-C Programming</li>
 </ul>
 

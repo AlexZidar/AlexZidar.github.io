@@ -222,7 +222,7 @@
   <text x="1037" y="520" text-anchor="middle" fill="#34d399" font-size="12" font-weight="700">Closed-Loop Actuation</text>
   <text x="1037" y="539" text-anchor="middle" fill="#e2e8f0" font-size="10">2x MKS SERVO42C Drivers</text>
   <text x="1037" y="557" text-anchor="middle" fill="#94a3b8" font-size="9">High-Speed UART (115200 baud)</text>
-  <text x="1037" y="574" text-anchor="middle" fill="#38bdf8" font-size="9">Pan Axis (0xE0) | Tilt Axis (0xE1)</text>
+  <text x="1037" y="574" text-anchor="middle" fill="#38bdf8" font-size="9">Azimuth (0xE0) | Elevation (0xE1)</text>
   <text x="1037" y="592" text-anchor="middle" fill="#fbbf24" font-size="9">20 kHz Magnetic Encoders</text>
   <text x="1037" y="609" text-anchor="middle" fill="#94a3b8" font-size="8.5">Zero Step Loss under High Wind / G-Loads</text>
 

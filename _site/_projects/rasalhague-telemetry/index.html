@@ -103,7 +103,7 @@
         
         <div class="project-description">
             <h2>Project Overview</h2>
-            <p>A custom-designed, high-power long-range telemetry flight computer engineered for Swamp Launch Student Rocketry. Powered by an ESP32-S3 microcontroller, Rasalhague integrates a 2W (33 dBm) LoRa transceiver, u-blox SAM-M10Q multi-constellation GNSS, BMP581 precision barometer, LSM6DSOX 6-axis IMU, and MMC5983MA electronic compass. It features dynamic RF power/spreading factor staging, high-speed 4GB onboard eMMC black-box logging, and an active-cooled RF power amplifier stage.</p>
+            <p>A custom long-range telemetry flight computer built for Swamp Launch Student Rocketry. Powered by an ESP32-S3, Rasalhague pairs a 2W (33 dBm) LoRa transceiver with GPS, a precision barometer, IMU, and electronic compass. It features dynamic RF power staging, 4GB onboard eMMC storage for vibration-resistant flight logging, and active cooling for the RF stage.</p>
         </div>
         <div class="skills-card">
             <h2>Skills Used</h2> 
@@ -146,9 +146,9 @@
 <hr />
 
 <h2 id="overview">Overview:</h2>
-<p><strong>Rasalhague</strong> is a high-performance, long-range telemetry flight computer designed for high-powered rocketry with <strong>Swamp Launch Student Rocketry</strong>. Built to operate both as an onboard rocket transmitter and as a ground station receiver, Rasalhague solves the critical challenge of telemetry loss during extreme altitude flights and long-distance drifts.</p>
+<p>Rasalhague is a long-range telemetry flight computer built for high-power rocketry with Swamp Launch Student Rocketry. Designed to serve as both an onboard rocket transmitter and a ground station receiver, it ensures reliable data transfer during high-altitude flights and long-distance drifts.</p>
 
-<p>By combining an ESP32-S3 microcontroller with a 2W (33 dBm) Semtech SX1262 LoRa front-end, multi-sensor avionics array, and vibration-immune 4GB eMMC storage, Rasalhague streams flight telemetry in real time while maintaining a complete, high-frequency flight record.</p>
+<p>Using an ESP32-S3 microcontroller paired with a 2W Semtech SX1262 LoRa module, onboard sensors, and 4GB of eMMC storage, Rasalhague streams flight telemetry in real time while logging high-rate sensor data locally.</p>
 
 <hr />
 
@@ -458,41 +458,41 @@
   
 </div>
 
-<p>To streamline launch-day operations, I created a custom PyQt6 configuration application. Through a simple USB-C interface, team members can:</p>
+<p>To make launch-day operations straightforward, I built a desktop configuration app in Python using PyQt6. Over USB-C, operators can:</p>
 <ul>
-  <li>Configure amateur radio callsign (FCC Part 97 identification)</li>
-  <li>Set LoRa carrier frequency, bandwidth, and power profiles</li>
-  <li>Define flight-event acceleration thresholds and descent rate triggers</li>
-  <li>Review live pinout references and diagnostic status before arming on the pad</li>
+  <li>Configure amateur radio callsign for FCC Part 97 identification</li>
+  <li>Set LoRa frequency, bandwidth, and power profiles</li>
+  <li>Set launch acceleration triggers and descent rate thresholds</li>
+  <li>Check pinouts and run sensor diagnostics before arming on the pad</li>
 </ul>
 
 <hr />
 
 <h2 id="2w-lora-rf-subsystem--dynamic-staging">2W LoRa RF Subsystem &amp; Dynamic Staging:</h2>
-<p>Rasalhague pairs a Semtech SX1262 transceiver with an EBYTE E22-900M33S power amplifier module capable of transmitting up to <strong>+33 dBm (2000 mW)</strong> on 915 MHz. To optimize link budget and battery life, the firmware implements dynamic RF flight staging:</p>
+<p>Rasalhague pairs a Semtech SX1262 transceiver with an EBYTE E22-900M33S power amplifier module capable of transmitting up to 33 dBm (2W) on 915 MHz. To balance signal range and battery life, the firmware shifts radio output and modulation across flight phases:</p>
 <ul>
-  <li><strong>PAD (0):</strong> Transmits at low power (10 dBm, SF7) to avoid saturating nearby ground station receivers on the launch rail.</li>
-  <li><strong>BOOST (1) &amp; COAST (2):</strong> Upon detecting launch acceleration (&gt;3.5g), the board throttles to full 2W power and SF8 to beam high-rate telemetry through vehicle burnout and apogee.</li>
-  <li><strong>DESCENT (3) &amp; RECOVERY (4):</strong> At parachute deployment, the radio switches to maximum spreading factor (SF11) at 2W power, dedicating bandwidth to high-reliability GPS recovery packets to guarantee recovery even in dense brush or distant terrain.</li>
+  <li><strong>Pad (0):</strong> Transmits at low power (10 dBm, SF7) to avoid swamping nearby ground station receivers on the launch rail.</li>
+  <li><strong>Boost (1) &amp; Coast (2):</strong> Once launch acceleration (&gt;3.5g) is detected, the board steps up to 2W power and SF8 to stream high-rate telemetry through burnout and apogee.</li>
+  <li><strong>Descent (3) &amp; Recovery (4):</strong> At parachute deployment, the radio shifts to a higher spreading factor (SF11) at 2W, maximizing link margin for GPS recovery packets while the vehicle descends and lands in brush or uneven terrain.</li>
 </ul>
 
 <hr />
 
-<h2 id="sensor-array--black-box-emmc-storage">Sensor Array &amp; Black-Box eMMC Storage:</h2>
-<p>All flight-critical sensors interface over a dedicated 400 kHz I2C bus:</p>
+<h2 id="sensor-array--emmc-storage">Sensor Array &amp; eMMC Storage:</h2>
+<p>Onboard sensors communicate over a dedicated 400 kHz I2C bus:</p>
 <ul>
-  <li><strong>Bosch BMP581:</strong> High-precision barometric pressure sensor for sub-meter altitude resolution.</li>
-  <li><strong>STMicroelectronics LSM6DSOX:</strong> 6-DOF IMU operating at 833 Hz ODR (16g accelerometer, 2000 dps gyroscope).</li>
-  <li><strong>Memsic MMC5983MA:</strong> 100 Hz 3-axis electronic compass for attitude determination.</li>
-  <li><strong>u-blox SAM-M10Q:</strong> Multi-constellation GNSS receiver streaming binary UBX NAV-PVT packets at 25 Hz.</li>
-  <li><strong>4GB eMMC Storage:</strong> Replaces vibration-prone physical microSD card slots with high-speed surface-mount eMMC memory operated over a 1-bit SD_MMC bus.</li>
-  <li><strong>Active Thermal Management:</strong> Integrated 5V fan driver on Pin 34 keeps the RF power amplifier cool during extended high-power transmissions.</li>
+  <li><strong>Bosch BMP581:</strong> High-accuracy barometric pressure sensor for altitude calculation.</li>
+  <li><strong>STMicroelectronics LSM6DSOX:</strong> 6-DOF IMU (±16g accelerometer, ±2000°/s gyro) sampled at 833 Hz.</li>
+  <li><strong>Memsic MMC5983MA:</strong> 100 Hz 3-axis electronic compass for attitude tracking.</li>
+  <li><strong>u-blox SAM-M10Q:</strong> Multi-constellation GNSS receiver streaming binary UBX packets at 25 Hz.</li>
+  <li><strong>4GB eMMC Storage:</strong> Surface-mount eMMC flash memory over a 1-bit SD_MMC bus, avoiding the card unseating issues microSD slots can face under rocket vibration.</li>
+  <li><strong>Active Cooling:</strong> Integrated 5V fan driver on Pin 34 to keep the RF amplifier cool during long high-power transmissions.</li>
 </ul>
 
 <hr />
 
 <h2 id="firmware-flight-state-machine-snippet">Firmware Flight State Machine Snippet:</h2>
-<h3 id="dynamic-rf-power-and-modulation-control-based-on-sensor-triggers">Dynamic RF power and modulation control based on sensor triggers:</h3>
+<h3 id="dynamic-lora-power-scaling-based-on-flight-state">Dynamic LoRa power scaling based on flight state:</h3>
 <pre><code class="language-C++">// Dynamic LoRa power scaling based on flight state
 void updateRadioStaging(FlightState currentState) {
     switch (currentState) {
@@ -532,8 +532,9 @@ void updateRadioStaging(FlightState currentState) {
   <li><strong>Magnetometer:</strong> Memsic MMC5983MA 3-Axis Electronic Compass</li>
   <li><strong>Onboard Storage:</strong> 4GB eMMC Flash Memory (1-Bit SD_MMC)</li>
   <li><strong>Status Display:</strong> 0.91-inch 128x32 OLED Display (SSD1306)</li>
-  <li><strong>Power Architecture:</strong> BQ24074 Li-Ion Charger &amp; Power Path, 4.8A 5.25V Boost, 3.3V LDO</li>
+  <li><strong>Power System:</strong> BQ24074 Li-Ion Charger &amp; Power Path, 5.25V Boost, 3.3V LDO</li>
 </ul>
+
 
     </div>
 </div>
