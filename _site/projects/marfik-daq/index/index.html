@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/post-content.css">
+
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <style>
+        :root {
+            --text-color: #e0e0e0 !important;
+            --background-color: #22272e !important;
+            --light-background-color: #2d333b !important;
+        }
+        body {
+            color: var(--text-color) !important;
+            background-color: var(--background-color) !important;
+        }
+    </style>
+
+    
+    <title>Alexander Zidar's Portfolio</title>
+    
+
+</head>
+<body>
+    <!-- NAVBAR -->
+     <!-- _includes/nav.html -->
+<nav>
+    <div class="left">
+        <a href="/">Alexander Zidar</a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="right desktop-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fa fa-bars fa-2x"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav">
+        <a href="/">
+            <span>Home</span>
+        </a>
+        <a href="/projects/">
+            <span>Projects</span>
+        </a>
+        <a href="/archive/">
+            <span>Archive</span>
+        </a>
+        <!-- <a href="/volunteering/">
+            <span>Volunteering</span>
+        </a> -->
+        <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <span>Resume</span>
+        </a>
+    </div>
+</nav>
+
+     <div class="page"><div class="post-view">
+    <div class="summary">
+        
+       
+        
+               
+        <img src="/_projects/marfik-daq/marfik_cover.jpg" alt="Marfik: High-Speed Flight DAQ & Acoustic Recorder image">
+        
+        <div class="title-header">
+            <h1>Marfik: High-Speed Flight DAQ & Acoustic Recorder</h1>
+        </div>
+        
+        <div class="project-description">
+            <h2>Project Overview</h2>
+            <p>A high-speed flight data acquisition and static test instrumentation board designed for Swamp Launch Student Rocketry. Built around an ESP32-S3, Marfik logs 500 Hz telemetry across 6-DoF dynamics, a 400G impact accelerometer, thermocouples, dual pressure transducers, and 4-channel strain gauges alongside 16 kHz audio directly to onboard 4GB eMMC flash, with wireless data download over Wi-Fi after landing.</p>
+        </div>
+        <div class="skills-card">
+            <h2>Skills Used</h2> 
+            <div class="skills-list">
+                
+                <span class="skill">Avionics</span>    
+                
+                <span class="skill">KiCad Design</span>    
+                
+                <span class="skill">PCB Design</span>    
+                
+                <span class="skill">Product Development</span>    
+                
+                <span class="skill">Data Analytics</span>    
+                
+                <span class="skill">Signal Processing</span>    
+                
+                <span class="skill">Embedded Systems</span>    
+                
+                <span class="skill">FreeRTOS</span>    
+                
+                <span class="skill">C++</span>    
+                
+                <span class="skill">Python</span>    
+                
+            </div>
+        </div>
+    </div>
+      
+    <div class="content">
+        <hr />
+
+<h2 id="complete-electrical-schematic">Complete Electrical Schematic:</h2>
+
+<div class="image-gallery" style="--gallery-height: 600px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/marfik-daq//marfik_schematic.png" alt="marfik_schematic.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="fabricated--assembled-hardware">Fabricated &amp; Assembled Hardware:</h2>
+
+<div class="image-gallery" style="--gallery-height: 420px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/marfik-daq//front_OLED.jpg" alt="front_OLED.jpg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+      
+      
+          
+          <img src="/projects/marfik-daq//back.jpg" alt="back.jpg" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<hr />
+
+<h2 id="interactive-3d-cad-model">Interactive 3D CAD Model:</h2>
+
+<style>
+@keyframes cad-spinner-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.cad-spinner-icon {
+    display: inline-block;
+    animation: cad-spinner-rotate 1.2s linear infinite;
+}
+</style>
+
+<div class="cad-viewer-container" id="container-projects-marfik-daq-marfik-glb" style="position: relative; width: 100%; height: 480px; margin: 24px 0; background: radial-gradient(circle at 50% 30%, #2e3242 0%, #16171e 100%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Top Floating Toolbar -->
+    <div style="position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; pointer-events: none;">
+        <div style="font-size: 13px; font-weight: 500; color: #e2e8f0; background: rgba(15, 17, 23, 0.85); padding: 6px 12px; border-radius: 6px; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-cube" style="color: #60a5fa;"></i>
+            <span>Marfik Flight DAQ 3D CAD Model</span>
+        </div>
+
+        <div style="display: flex; gap: 8px; pointer-events: auto;">
+            <button id="btn-edges-projects-marfik-daq-marfik-glb" title="Toggle CAD Outlines" style="background: rgba(59, 130, 246, 0.3); border: 1px solid #3b82f6; color: #93c5fd; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-vector-square"></i> <span>Edges</span>
+            </button>
+            <button id="btn-reset-projects-marfik-daq-marfik-glb" title="Reset View" style="background: rgba(15, 17, 23, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); transition: all 0.2s;">
+                <i class="fa-solid fa-crosshairs"></i> <span>Reset</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas Container -->
+    <div id="canvas-projects-marfik-daq-marfik-glb" style="width: 100%; height: 100%; cursor: grab;"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-projects-marfik-daq-marfik-glb" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #14151c; z-index: 5; color: #94a3b8; transition: opacity 0.4s ease;">
+        <i class="fa-solid fa-circle-notch cad-spinner-icon fa-2x" style="color: #60a5fa; margin-bottom: 12px; font-size: 28px;"></i>
+        <span id="loading-text-projects-marfik-daq-marfik-glb" style="font-size: 14px; letter-spacing: 0.5px;">Loading 3D CAD Geometry &amp; Colors...</span>
+    </div>
+
+    <!-- Bottom Helper Hint -->
+    <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #718096; background: rgba(15, 17, 23, 0.7); padding: 4px 12px; border-radius: 12px; pointer-events: none; backdrop-filter: blur(4px); white-space: nowrap;">
+        Left-click: Rotate &bull; Right-click: Pan &bull; Scroll: Zoom
+    </div>
+</div>
+
+<script>
+(function() {
+    function startViewer() {
+        if (typeof THREE === 'undefined' || !THREE.OrbitControls || !THREE.GLTFLoader) {
+            setTimeout(startViewer, 50);
+            return;
+        }
+
+        var container = document.getElementById('container-projects-marfik-daq-marfik-glb');
+        if (!container) return;
+        var mount = document.getElementById('canvas-projects-marfik-daq-marfik-glb');
+        var loaderEl = document.getElementById('loading-projects-marfik-daq-marfik-glb');
+        var loaderText = document.getElementById('loading-text-projects-marfik-daq-marfik-glb');
+        var btnEdges = document.getElementById('btn-edges-projects-marfik-daq-marfik-glb');
+        var btnReset = document.getElementById('btn-reset-projects-marfik-daq-marfik-glb');
+
+        var width = mount.clientWidth || container.clientWidth || 800;
+        var height = mount.clientHeight || container.clientHeight || 500;
+
+        // Scene & Camera with ultra-near clipping plane (0.002) for super close-up inspection
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(40, width / height, 0.002, 5000);
+
+        // Renderer with enhanced studio exposure
+        var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        if (THREE.ACESFilmicToneMapping) {
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.35;
+        }
+        mount.appendChild(renderer.domElement);
+
+        // OrbitControls with continuous auto-rotate permanently active
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 1.2;
+        controls.minDistance = 0.01; // Allows zooming very close to components
+
+        // Brightened Studio CAD Lighting
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1.25);
+        scene.add(ambientLight);
+
+        // Front-upper-right key light
+        var dirLight1 = new THREE.DirectionalLight(0xffffff, 1.8);
+        dirLight1.position.set(200, 300, 200);
+        scene.add(dirLight1);
+
+        // Fill light from lower-left
+        var dirLight2 = new THREE.DirectionalLight(0xcfd8dc, 1.1);
+        dirLight2.position.set(-200, -100, -200);
+        scene.add(dirLight2);
+
+        // Top rim light
+        var dirLight3 = new THREE.DirectionalLight(0xffffff, 0.9);
+        dirLight3.position.set(0, 250, -150);
+        scene.add(dirLight3);
+
+        // Bottom bounce light for underside definition
+        var dirLight4 = new THREE.DirectionalLight(0xffffff, 0.5);
+        dirLight4.position.set(0, -200, 0);
+        scene.add(dirLight4);
+
+        var initialCameraPosition = new THREE.Vector3();
+        var initialTarget = new THREE.Vector3();
+        var edgeLines = [];
+        var edgesVisible = true;
+
+        // Load GLTF Model
+        var loader = new THREE.GLTFLoader();
+        var modelUrl = '/_projects/marfik-daq/Marfik.glb';
+
+        loader.load(
+            modelUrl,
+            function(gltf) {
+                var root = gltf.scene;
+
+                // Process meshes and compute sharp CAD outlines
+                var edgeMaterial = new THREE.LineBasicMaterial({
+                    color: 0x0a0a0f,
+                    transparent: true,
+                    opacity: 0.8,
+                    depthTest: true
+                });
+
+                root.traverse(function(child) {
+                    if (child.isMesh && child.geometry) {
+                        if (child.material) {
+                            child.material.roughness = Math.max(child.material.roughness || 0.4, 0.2);
+                        }
+
+                        // Compute crease / feature edges (> 26 degrees)
+                        try {
+                            var edgesGeom = new THREE.EdgesGeometry(child.geometry, 26);
+                            var line = new THREE.LineSegments(edgesGeom, edgeMaterial);
+                            child.add(line);
+                            edgeLines.push(line);
+                        } catch (e) {
+                            // Skip if geometry doesn't support EdgesGeometry
+                        }
+                    }
+                });
+
+                // Center root at origin
+                var box = new THREE.Box3().setFromObject(root);
+                var center = box.getCenter(new THREE.Vector3());
+                root.position.sub(center); // Center at (0, 0, 0)
+
+                // Wrapper group for orientation
+                var modelGroup = new THREE.Group();
+                modelGroup.add(root);
+
+                
+                
+                
+
+                scene.add(modelGroup);
+
+                // Auto-frame camera based on final oriented bounds
+                var finalBox = new THREE.Box3().setFromObject(modelGroup);
+                var finalCenter = finalBox.getCenter(new THREE.Vector3());
+                modelGroup.position.sub(finalCenter); // Perfectly center oriented bounds at origin
+
+                
+
+                finalBox.setFromObject(modelGroup);
+                var size = finalBox.getSize(new THREE.Vector3());
+
+                var maxDim = Math.max(size.x, size.y, size.z);
+                var fov = camera.fov * (Math.PI / 180);
+                var dist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.05;
+
+                // Lower camera elevation for a more centered, eye-level perspective
+                camera.position.set(dist * 0.45, dist * 0.52, dist * 0.72);
+                camera.lookAt(0, 0, 0);
+
+                controls.target.set(0, 0, 0);
+                controls.update();
+
+                initialCameraPosition.copy(camera.position);
+                initialTarget.copy(controls.target);
+
+                // Hide loading indicator
+                if (loaderEl) {
+                    loaderEl.style.opacity = '0';
+                    setTimeout(function() { loaderEl.style.display = 'none'; }, 400);
+                }
+            },
+            function(xhr) {
+                if (xhr.lengthComputable && xhr.total > 0 && loaderText) {
+                    var pct = Math.round((xhr.loaded / xhr.total) * 100);
+                    loaderText.textContent = 'Loading 3D CAD Model... (' + pct + '%)';
+                }
+            },
+            function(error) {
+                console.error('Error loading 3D model:', error);
+                if (loaderEl) {
+                    loaderEl.innerHTML = '<div style="color:#ef4444; font-size:14px;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading 3D model.</div>';
+                }
+            }
+        );
+
+        // UI Event Listeners
+        if (btnEdges) {
+            btnEdges.addEventListener('click', function() {
+                edgesVisible = !edgesVisible;
+                for (var i = 0; i < edgeLines.length; i++) {
+                    edgeLines[i].visible = edgesVisible;
+                }
+                btnEdges.style.background = edgesVisible ? 'rgba(59, 130, 246, 0.3)' : 'rgba(15, 17, 23, 0.85)';
+                btnEdges.style.borderColor = edgesVisible ? '#3b82f6' : 'rgba(255, 255, 255, 0.15)';
+                btnEdges.style.color = edgesVisible ? '#93c5fd' : '#cbd5e1';
+            });
+        }
+
+        if (btnReset) {
+            btnReset.addEventListener('click', function() {
+                camera.position.copy(initialCameraPosition);
+                controls.target.copy(initialTarget);
+                controls.update();
+            });
+        }
+
+        // Resize handler
+        window.addEventListener('resize', function() {
+            var w = mount.clientWidth;
+            var h = mount.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startViewer);
+    } else {
+        startViewer();
+    }
+})();
+</script>
+
+<hr />
+
+<h2 id="overview">Overview:</h2>
+<p>Marfik is a high-speed avionics and test stand data acquisition board developed for Swamp Launch Student Rocketry as part of our custom electronics stack.</p>
+
+<p>Built around an ESP32-S3 running at 240 MHz, Marfik logs multi-sensor telemetry at 500 Hz alongside 16 kHz audio directly to onboard 4GB eMMC flash memory. Because the storage is soldered directly to the board, it holds up under high vibrations that could shake a microSD card loose, while built-in Wi-Fi lets us offload data in the field without opening the avionics bay.</p>
+
+<hr />
+
+<h2 id="sensor-suite">Sensor Suite:</h2>
+<p>Marfik integrates a sensor suite designed to capture fast vehicle dynamics, motor performance, and structural strain:</p>
+
+<ul>
+  <li><strong>6-DoF IMU:</strong> STMicroelectronics LSM6DSO32TR (±16g accelerometer and ±2000°/s gyroscope) sampled at 500 Hz.</li>
+  <li><strong>High-G Impact Accelerometer:</strong> H3LIS331DLTR with a ±400g range to measure motor ignition shocks, staging events, and landing impacts.</li>
+  <li><strong>3-Axis Magnetometer:</strong> Memsic MMC5983MA electronic compass for orientation data.</li>
+  <li><strong>Environmental Sensor:</strong> Bosch BME690 measuring ambient pressure from 300 to 1100 hPa, temperature, and humidity.</li>
+  <li><strong>Thermocouple Interface:</strong> Microchip MCP9601 amplifier with cold-junction compensation for monitoring motor casing and exhaust temperatures up to 1370°C.</li>
+  <li><strong>Dual Pressure Transducers:</strong> TI ADS1015 12-bit ADC reading two analog pressure sensors at 100 Hz.</li>
+  <li><strong>4-Channel Strain Gauges:</strong> Dual Nuvoton NAU7802 24-bit ADCs reading four full-bridge strain gauge channels at 500 Hz for static thrust stands or airframe strain.</li>
+</ul>
+
+<hr />
+
+<h2 id="16-khz-i2s-audio-recording">16 kHz I2S Audio Recording:</h2>
+<p>To capture motor sound, staging noises, and airframe vibrations during flight, Marfik includes an onboard DMM-4026-B-R digital MEMS microphone. Audio streams over I2S into a FreeRTOS DMA ring buffer at 16 kHz in 16-bit mono and is saved directly as standard WAV files on the flash storage.</p>
+
+<hr />
+
+<h2 id="onboard-4gb-emmc--dual-storage">Onboard 4GB eMMC &amp; Dual Storage:</h2>
+<ul>
+  <li><strong>Primary eMMC Storage:</strong> Micron 4GB eMMC flash memory running over a 4-bit parallel SD_MMC bus, sustaining up to 40 MB/s write speeds. Soldering the memory directly to the PCB eliminates card unseating and contact chatter during high-G launch and landing.</li>
+  <li><strong>Secondary MicroSD Mirror:</strong> MicroSD card slot providing an optional backup copy with binary telemetry files (.bin), JSON configuration manifests, and WAV audio tracks.</li>
+</ul>
+
+<hr />
+
+<h2 id="ground-control-desktop-gui">Ground Control Desktop GUI:</h2>
+
+<div class="image-gallery" style="--gallery-height: 380px; justify-content: center; text-align: center;">
+  
+      
+      
+          
+          <img src="/projects/marfik-daq//marfik_gui.png" alt="marfik_gui.png" loading="lazy" style="margin: 0 auto; align-self: center;" onerror="this.onerror=null;this.src=this.src.replace('.webp','.png').replace('.png','.webp');" />
+      
+  
+</div>
+
+<p>I developed a Python PyQt6 desktop app for bench diagnostics, calibration, and data offload:</p>
+<ul>
+  <li><strong>Pre-Flight Setup:</strong> Set acceleration triggers, sensor zero-offsets, and strain gauge calibration constants over USB.</li>
+  <li><strong>Wireless Data Download:</strong> After recovery, Marfik can host a local Wi-Fi access point and web server, letting us download flight logs directly to a phone or laptop in the field without taking apart the airframe.</li>
+</ul>
+
+<hr />
+
+<h2 id="firmware-architecture">Firmware Architecture:</h2>
+<p>The firmware is architected using PlatformIO with FreeRTOS multitasking:</p>
+<pre><code class="language-C++">// Sensor Acquisition RTOS Task (Deterministic 500 Hz Execution)
+void vSensorTask(void *pvParameters) {
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    const TickType_t xFrequency = pdMS_TO_TICKS(2); // 2ms = 500 Hz
+    
+    for (;;) {
+        TelemetryFrame frame;
+        frame.timestamp_us = esp_timer_get_time();
+        
+        // Synchronous read of 6-DoF IMU and High-G Accelerometer
+        readIMU(frame.accel_x, frame.accel_y, frame.accel_z, frame.gyro_x, frame.gyro_y, frame.gyro_z);
+        readHighG(frame.impact_accel_x, frame.impact_accel_y, frame.impact_accel_z);
+        
+        // Check state machine flight triggers
+        updateFlightState(frame);
+        
+        // Push to high-speed lockless eMMC write queue
+        xQueueSend(xStorageQueue, &amp;frame, 0);
+        
+        vTaskDelayUntil(&amp;xLastWakeTime, xFrequency);
+    }
+}
+</code></pre>
+
+<hr />
+
+<h2 id="technical-specifications">Technical Specifications:</h2>
+<ul>
+  <li><strong>MCU:</strong> Espressif ESP32-S3 Dual-Core 240 MHz (FreeRTOS)</li>
+  <li><strong>Flash Storage:</strong> 4 GB Parallel 4-bit eMMC Flash and MicroSD Slot</li>
+  <li><strong>Acoustic Audio:</strong> DMM-4026-B-R MEMS Microphone over 16 kHz I2S</li>
+  <li><strong>Dynamics Sensors:</strong> ST LSM6DSO32TR 6-DoF IMU and H3LIS331DLTR 400G Shock Accelerometer</li>
+  <li><strong>Analog Front Ends:</strong> Dual NAU7802 ADCs for 4 strain gauge channels and TI ADS1015 for 2 pressure transducers</li>
+  <li><strong>Thermal Digitizer:</strong> Microchip MCP9601 Cold-Junction Thermocouple Digitizer</li>
+  <li><strong>Display &amp; Audio:</strong> SSD1306 128x32 OLED Display + Piezo Acoustic Locator Beacon</li>
+  <li><strong>Recovery Wireless:</strong> Standalone 802.11 b/g/n Wi-Fi Access Point &amp; HTTP File Server</li>
+</ul>
+
+    </div>
+</div>
+
+</div>
+
+     
+</body>
+
+    <footer>
+    <div class="footer-content">
+        <div class="links">
+            <a href="/">
+                <span>Home</span>
+            </a>
+            <a href="/projects/">
+                <span>Projects</span>
+            </a>
+            <a href="/archive/">
+                <span>Archive</span>
+            </a>
+            <!-- <a href="/volunteering/">
+                <span>Volunteering</span>
+            </a> -->
+            <a href="https://drive.google.com/file/d/1tTnW0wQ74LeZfnIhB3mIrYG5toB3yjmN/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span>Resume</span>
+            </a>
+        </div>
+    </div>
+    <div class="license">
+        <span>For any question or suggestion for the portfolio template or projects, reach out <a class="help" href="mailto:admin@lowinertia.com"> Here</a> </span>
+        <p>Free-To-Engineer portfolio template © 2025 by lowinertia.com is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1">CC BY 4.0</a></p>
+    </div>
+</footer>
+
+</html>

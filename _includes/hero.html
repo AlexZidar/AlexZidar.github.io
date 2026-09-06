@@ -69,7 +69,10 @@
             </h2>
             
             <h3> {{site.headline}} </h3>
-            <p> {{site.description}}</p>
+            <p>{{ site.description }}</p>
+            {% if site.thank_you %}
+            <p>{{ site.thank_you }}</p>
+            {% endif %}
             <div class="links">
                 <a href="#projects">
                     <i class="fa-solid fa-pen"></i>
@@ -87,7 +90,10 @@
             
         </div>
         <div class="headshot">
-            <img src= {{site.profile_image}} alt="john doe headshot">       
+            <img src="{{ site.profile_image }}" alt="{{ site.name }} headshot">
+            {% if site.profile_caption %}
+            <p class="headshot-caption">{{ site.profile_caption }}</p>
+            {% endif %}
         </div>
     </div>
     
